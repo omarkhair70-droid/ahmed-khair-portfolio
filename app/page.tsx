@@ -560,13 +560,20 @@ export default function Home() {
       </section>
 
       <section id="work" className="work-index" aria-labelledby="work-index-title">
-        <div className="work-index__head">
-          <p>Selected Work</p>
-          <h2 id="work-index-title">Four pieces. No filler.</h2>
-          <p>
-            Move through the list. The work appears before the case study does.
+        <header className="work-index__head">
+          <p className="work-index__label">
+            <span>Work index</span>
+            <span>01—04</span>
           </p>
-        </div>
+
+          <h2 id="work-index-title" className="work-index__descriptor">
+            Campaigns · Posters · Product Visuals
+          </h2>
+
+          <p className="work-index__note">
+            Four selected projects from Ahmed&apos;s public work.
+          </p>
+        </header>
 
         <div className="work-index__list">
           {projects.map((project) => (
@@ -575,16 +582,26 @@ export default function Home() {
               href={"#" + project.id}
               className="work-index__row"
               data-preview={project.preview}
+              aria-label={`${project.title} — ${project.kind}`}
             >
-              <span className="work-index__line" aria-hidden="true" />
               <span className="work-index__number">{project.number}</span>
-              <span className="work-index__title">{project.title}</span>
+
+              <span className="work-index__title-wrap">
+                <span className="work-index__title">{project.title}</span>
+              </span>
+
               <span className="work-index__kind">{project.kind}</span>
+
               <span className="work-index__arrow" aria-hidden="true">
                 ↘
               </span>
             </a>
           ))}
+        </div>
+
+        <div className="work-index__foot">
+          <span>Selected visual work</span>
+          <span>Scroll to enter the first campaign ↓</span>
         </div>
       </section>
 
