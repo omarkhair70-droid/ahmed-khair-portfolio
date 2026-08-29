@@ -114,7 +114,7 @@ for (const testCase of cases) {
     throw new Error(`Unexpected H13 primary link at ${testCase.name}`);
   }
 
-  const expectedNav = ["#work", "#about", "#top"];
+  const expectedNav = ["#work", "/about", "#top"];
   const actualNav = metrics.nav.map((item) => item.href);
   for (const expected of expectedNav) {
     if (!actualNav.includes(expected)) {
