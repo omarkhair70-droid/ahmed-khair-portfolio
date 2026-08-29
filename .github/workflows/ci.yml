@@ -53,10 +53,21 @@ jobs:
       - name: Capture desktop and mobile visuals
         run: node scripts/capture-visuals.mjs
 
+      - name: Capture desktop and mobile motion QA
+        run: node scripts/capture-motion.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: homepage-pass-01-visuals
+          name: homepage-design-v2-visuals
           path: artifacts/screenshots
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload motion QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-design-v2-motion
+          path: artifacts/motion
           if-no-files-found: error
           retention-days: 7
