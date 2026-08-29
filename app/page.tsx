@@ -869,7 +869,7 @@ export default function Home() {
         );
 
         gsap.from(
-          ".criminal-exit__meta > *, .criminal-exit__next",
+          ".criminal-exit__meta > *",
           {
             y: 16,
             opacity: 0,
