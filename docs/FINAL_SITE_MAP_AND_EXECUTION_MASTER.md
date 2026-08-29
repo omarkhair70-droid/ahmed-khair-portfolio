@@ -1,15 +1,24 @@
 # Ahmed Khair Portfolio — FINAL Site Map & Execution Master
 
-Status: FINAL / SOURCE OF TRUTH
-This document resolves all remaining ambiguity about pages, navigation, execution order, references, motion stack, and closure gates.
+Status: HISTORICAL EXECUTION MASTER — V1 CLOSURE OVERRIDDEN
+The implementation history and gate structure below are retained for auditability.
 
-It supersedes any older route-plan ambiguity.
+For the final V1 public architecture and closure decision, use:
+`docs/FINAL_PORTFOLIO_CLOSURE_2026-08-29.md`.
+
+That closure supersedes the earlier assumption that every selected Home project must receive a dedicated route.
 
 ---
 
 # 1. FINAL PUBLIC SITE MAP
 
-The V1 portfolio has **6 real public pages**.
+The original plan proposed **6 public pages**.
+
+**Final V1 closure uses 2 public pages:**
+- Home `/`
+- About `/about`
+
+BOCH, El Shamadan, Criminal Anbr 6 and Abd Allal Coffee are complete authored work chapters inside Home. Dedicated project routes are deferred options, not V1 requirements, because the current Home already presents the complete selected asset set.
 
 ## Page 1 — Home
 Route: `/`
@@ -45,30 +54,29 @@ Content:
 - personal / human detail if real material is available
 - contact links
 
-## Page 3 — BOCH Motor
-Route: `/work/boch-motor`
+## Historical Page 3 — BOCH Motor
+Proposed route: `/work/boch-motor`
 
-Full case study.
-Strongest and most complete project.
+**DEFERRED / NOT REQUIRED FOR V1.**
+Home already presents all four selected BOCH visuals as an authored campaign chapter. A future route should exist only if Ahmed gains new project-specific evidence or media that adds value beyond Home.
 
-## Page 4 — El Shamadan
-Route: `/work/el-shamadan`
+## Historical Page 4 — El Shamadan
+Proposed route: `/work/el-shamadan`
 
-Full consolidated case study.
-Combines the three Shamadan Behance entries into one authored project.
+**DEFERRED / NOT REQUIRED FOR V1.**
+Home already consolidates the selected Shamadan campaign into one five-visual authored sequence. A future route should add new evidence, not repeat the same five images.
 
-## Page 5 — Abd Allal Coffee
-Route: `/work/abd-allal-coffee`
+## Historical Page 5 — Abd Allal Coffee
+Proposed route: `/work/abd-allal-coffee`
 
-Compact case study.
-Only two selected images.
-No fake padding.
+**DEFERRED / NOT REQUIRED FOR V1.**
+Only two selected visuals exist and Home already gives them a compact dedicated chapter. A separate route would currently duplicate evidence.
 
-## Page 6 — Criminal Anbr 6
-Route: `/work/criminal-anbr-6`
+## Historical Page 6 — Criminal Anbr 6
+Proposed route: `/work/criminal-anbr-6`
 
-Poster Study page.
-Explicitly framed as Film Poster Study unless commissioned status is verified.
+**DEFERRED / NOT REQUIRED FOR V1.**
+Home already presents both selected posters and correctly frames the work as a Film Poster Study. A future route should add material rather than create artificial case-study depth.
 
 ---
 
@@ -185,9 +193,9 @@ Principle:
 
 ---
 
-# 5. FINAL EXECUTION ORDER
+# 5. HISTORICAL EXECUTION ORDER
 
-We finish one page completely before starting the next.
+The Home and About gates below were completed. The project-page gate lists that follow are retained as historical planning only and are not required by the final V1 closure.
 
 ## PAGE 1 — HOME
 
@@ -393,21 +401,21 @@ No dropped project returns without a new explicit decision.
 
 ---
 
-# 9. CURRENT STATE
+# 9. FINAL V1 STATE
 
-Current branch:
-`portfolio/homepage-design-v2`
+Home H1–H14: **CLOSED**  
+About A1–A11: **CLOSED**
 
-Current live work:
-- V2 is an active motion/design study.
-- It is not Home CLOSED.
-- The immediate gate is **Hero closure**.
-- Current hero desktop/mobile issues are already identified.
-- Downstream sections may exist technically, but they are not considered closed.
+About was merged to `main` in PR #3.
 
-Immediate next execution:
-**H1 -> H2 -> H3 -> H4 -> H5**
-Finish Hero completely before touching downstream visual polish.
+The final V1 architecture is:
+- Home `/`
+- About `/about`
+- Work `/#work`
+- Contact `/#contact`
+- BOCH / Shamadan / Criminal / Coffee as authored Home chapters
+
+No project route is required to close V1.
 
 ---
 
@@ -431,16 +439,21 @@ A page merges only after:
 
 # FINAL V1 COUNT
 
-**6 public pages total**
+**2 public pages total**
 
 1. Home
 2. About
-3. BOCH Motor
-4. El Shamadan
-5. Abd Allal Coffee
-6. Criminal Anbr 6
 
-**Work is a Home section / navigation destination, not a seventh page.**
-**Contact is a Home closing section, not a separate page.**
+Inside Home:
+- Work Index
+- BOCH Motor chapter
+- El Shamadan chapter
+- Criminal Anbr 6 chapter
+- Abd Allal Coffee chapter
+- Human moment
+- Contact closing frame
 
-This is the final V1 site map and execution plan.
+Dedicated work routes remain optional future expansion only when new evidence justifies them.
+
+For the final benchmark and closure rationale, see:
+`docs/FINAL_PORTFOLIO_CLOSURE_2026-08-29.md`.
