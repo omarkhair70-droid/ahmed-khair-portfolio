@@ -1320,6 +1320,18 @@ a {
   background: #050505;
 }
 
+.criminal-head__meta > *,
+.criminal-head__copy,
+.criminal-head__title span,
+.criminal-stage__label,
+.criminal-frame,
+.criminal-frame img,
+.criminal-stage__alternate > p,
+.criminal-exit__meta > *,
+.criminal-exit__next {
+  will-change: transform, opacity, clip-path;
+}
+
 .criminal-frame figcaption {
   display: flex;
   justify-content: space-between;
@@ -2674,6 +2686,15 @@ a:focus-visible {
   .shamadan-exit__line,
   .shamadan-exit__top > *,
   .shamadan-exit__bottom,
+  .criminal-head__meta > *,
+  .criminal-head__copy,
+  .criminal-head__title span,
+  .criminal-stage__label,
+  .criminal-frame,
+  .criminal-frame img,
+  .criminal-stage__alternate > p,
+  .criminal-exit__meta > *,
+  .criminal-exit__next,
   .scene__primary,
   .scene__accent,
   .scene__title,
