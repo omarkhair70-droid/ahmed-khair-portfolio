@@ -70,45 +70,87 @@ export default function Home() {
 
       const intro = gsap.timeline({ defaults: { ease: "power4.out" } });
       intro
-        .from(".hero-kicker", { y: 18, opacity: 0, duration: 0.7 })
+        .from(".hero-kicker", { y: 14, opacity: 0, duration: 0.65 })
         .from(
-          ".hero-word",
-          { yPercent: 115, rotate: 2, duration: 1.15, stagger: 0.08 },
-          "-=0.35",
+          ".hero-word--one",
+          { yPercent: 118, rotate: 1.4, duration: 1.2 },
+          "-=0.22",
+        )
+        .from(
+          ".hero-word--two",
+          { yPercent: 118, rotate: -1.2, duration: 1.18 },
+          "-=0.9",
         )
         .from(
           ".hero-meta > *",
-          { y: 18, opacity: 0, duration: 0.7, stagger: 0.07 },
-          "-=0.65",
+          { y: 16, opacity: 0, duration: 0.65, stagger: 0.055 },
+          "-=0.66",
         )
         .fromTo(
           ".hero-teaser",
-          { clipPath: "inset(100% 0 0 0)", scale: 1.08 },
-          { clipPath: "inset(0% 0 0 0)", scale: 1, duration: 1.35 },
-          "-=1",
+          {
+            clipPath: "inset(100% 0 0 0)",
+            scale: 1.045,
+            yPercent: 4,
+          },
+          {
+            clipPath: "inset(0% 0 0 0)",
+            scale: 1,
+            yPercent: 0,
+            duration: 1.22,
+            ease: "power3.inOut",
+          },
+          "-=0.56",
         );
 
-      gsap.to(".hero-word--one", {
-        xPercent: -9,
-        ease: "none",
+      const heroTypeMotion = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero",
           start: "top top",
           end: "bottom top",
-          scrub: 1,
+          scrub: 1.05,
         },
       });
 
-      gsap.to(".hero-word--two", {
-        xPercent: 7,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".hero",
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+      heroTypeMotion
+        .to(
+          ".hero-word--one",
+          {
+            xPercent: -6.5,
+            yPercent: -3,
+            letterSpacing: "0.004em",
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          ".hero-word--two",
+          {
+            xPercent: 7.5,
+            yPercent: 2,
+            letterSpacing: "-0.006em",
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          ".hero-kicker",
+          {
+            opacity: 0.46,
+            y: -8,
+            ease: "none",
+          },
+          0.08,
+        )
+        .to(
+          ".hero-meta",
+          {
+            opacity: 0.72,
+            y: 8,
+            ease: "none",
+          },
+          0.18,
+        );
 
       gsap.from(".work-index__line", {
         scaleX: 0,
