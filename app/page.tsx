@@ -1790,27 +1790,35 @@ export default function Home() {
       </section>
 
       <footer id="contact" className="contact">
-        <p className="contact-kicker">End title / Start a conversation</p>
+        <div className="contact-frame">
+          <p className="contact-meta">
+            <span>Ahmed Khair</span>
+            <span>Advertising Visual Designer</span>
+            <span>2026</span>
+          </p>
 
-        <h2>
-          MAKE IT
-          <br />
-          <span>WORTH</span>
-          <br />
-          LOOKING AT.
-        </h2>
+          <h2 className="contact-title">
+            <span>LET&apos;S MAKE</span>
+            <span>SOMETHING</span>
+            <span>WORTH LOOKING AT.</span>
+          </h2>
 
-        <div className="contact-grid">
           <a
+            className="contact-primary"
             href="https://www.behance.net/ahmedkhairgemy"
             target="_blank"
             rel="noreferrer"
           >
-            Behance ↗
+            <span>Behance</span>
+            <span>Open profile ↗</span>
           </a>
-          <a href="#work">Selected work ↑</a>
-          <p>Ahmed Khair © 2026</p>
-          <a href="#top">Back to top ↑</a>
+
+          <nav className="contact-nav" aria-label="Closing navigation">
+            <a href="#work">Selected work ↑</a>
+            <a href="#about">About ↑</a>
+            <p>Ahmed Khair © 2026</p>
+            <a href="#top">Back to top ↑</a>
+          </nav>
         </div>
       </footer>
     </main>
