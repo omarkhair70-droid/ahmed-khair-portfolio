@@ -36,6 +36,25 @@ async function readTargetVisibility(page, id) {
   });
 }
 
+async function waitForVisibleTarget(page, id, threshold) {
+  try {
+    await page.waitForFunction(
+      ({ id, threshold }) => {
+        const el = document.getElementById(id);
+        if (!(el instanceof HTMLElement)) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < innerHeight * threshold;
+      },
+      { id, threshold },
+      { timeout: 2500 },
+    );
+  } catch {
+    // Keep the explicit visibility assertion and diagnostic below.
+  }
+
+  return readTargetVisibility(page, id);
+}
+
 function assertVisibleTarget(result, label, viewportName, threshold = 0.55) {
   if (
     result.bottom <= 0 ||
@@ -291,9 +310,7 @@ for (const testCase of cases) {
 
     await link.click();
     await page.waitForURL(`**/#${id}`);
-    await page.waitForTimeout(380);
-
-    const visibility = await readTargetVisibility(page, id);
+    const visibility = await waitForVisibleTarget(page, id, 0.55);
     assertVisibleTarget(
       visibility,
       `A10 selected-work target #${id}`,
@@ -317,9 +334,11 @@ for (const testCase of cases) {
   const contact = page.locator('.about-page-end__nav a[href="/#contact"]');
   await contact.click();
   await page.waitForURL("**/#contact");
-  await page.waitForTimeout(380);
-
-  const contactVisibility = await readTargetVisibility(page, "contact");
+  const contactVisibility = await waitForVisibleTarget(
+    page,
+    "contact",
+    0.45,
+  );
   assertVisibleTarget(
     contactVisibility,
     "A10 Contact return",
