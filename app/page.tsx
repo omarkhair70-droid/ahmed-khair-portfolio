@@ -761,6 +761,130 @@ export default function Home() {
         );
       }
 
+      const criminalScene = document.querySelector<HTMLElement>(
+        ".scene--criminal",
+      );
+      if (criminalScene) {
+        gsap.from(".criminal-head__meta > *, .criminal-head__copy", {
+          y: 16,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".criminal-head",
+            start: "top 80%",
+            end: "top 48%",
+            scrub: 0.86,
+          },
+        });
+
+        gsap.from(".criminal-head__title span", {
+          yPercent: 16,
+          opacity: 0.28,
+          stagger: 0.07,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".criminal-head",
+            start: "top 76%",
+            end: "top 38%",
+            scrub: 1.05,
+          },
+        });
+
+        gsap.from(".criminal-stage__label", {
+          y: 14,
+          opacity: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".criminal-stage",
+            start: "top 72%",
+            end: "top 48%",
+            scrub: 0.9,
+          },
+        });
+
+        gsap.fromTo(
+          ".criminal-frame--hero",
+          {
+            y: 74,
+            scale: 0.986,
+            clipPath: "inset(4% 3% 4% 3%)",
+          },
+          {
+            y: 0,
+            scale: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".criminal-stage",
+              start: "top 82%",
+              end: "top 16%",
+              scrub: 1.28,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".criminal-frame--hero img",
+          { scale: 1.012 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".criminal-frame--hero",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.4,
+            },
+          },
+        );
+
+        gsap.from(".criminal-stage__alternate > p", {
+          y: 14,
+          opacity: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".criminal-stage__alternate",
+            start: "top 82%",
+            end: "top 58%",
+            scrub: 0.92,
+          },
+        });
+
+        gsap.fromTo(
+          ".criminal-frame--alternate",
+          { y: 64, opacity: 0.56, scale: 0.988 },
+          {
+            y: -8,
+            opacity: 1,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".criminal-stage__alternate",
+              start: "top bottom",
+              end: "bottom 18%",
+              scrub: 1.34,
+            },
+          },
+        );
+
+        gsap.from(
+          ".criminal-exit__meta > *, .criminal-exit__next",
+          {
+            y: 16,
+            opacity: 0,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".criminal-exit",
+              start: "top 70%",
+              end: "top 38%",
+              scrub: 0.9,
+            },
+          },
+        );
+      }
+
       gsap.fromTo(
         ".about-cutout",
         { yPercent: 14, rotate: -1.5 },
