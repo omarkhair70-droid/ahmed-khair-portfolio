@@ -228,6 +228,10 @@ a {
   display: none;
 }
 
+.hero-kicker__desktop + .hero-kicker__mobile {
+  margin-left: auto;
+}
+
 .hero-kicker {
   position: relative;
   z-index: 6;
@@ -251,10 +255,10 @@ a {
   width: min(76vw, 1230px);
   margin: 0;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(108px, 15.9vw, 262px);
-  line-height: .78;
+  font-size: clamp(108px, 16.1vw, 266px);
+  line-height: .765;
   font-weight: 400;
-  letter-spacing: -.028em;
+  letter-spacing: -.022em;
   color: #eee9df;
   pointer-events: none;
 }
@@ -267,7 +271,7 @@ a {
 }
 
 .hero-line--second {
-  padding-left: clamp(42px, 7.1vw, 120px);
+  padding-left: clamp(48px, 8.2vw, 136px);
   text-align: left;
 }
 
@@ -1034,9 +1038,9 @@ a:focus-visible {
     left: 18px;
     width: calc(100% - 36px);
     margin: 0;
-    font-size: clamp(82px, 26.2vw, 108px);
-    line-height: .79;
-    letter-spacing: -.026em;
+    font-size: clamp(84px, 26.8vw, 110px);
+    line-height: .785;
+    letter-spacing: -.02em;
   }
 
   .hero-line--second {
