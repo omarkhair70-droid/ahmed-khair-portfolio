@@ -80,6 +80,9 @@ jobs:
       - name: Capture Home H14 integration QA
         run: node scripts/capture-home-h14.mjs
 
+      - name: Capture About A3 desktop QA
+        run: node scripts/capture-about-a3.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -157,5 +160,13 @@ jobs:
         with:
           name: homepage-home-h14
           path: artifacts/home-h14
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About A3 desktop QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a3-desktop
+          path: artifacts/about-a3
           if-no-files-found: error
           retention-days: 7
