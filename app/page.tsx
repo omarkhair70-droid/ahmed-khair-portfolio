@@ -50,20 +50,40 @@ export default function Home() {
 
   useLayoutEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const initialHash = window.location.hash;
     let lenis: Lenis | null = null;
     let ticker: ((time: number) => void) | null = null;
 
-    if (!reduced) {
-      lenis = new Lenis({
+    const startLenis = () => {
+      if (reduced || lenis) return;
+
+      const instance = new Lenis({
         duration: 1.05,
         smoothWheel: true,
         touchMultiplier: 1.2,
       });
 
-      lenis.on("scroll", ScrollTrigger.update);
-      ticker = (time: number) => lenis?.raf(time * 1000);
+      instance.on("scroll", ScrollTrigger.update);
+      lenis = instance;
+      ticker = (time: number) => instance.raf(time * 1000);
       gsap.ticker.add(ticker);
       gsap.ticker.lagSmoothing(0);
+    };
+
+    const stopLenis = () => {
+      if (ticker) {
+        gsap.ticker.remove(ticker);
+        ticker = null;
+      }
+
+      lenis?.destroy();
+      lenis = null;
+    };
+
+    // A cross-page hash must settle against the final pinned layout before
+    // smooth scrolling takes control. Normal Home loads start Lenis now.
+    if (!initialHash) {
+      startLenis();
     }
 
     const ctx = gsap.context(() => {
@@ -1310,6 +1330,91 @@ export default function Home() {
     });
     window.addEventListener("pointermove", move, { passive: true });
 
+    const previousScrollRestoration = window.history.scrollRestoration;
+    const previousInlineScrollBehavior =
+      document.documentElement.style.scrollBehavior;
+    let hashRestoreCancelled = false;
+    let hashRestoreGeneration = 0;
+    const hashRestoreFrames: number[] = [];
+
+    const restoreHashAgainstPinnedLayout = () => {
+      if (!initialHash || hashRestoreCancelled) return;
+
+      const generation = ++hashRestoreGeneration;
+
+      // CSS sets html { scroll-behavior: smooth }. During hash recovery we
+      // need truly immediate native jumps; behavior:"auto" would otherwise
+      // inherit that smooth animation and leave the target mid-transition.
+      document.documentElement.style.scrollBehavior = "auto";
+
+      // Browser hash navigation happens before React and lands on the
+      // pre-pin document offset. Reset to the top first so ScrollTrigger
+      // measures Hero pin spacing from a stable scroll state, then align to
+      // the final target position.
+      stopLenis();
+      window.scrollTo({ top: 0, behavior: "auto" });
+      ScrollTrigger.update();
+      ScrollTrigger.refresh();
+
+      const align = (attempt = 0) => {
+        if (
+          hashRestoreCancelled ||
+          generation !== hashRestoreGeneration
+        ) {
+          return;
+        }
+
+        const destination = document.querySelector<HTMLElement>(initialHash);
+        if (!destination) return;
+
+        const delta = destination.getBoundingClientRect().top;
+
+        if (Math.abs(delta) <= 2 || attempt >= 10) {
+          ScrollTrigger.update();
+          document.documentElement.style.scrollBehavior =
+            previousInlineScrollBehavior;
+          startLenis();
+          lenis?.resize();
+          return;
+        }
+
+        window.scrollTo({
+          top: window.scrollY + delta,
+          behavior: "auto",
+        });
+        ScrollTrigger.update();
+
+        const nextFrame = window.requestAnimationFrame(() => {
+          align(attempt + 1);
+        });
+        hashRestoreFrames.push(nextFrame);
+      };
+
+      const firstFrame = window.requestAnimationFrame(() => {
+        const secondFrame = window.requestAnimationFrame(() => {
+          align();
+        });
+        hashRestoreFrames.push(secondFrame);
+      });
+      hashRestoreFrames.push(firstFrame);
+    };
+
+    if (initialHash) {
+      window.history.scrollRestoration = "manual";
+      restoreHashAgainstPinnedLayout();
+
+      void document.fonts.ready.then(async () => {
+        const images = Array.from(document.images);
+        await Promise.allSettled(
+          images.map((image) =>
+            typeof image.decode === "function" ? image.decode() : Promise.resolve(),
+          ),
+        );
+
+        restoreHashAgainstPinnedLayout();
+      });
+    }
+
     return () => {
       rows.forEach((row) => {
         row.removeEventListener("mouseenter", enterProject);
@@ -1320,12 +1425,16 @@ export default function Home() {
         row.removeEventListener("click", openProjectScene);
       });
       mobileTriggers.forEach((trigger) => trigger.kill());
+      hashRestoreCancelled = true;
+      hashRestoreFrames.forEach((frame) => window.cancelAnimationFrame(frame));
+      window.history.scrollRestoration = previousScrollRestoration;
+      document.documentElement.style.scrollBehavior =
+        previousInlineScrollBehavior;
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
       ctx.revert();
-      if (ticker) gsap.ticker.remove(ticker);
-      lenis?.destroy();
+      stopLenis();
     };
   }, []);
 
@@ -1346,7 +1455,7 @@ export default function Home() {
         <p className="topbar__role">Advertising Visual Designer</p>
         <nav className="topbar__nav" aria-label="Primary navigation">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
+          <a href="/about">About</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -1867,7 +1976,7 @@ export default function Home() {
 
           <nav className="contact-nav" aria-label="Closing navigation">
             <a href="#work">Selected work ↑</a>
-            <a href="#about">About ↑</a>
+            <a href="/about">About ↑</a>
             <p>Ahmed Khair © 2026</p>
             <a href="#top">Back to top ↑</a>
           </nav>

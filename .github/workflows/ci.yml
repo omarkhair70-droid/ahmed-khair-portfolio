@@ -50,6 +50,63 @@ jobs:
           cat /tmp/ahmed-portfolio-next.log
           exit 1
 
+      - name: Capture About A9 navigation QA
+        run: node scripts/capture-about-a9-navigation.mjs
+
+      - name: Upload About A9 navigation QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a9-navigation
+          path: artifacts/about-a9-navigation
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Capture About A10 full QA
+        run: node scripts/capture-about-a10.mjs
+
+      - name: Upload About A10 full QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a10-full
+          path: artifacts/about-a10
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Capture About A3 desktop QA
+        run: node scripts/capture-about-a3.mjs
+
+      - name: Capture About A4 mobile QA
+        run: node scripts/capture-about-a4.mjs
+
+      - name: Capture About A8 motion QA
+        run: node scripts/capture-about-a8-motion.mjs
+
+      - name: Upload About A3 desktop QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a3-desktop
+          path: artifacts/about-a3
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About A4 mobile QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a4-mobile
+          path: artifacts/about-a4
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About A8 motion QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a8-motion
+          path: artifacts/about-a8-motion
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Capture desktop and mobile visuals
         run: node scripts/capture-visuals.mjs
 
