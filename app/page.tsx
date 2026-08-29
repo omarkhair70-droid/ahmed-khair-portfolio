@@ -577,6 +577,20 @@ export default function Home() {
           },
         });
 
+        if (window.matchMedia("(max-width: 700px)").matches) {
+          gsap.to(".shamadan-head__copy", {
+            y: -8,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-head",
+              start: "top -10%",
+              end: "bottom 110px",
+              scrub: 0.28,
+            },
+          });
+        }
+
         gsap.fromTo(
           ".shamadan-frame--hero",
           {
