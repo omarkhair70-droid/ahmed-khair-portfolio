@@ -3775,8 +3775,8 @@ a:focus-visible {
   align-self: center;
   margin: 8vh 0 10vh;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(78px, 10.6vw, 172px);
-  line-height: .76;
+  font-size: clamp(72px, 9.2vw, 148px);
+  line-height: .88;
   font-weight: 400;
   letter-spacing: -.025em;
   text-transform: uppercase;
@@ -3787,8 +3787,20 @@ a:focus-visible {
   width: max-content;
 }
 
-.about-page-practice__title span.is-offset {
-  margin-left: clamp(68px, 12vw, 190px);
+.about-page-practice__title span:nth-child(2) {
+  margin-left: clamp(72px, 15vw, 230px);
+  font-size: .8em;
+}
+
+.about-page-practice__title span:nth-child(3) {
+  margin-left: clamp(18px, 3vw, 48px);
+  font-size: .9em;
+}
+
+.about-page-practice__title span:nth-child(4) {
+  margin-left: clamp(92px, 13vw, 210px);
+  margin-top: .08em;
+  font-size: .78em;
 }
 
 .about-page-practice__copy {
@@ -3994,7 +4006,7 @@ a:focus-visible {
   }
 
   .about-page-practice__title {
-    font-size: clamp(76px, 10vw, 118px);
+    font-size: clamp(70px, 8.8vw, 106px);
   }
 
   .about-page-end__behance {
