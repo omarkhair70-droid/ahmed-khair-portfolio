@@ -318,8 +318,9 @@ export default function Home() {
       <section id="top" className="hero">
         <div className="hero-noise" aria-hidden="true" />
         <div className="hero-kicker" data-motion>
-          <span>Ahmed Khair</span>
-          <span className="hero-kicker__desktop">Selected visual work</span>
+          <span className="hero-kicker__desktop">Based in Egypt</span>
+          <span className="hero-kicker__mobile">Ahmed Khair</span>
+          <span className="hero-kicker__desktop">Selected visual work · 04</span>
           <span className="hero-kicker__mobile">Advertising Visual Designer</span>
         </div>
 
@@ -338,7 +339,7 @@ export default function Home() {
 
         <div className="hero-meta" data-motion>
           <p>Campaigns · Posters · Product Visuals</p>
-          <p>Egypt</p>
+          <p>Portfolio / 2026</p>
           <a href="#work">Scroll to enter ↓</a>
         </div>
 
