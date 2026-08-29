@@ -172,7 +172,16 @@ for (const testCase of cases) {
     );
   }
 
-  for (let index = 0; index < metrics.sections.length - 1; index += 1) {
+  // Hero includes an authored handoff that visually extends beyond the
+  // hero's own layout box, so Hero -> Work is intentionally not a flush
+  // section-boundary assertion. Every section from Work onward must join.
+  if (byName.work.top <= byName.hero.bottom) {
+    throw new Error(
+      `Hero handoff collapsed before Work at ${testCase.name}: hero bottom ${byName.hero.bottom}, work top ${byName.work.top}`,
+    );
+  }
+
+  for (let index = 1; index < metrics.sections.length - 1; index += 1) {
     const current = metrics.sections[index];
     const next = metrics.sections[index + 1];
     if (Math.abs(current.bottom - next.top) > 1) {
