@@ -1321,7 +1321,11 @@ export default function Home() {
       const destination = document.querySelector<HTMLElement>(initialHash);
       if (!destination) return;
 
-      const top = destination.getBoundingClientRect().top + window.scrollY;
+      // offsetTop is stable across the Hero pin state. Using
+      // getBoundingClientRect() here produced a moving target while the
+      // ScrollTrigger pin was active (e.g. #work resolved to 1348px instead
+      // of its settled 2115px document position).
+      const top = destination.offsetTop;
 
       if (lenis) {
         // ScrollTrigger pinning changes the document height after Lenis was
