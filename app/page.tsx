@@ -979,6 +979,115 @@ export default function Home() {
         });
       }
 
+      const aboutSection = document.querySelector<HTMLElement>(".about");
+      if (aboutSection) {
+        gsap.from(".about-entry > *", {
+          y: 12,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-entry",
+            start: "top 82%",
+            end: "bottom 56%",
+            scrub: 0.82,
+          },
+        });
+
+        gsap.from(".about-kicker > *", {
+          y: 12,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-layout",
+            start: "top 78%",
+            end: "top 52%",
+            scrub: 0.78,
+          },
+        });
+
+        gsap.from(".about-copy h2 span", {
+          yPercent: 18,
+          opacity: 0.24,
+          stagger: 0.07,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-layout",
+            start: "top 72%",
+            end: "top 34%",
+            scrub: 0.96,
+          },
+        });
+
+        gsap.from(".about-lede, .about-body", {
+          y: 22,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-copy",
+            start: "top 62%",
+            end: "center 52%",
+            scrub: 0.88,
+          },
+        });
+
+        gsap.fromTo(
+          ".about-portrait__field",
+          {
+            scaleY: 0.94,
+            scaleX: 0.97,
+            transformOrigin: "bottom center",
+            opacity: 0.72,
+          },
+          {
+            scaleY: 1,
+            scaleX: 1,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".about-portrait",
+              start: "top 86%",
+              end: "top 26%",
+              scrub: 1.08,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".about-cutout",
+          { yPercent: 9, scale: 0.99 },
+          {
+            yPercent: 0,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".about-portrait",
+              start: "top 88%",
+              end: "top 22%",
+              scrub: 1.12,
+            },
+          },
+        );
+
+        gsap.from(
+          ".about-portrait figcaption > *, .about-capabilities, .about-location",
+          {
+            y: 14,
+            opacity: 0,
+            stagger: 0.07,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".about-portrait",
+              start: "center 82%",
+              end: "bottom 72%",
+              scrub: 0.86,
+            },
+          },
+        );
+      }
+
     }, root);
 
     const heroEl = document.querySelector<HTMLElement>(".hero");
