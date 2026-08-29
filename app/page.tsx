@@ -1555,7 +1555,6 @@ export default function Home() {
           <div className="boch-exit__wash" />
           <p className="boch-exit__copy">
             <span>Next / 02</span>
-            <span className="boch-exit__title">EL SHAMADAN</span>
             <span>Control gives way to colour.</span>
           </p>
         </div>
@@ -1736,7 +1735,6 @@ export default function Home() {
             <span>04 / Compact Campaign</span>
             <span>Black warms.</span>
           </p>
-          <p className="criminal-exit__next">ABD ALLAL COFFEE</p>
         </div>
       </section>
 
