@@ -1872,8 +1872,8 @@ a {
   align-self: center;
   margin: 10vh 0 8vh;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(92px, 13.4vw, 214px);
-  line-height: .72;
+  font-size: clamp(88px, 12.6vw, 202px);
+  line-height: .79;
   font-weight: 400;
   letter-spacing: -.028em;
   text-transform: uppercase;
@@ -1884,13 +1884,15 @@ a {
 }
 
 .contact-title span:nth-child(2) {
-  padding-left: 15vw;
+  padding-left: 16vw;
+  margin-top: .04em;
 }
 
 .contact-title span:last-child {
-  padding-left: 4vw;
-  font-size: .68em;
-  line-height: .82;
+  padding-left: 5vw;
+  margin-top: .22em;
+  font-size: .61em;
+  line-height: .9;
 }
 
 .contact-primary {
@@ -3149,20 +3151,22 @@ a:focus-visible {
   .contact-title {
     width: 100%;
     margin: 13vh 0 12vh;
-    font-size: clamp(64px, 18.8vw, 76px);
-    line-height: .74;
+    font-size: clamp(58px, 16.8vw, 68px);
+    line-height: .8;
   }
 
   .contact-title span:nth-child(2) {
-    padding-left: 10vw;
+    padding-left: 8vw;
+    margin-top: .03em;
   }
 
   .contact-title span:last-child {
     max-width: 100%;
     padding-left: 0;
-    margin-top: .15em;
-    font-size: .62em;
-    line-height: .9;
+    margin-top: .3em;
+    font-size: .5em;
+    line-height: .94;
+    white-space: nowrap;
   }
 
   .contact-primary {
