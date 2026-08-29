@@ -224,6 +224,10 @@ a {
   mask-image: linear-gradient(to bottom, #000, transparent 82%);
 }
 
+.hero-kicker__mobile {
+  display: none;
+}
+
 .hero-kicker {
   position: relative;
   z-index: 6;
@@ -1016,8 +1020,13 @@ a:focus-visible {
     font-size: 7px;
   }
 
-  .hero-kicker span:last-child {
+  .hero-kicker__desktop {
     display: none;
+  }
+
+  .hero-kicker__mobile {
+    display: inline;
+    text-align: right;
   }
 
   .hero-title {
