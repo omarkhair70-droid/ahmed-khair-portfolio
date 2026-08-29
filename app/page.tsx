@@ -250,6 +250,25 @@ export default function Home() {
             ease: "power3.out",
           },
           1.02,
+        )
+        .to(
+          ".hero-handoff__title",
+          {
+            yPercent: -28,
+            opacity: 0,
+            duration: 0.16,
+            ease: "power2.in",
+          },
+          1.16,
+        )
+        .to(
+          ".hero-handoff__eyebrow, .hero-handoff__count",
+          {
+            opacity: 0,
+            duration: 0.12,
+            ease: "none",
+          },
+          1.17,
         );
 
       gsap.from(".work-index__line", {
