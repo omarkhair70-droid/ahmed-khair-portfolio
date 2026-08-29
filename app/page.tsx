@@ -1312,9 +1312,11 @@ export default function Home() {
 
     const initialHash = window.location.hash;
     const previousScrollRestoration = window.history.scrollRestoration;
+    let hashRestoreCancelled = false;
+    const hashRestoreFrames: number[] = [];
 
     const restoreInitialHash = () => {
-      if (!initialHash) return;
+      if (!initialHash || hashRestoreCancelled) return;
 
       const destination = document.querySelector<HTMLElement>(initialHash);
       if (!destination) return;
@@ -1333,17 +1335,36 @@ export default function Home() {
       ScrollTrigger.update();
     };
 
+    const restoreAfterLayoutRefresh = () => {
+      if (!initialHash || hashRestoreCancelled) return;
+
+      ScrollTrigger.refresh();
+
+      const firstFrame = window.requestAnimationFrame(() => {
+        const secondFrame = window.requestAnimationFrame(restoreInitialHash);
+        hashRestoreFrames.push(secondFrame);
+      });
+      hashRestoreFrames.push(firstFrame);
+    };
+
     if (initialHash) {
       window.history.scrollRestoration = "manual";
-      restoreInitialHash();
-    }
 
-    const hashRestoreTimers = initialHash
-      ? [
-          window.setTimeout(restoreInitialHash, 80),
-          window.setTimeout(restoreInitialHash, 360),
-        ]
-      : [];
+      // Pin spacers change downstream offsets. Refresh ScrollTrigger first,
+      // then restore the hash on the settled layout rather than racing it.
+      restoreAfterLayoutRefresh();
+
+      void document.fonts.ready.then(async () => {
+        const images = Array.from(document.images);
+        await Promise.allSettled(
+          images.map((image) =>
+            typeof image.decode === "function" ? image.decode() : Promise.resolve(),
+          ),
+        );
+
+        restoreAfterLayoutRefresh();
+      });
+    }
 
     return () => {
       rows.forEach((row) => {
@@ -1355,7 +1376,8 @@ export default function Home() {
         row.removeEventListener("click", openProjectScene);
       });
       mobileTriggers.forEach((trigger) => trigger.kill());
-      hashRestoreTimers.forEach((timer) => window.clearTimeout(timer));
+      hashRestoreCancelled = true;
+      hashRestoreFrames.forEach((frame) => window.cancelAnimationFrame(frame));
       window.history.scrollRestoration = previousScrollRestoration;
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
