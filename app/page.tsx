@@ -1346,7 +1346,7 @@ export default function Home() {
         <p className="topbar__role">Advertising Visual Designer</p>
         <nav className="topbar__nav" aria-label="Primary navigation">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
+          <a href="/about">About</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -1867,7 +1867,7 @@ export default function Home() {
 
           <nav className="contact-nav" aria-label="Closing navigation">
             <a href="#work">Selected work ↑</a>
-            <a href="#about">About ↑</a>
+            <a href="/about">About ↑</a>
             <p>Ahmed Khair © 2026</p>
             <a href="#top">Back to top ↑</a>
           </nav>
