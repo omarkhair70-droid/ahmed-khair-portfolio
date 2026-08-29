@@ -1822,6 +1822,8 @@ a {
 .about-lede,
 .about-body,
 .about-portrait,
+.about-portrait__field,
+.about-portrait figcaption > *,
 .about-cutout,
 .about-capabilities,
 .about-location {
@@ -3098,6 +3100,8 @@ a:focus-visible {
   .about-lede,
   .about-body,
   .about-portrait,
+  .about-portrait__field,
+  .about-portrait figcaption > *,
   .about-cutout,
   .about-capabilities,
   .about-location,
