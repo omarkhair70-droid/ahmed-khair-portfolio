@@ -76,9 +76,10 @@ Motion layer:
 - ScrollTrigger
 - Lenis
 
-Optional visual layer:
-- PixiJS only where it improves a specific image transition or mask.
-- Do not add Three.js/WebGL/3D merely to imitate award sites.
+Extended visual layer:
+- PixiJS / Three.js / WebGL / shaders / canvas / WebGPU / custom rendering are all available.
+- Add whichever technology the approved visual target actually requires.
+- The only rule is that every added dependency must be tied to a real visual or interaction need, not stack decoration.
 
 Interaction layer:
 - custom cursor only when it communicates an action
