@@ -395,6 +395,7 @@ H5 — Hero Exit ✅
 H6 — Work Index Static Composition ✅
 H7 — Work Index Interaction ✅
 H8 — BOCH Scene ✅
+H9 — El Shamadan Scene ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -407,6 +408,17 @@ H7 closure source:
 
 H8 closure source:
 `docs/BOCH_H8_CLOSURE_LOG.md`
+
+H9 closure source:
+`docs/SHAMADAN_H9_CLOSURE_LOG.md`
+
+Final H9 validated implementation:
+`87151b3680ba80e0da82001fc1191fd470b28128`
+
+Final H9 CI:
+SUCCESS
+Run:
+`33249429748`
 
 ==================================================
 8. HERO — CLOSED BEHAVIOR
@@ -527,54 +539,60 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H9 — EL SHAMADAN SCENE**
+**H10 — CRIMINAL ANBR 6 SCENE**
 
-H8 is CLOSED.
-Do NOT reopen H1–H8 without a concrete regression or stronger reference-backed reason.
-Do NOT start H10 yet.
+H9 is CLOSED.
+Do NOT reopen H1–H9 without a concrete regression or stronger reference-backed reason.
+Do NOT start H11 yet.
 Do NOT start About.
 Do NOT start case-study routes.
 
-H9 must close all of these:
+H10 must close all of these:
 
-1. Re-check relevant reference behaviors:
-   - Alexandre Rochet for page-as-sequence / authored visual progression
-   - O’shane Howard for imagery occupying the interface
-   - Diego Salas for restraint when finished artwork is already visually dense
+1. Re-check the locked brief/reference roles:
+   - Alexandre Rochet for the strongest cinematic pacing interruption / authored transition
+   - Diego Salas for restraint and letting one strong image lead
+   - global reference rule: motion reveals/paces the work; it does not decorate it
 
-2. Shamadan Static Composition
-   - clearly more energetic than BOCH
-   - strong warm/color identity
-   - hero artwork dominates first
-   - five selected assets must have a deliberate hierarchy
-   - no equal-size gallery rhythm
-   - must work with all motion disabled
+2. Criminal Static Composition
+   - this is the visual punctuation mark after Shamadan
+   - near-black / charcoal field
+   - use the hero poster vertically
+   - do NOT crop the poster into a square
+   - large negative-space field beside the hero
+   - title placed away from the poster rather than stamped over it
+   - alternate poster remains subordinate
+   - must work with motion disabled
 
-3. Shamadan Typography
-   - project title must remain readable without competing with campaign artwork
-   - metadata stays quiet
-   - no fake campaign/strategy/client claims
+3. Truthful Framing
+   - label: Criminal Anbr 6
+   - public type: Film Poster Study
+   - do NOT imply an official commissioned film campaign unless verified
 
 4. Image Framing
-   - preserve original artwork
-   - no destructive crop of product, logo, Arabic type, or composition
-   - supporting images must have distinct scale/role
+   - hero: `public/images/criminal-anbr-6/hero.webp`
+   - alternate: `public/images/criminal-anbr-6/alternate.webp`
+   - preserve the vertical poster format and narrative hierarchy
+   - no destructive crop
 
-5. BOCH -> Shamadan Entry
-   - continue directly from the H8 warm exit boundary
-   - do not restart the page visually
-   - mechanical/control should give way to warmer, faster visual energy
+5. Shamadan -> Criminal Entry
+   - inherit H9's color-drain / near-black exit
+   - wide campaign energy gives way to sparse vertical composition
+   - perceptually slower because space opens up
+   - no fake projector/cinema effect
 
-6. Shamadan Scroll Choreography
-   - more lively than BOCH but still controlled
-   - layered image rhythm may move at different rates
-   - structural motion first
-   - no decorative chaos or endless parallax
+6. Criminal Motion
+   - quietest motion section on Home
+   - slow poster reveal
+   - only tiny image/title drift if it improves pacing
+   - no generic scene parallax
+   - contrast against H9 is the effect
 
-7. Shamadan -> Criminal Exit
-   - close only H9's exit boundary
-   - energy/color should resolve into the near-black, slower Criminal pause
-   - do not fully design H10 yet
+7. Criminal -> Abd Allal Coffee Exit
+   - close only H10's exit boundary
+   - cold cinema should begin warming toward commercial intimacy
+   - use palette/scale transition, not café clichés
+   - do NOT fully design H11 yet
 
 8. Desktop
    - 1440
@@ -584,20 +602,21 @@ H9 must close all of these:
    - 390
    - 360
    - independent composition
+   - preserve poster readability
    - no pointer dependency
 
 10. Real QA
    - static captures
-   - section capture
+   - focused section capture
    - full-page regression capture
    - motion capture
-   - compare against brief/reference behaviors
+   - compare against locked brief/reference behavior
    - list exact deltas
    - fix only those deltas
-   - H9 CLOSED
+   - H10 CLOSED
 
-Only after H9 truly passes:
-create `docs/SHAMADAN_H9_CLOSURE_LOG.md`.
+Only after H10 truly passes:
+create `docs/CRIMINAL_H10_CLOSURE_LOG.md`.
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -653,6 +672,7 @@ Read these before continuing:
 - `docs/WORK_INDEX_H6_CLOSURE_LOG.md`
 - `docs/WORK_INDEX_H7_CLOSURE_LOG.md`
 - `docs/BOCH_H8_CLOSURE_LOG.md`
+- `docs/SHAMADAN_H9_CLOSURE_LOG.md`
 
 Do not trust an older plan over these final docs.
 
@@ -682,7 +702,7 @@ Do NOT merge PR #2 yet.
 
 Reason:
 Home is not closed.
-H9–H14 remain.
+H10–H14 remain.
 
 Merge only after:
 - Desktop visual closure
@@ -736,21 +756,21 @@ Do NOT restart research from zero.
 
 Start with:
 
-**H9 — EL SHAMADAN SCENE**
+**H10 — CRIMINAL ANBR 6 SCENE**
 
 First:
 1. inspect current active branch
-2. read the final source-of-truth docs listed above
-3. read `docs/BOCH_H8_CLOSURE_LOG.md`
-4. inspect current Shamadan markup/CSS/motion
-5. re-check the relevant reference behaviors
-6. inspect the five selected Shamadan assets
-7. perform H9 static-composition audit before adding new motion
-8. implement H9 layers
+2. read the final source-of-truth docs
+3. read `docs/SHAMADAN_H9_CLOSURE_LOG.md`
+4. inspect current Criminal markup/CSS/motion
+5. re-check the locked Criminal brief/reference roles
+6. inspect the two selected Criminal assets
+7. perform H10 static-composition audit before adding new motion
+8. rebuild H10 as a sparse vertical-poster scene
 9. render 1440 / 1280 / 390 / 360
 10. visually inspect real static and motion captures
 11. fix exact deltas only
-12. write `docs/SHAMADAN_H9_CLOSURE_LOG.md` only when H9 truly passes
+12. write `docs/CRIMINAL_H10_CLOSURE_LOG.md` only when H10 truly passes
 
 The new chat should continue execution, not explain the project back to the user unless asked.
 
@@ -758,4 +778,4 @@ The new chat should continue execution, not explain the project back to the user
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H8 CLOSED. NEXT = H9 EL SHAMADAN SCENE. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H9 CLOSED. NEXT = H10 CRIMINAL ANBR 6 SCENE. PR #2 OPEN. DO NOT MERGE.**
