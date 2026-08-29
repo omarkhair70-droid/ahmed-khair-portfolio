@@ -1315,32 +1315,37 @@ export default function Home() {
     let hashRestoreCancelled = false;
     const hashRestoreFrames: number[] = [];
 
-    const restoreInitialHash = () => {
+    const alignInitialHash = (attempt = 0) => {
       if (!initialHash || hashRestoreCancelled) return;
 
       const destination = document.querySelector<HTMLElement>(initialHash);
       if (!destination) return;
 
-      // offsetTop is stable across the Hero pin state. Using
-      // getBoundingClientRect() here produced a moving target while the
-      // ScrollTrigger pin was active (e.g. #work resolved to 1348px instead
-      // of its settled 2115px document position).
-      const top = destination.offsetTop;
+      const delta = destination.getBoundingClientRect().top;
+
+      if (Math.abs(delta) <= 2 || attempt >= 8) {
+        ScrollTrigger.update();
+        return;
+      }
+
+      const target = window.scrollY + delta;
 
       if (lenis) {
-        // ScrollTrigger pinning changes the document height after Lenis was
-        // constructed. Re-measure before the immediate hash jump so Lenis
-        // does not clamp to its pre-pin scroll limit.
         lenis.resize();
-        lenis.scrollTo(top, {
+        lenis.scrollTo(target, {
           immediate: true,
           force: true,
         });
       } else {
-        window.scrollTo({ top, behavior: "auto" });
+        window.scrollTo({ top: target, behavior: "auto" });
       }
 
       ScrollTrigger.update();
+
+      const frame = window.requestAnimationFrame(() => {
+        alignInitialHash(attempt + 1);
+      });
+      hashRestoreFrames.push(frame);
     };
 
     const restoreAfterLayoutRefresh = () => {
@@ -1350,7 +1355,9 @@ export default function Home() {
       lenis?.resize();
 
       const firstFrame = window.requestAnimationFrame(() => {
-        const secondFrame = window.requestAnimationFrame(restoreInitialHash);
+        const secondFrame = window.requestAnimationFrame(() => {
+          alignInitialHash();
+        });
         hashRestoreFrames.push(secondFrame);
       });
       hashRestoreFrames.push(firstFrame);
@@ -1359,8 +1366,9 @@ export default function Home() {
     if (initialHash) {
       window.history.scrollRestoration = "manual";
 
-      // Pin spacers change downstream offsets. Refresh ScrollTrigger first,
-      // then restore the hash on the settled layout rather than racing it.
+      // Hero pinning changes downstream geometry as scroll state changes.
+      // Align against the target's live viewport delta until the target is
+      // genuinely reached instead of trusting a single pre-pin offset.
       restoreAfterLayoutRefresh();
 
       void document.fonts.ready.then(async () => {
