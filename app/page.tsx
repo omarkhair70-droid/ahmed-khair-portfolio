@@ -468,7 +468,7 @@ export default function Home() {
         : event.clientX + 34;
       const y = Math.max(
         24,
-        Math.min(window.innerHeight - height - 24, event.clientY - height * 0.34),
+        Math.min(window.innerHeight - height - 24, event.clientY - height * 0.22),
       );
 
       previewX?.(x);
@@ -536,12 +536,35 @@ export default function Home() {
       target.classList.remove("is-pressed");
     };
 
+    const openProjectScene = (event: MouseEvent) => {
+      const target = event.currentTarget as HTMLAnchorElement;
+      const href = target.getAttribute("href");
+      if (!href?.startsWith("#")) return;
+
+      const destination = document.querySelector<HTMLElement>(href);
+      if (!destination) return;
+
+      event.preventDefault();
+
+      if (reduced || !lenis) {
+        destination.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+        return;
+      }
+
+      lenis.scrollTo(destination, {
+        duration: 1.18,
+        offset: 0,
+        lock: true,
+      });
+    };
+
     rows.forEach((row) => {
       row.addEventListener("mouseenter", enterProject);
       row.addEventListener("mouseleave", leaveProject);
       row.addEventListener("pointerdown", pressProject);
       row.addEventListener("pointerup", releaseProject);
       row.addEventListener("pointercancel", releaseProject);
+      row.addEventListener("click", openProjectScene);
     });
     window.addEventListener("pointermove", move, { passive: true });
 
@@ -552,6 +575,7 @@ export default function Home() {
         row.removeEventListener("pointerdown", pressProject);
         row.removeEventListener("pointerup", releaseProject);
         row.removeEventListener("pointercancel", releaseProject);
+        row.removeEventListener("click", openProjectScene);
       });
       mobileTriggers.forEach((trigger) => trigger.kill());
       window.removeEventListener("pointermove", move);
