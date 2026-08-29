@@ -59,6 +59,9 @@ jobs:
       - name: Capture work index interaction QA
         run: node scripts/capture-work-interaction.mjs
 
+      - name: Capture BOCH H8 focused QA
+        run: node scripts/capture-boch-h8.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -80,5 +83,13 @@ jobs:
         with:
           name: homepage-work-index-h7-interaction
           path: artifacts/work-interaction
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload BOCH H8 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-boch-h8
+          path: artifacts/boch-h8
           if-no-files-found: error
           retention-days: 7
