@@ -8,6 +8,7 @@ const browser = await chromium.launch({ headless: true });
 
 const cases = [
   { name: "desktop", width: 1440, height: 1000, dpr: 1 },
+  { name: "desktop-1280", width: 1280, height: 900, dpr: 1 },
   { name: "mobile", width: 390, height: 844, dpr: 1 },
   { name: "mobile-360", width: 360, height: 800, dpr: 1 },
 ];
