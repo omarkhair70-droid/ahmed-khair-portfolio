@@ -1238,7 +1238,7 @@ a:focus-visible {
   }
 
   .work-index__row {
-    min-height: 142px;
+    min-height: 156px;
     grid-template-columns: 28px minmax(0, 1fr) 18px;
     grid-template-rows: 1fr auto;
     gap: 8px 10px;
@@ -1263,9 +1263,9 @@ a:focus-visible {
 
   .work-index__title {
     white-space: normal;
-    font-size: clamp(48px, 14.3vw, 62px);
-    line-height: .78;
-    letter-spacing: -.022em;
+    font-size: clamp(46px, 13.6vw, 58px);
+    line-height: .86;
+    letter-spacing: -.018em;
   }
 
   .work-index__kind {
@@ -1273,7 +1273,7 @@ a:focus-visible {
     grid-row: 2;
     justify-self: start;
     align-self: start;
-    padding-bottom: 13px;
+    padding-bottom: 16px;
     font-size: 7px;
     text-align: left;
   }
