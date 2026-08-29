@@ -1323,13 +1323,17 @@ export default function Home() {
 
       const top = destination.getBoundingClientRect().top + window.scrollY;
 
-      window.scrollTo({ top, behavior: "auto" });
-
       if (lenis) {
+        // ScrollTrigger pinning changes the document height after Lenis was
+        // constructed. Re-measure before the immediate hash jump so Lenis
+        // does not clamp to its pre-pin scroll limit.
+        lenis.resize();
         lenis.scrollTo(top, {
           immediate: true,
           force: true,
         });
+      } else {
+        window.scrollTo({ top, behavior: "auto" });
       }
 
       ScrollTrigger.update();
@@ -1339,6 +1343,7 @@ export default function Home() {
       if (!initialHash || hashRestoreCancelled) return;
 
       ScrollTrigger.refresh();
+      lenis?.resize();
 
       const firstFrame = window.requestAnimationFrame(() => {
         const secondFrame = window.requestAnimationFrame(restoreInitialHash);
