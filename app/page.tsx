@@ -288,7 +288,7 @@ export default function Home() {
         },
       });
 
-      document.querySelectorAll<HTMLElement>(".scene").forEach((scene) => {
+      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch)").forEach((scene) => {
         const media = scene.querySelector<HTMLElement>(".scene__primary");
         const title = scene.querySelector<HTMLElement>(".scene__title");
         const meta = scene.querySelector<HTMLElement>(".scene__meta");
@@ -357,6 +357,184 @@ export default function Home() {
           );
         });
       });
+
+      const bochScene = document.querySelector<HTMLElement>(".scene--boch");
+      if (bochScene) {
+        gsap.fromTo(
+          ".boch-entry__line",
+          { scaleX: 0, transformOrigin: "left center" },
+          {
+            scaleX: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: bochScene,
+              start: "top 88%",
+              end: "top 48%",
+              scrub: 0.9,
+            },
+          },
+        );
+
+        gsap.from(".boch-head__meta > *, .boch-head__copy > *", {
+          y: 20,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".boch-head",
+            start: "top 76%",
+            end: "top 42%",
+            scrub: 0.75,
+          },
+        });
+
+        gsap.from(".boch-line", {
+          yPercent: 108,
+          rotate: 1.2,
+          stagger: 0.06,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: ".boch-head",
+            start: "top 72%",
+            end: "top 34%",
+            scrub: 0.82,
+          },
+        });
+
+        gsap.fromTo(
+          ".boch-frame--hero",
+          {
+            clipPath: "inset(7% 9% 7% 9%)",
+            yPercent: 5,
+            scale: 0.985,
+          },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            yPercent: 0,
+            scale: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".boch-frame--hero",
+              start: "top 88%",
+              end: "top 20%",
+              scrub: 1.05,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".boch-frame--hero img",
+          { scale: 1.02 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".boch-frame--hero",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".boch-act--cinematic .boch-frame",
+          { y: 110, clipPath: "inset(10% 0 10% 0)" },
+          {
+            y: 0,
+            clipPath: "inset(0% 0 0% 0)",
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".boch-act--cinematic",
+              start: "top 86%",
+              end: "top 28%",
+              scrub: 1,
+            },
+          },
+        );
+
+        gsap.from(".boch-act--cinematic .boch-act__copy", {
+          y: 42,
+          opacity: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".boch-act--cinematic",
+            start: "top 76%",
+            end: "top 45%",
+            scrub: 0.72,
+          },
+        });
+
+        gsap.fromTo(
+          ".boch-frame--context",
+          { y: 82 },
+          {
+            y: -18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".boch-act--pair",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.1,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".boch-frame--support",
+          { y: 148 },
+          {
+            y: -42,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".boch-act--pair",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.24,
+            },
+          },
+        );
+
+        gsap.from(".boch-act--pair .boch-act__copy", {
+          x: -30,
+          opacity: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".boch-act--pair",
+            start: "top 78%",
+            end: "top 48%",
+            scrub: 0.7,
+          },
+        });
+
+        gsap.fromTo(
+          ".boch-exit__wash",
+          { scaleY: 0.06, transformOrigin: "bottom center" },
+          {
+            scaleY: 1,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: ".boch-exit",
+              start: "top 88%",
+              end: "bottom 34%",
+              scrub: 1.05,
+            },
+          },
+        );
+
+        gsap.from(".boch-exit__copy > *", {
+          y: 24,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".boch-exit",
+            start: "top 62%",
+            end: "top 32%",
+            scrub: 0.7,
+          },
+        });
+      }
 
       gsap.fromTo(
         ".criminal-poster",
@@ -719,50 +897,104 @@ export default function Home() {
       </section>
 
       <section id="boch" className="scene scene--boch" aria-labelledby="boch-title">
-        <div className="scene__chrome">
-          <p className="scene__meta">01 / Campaign</p>
-          <h2 id="boch-title" className="scene__title">
-            BOCH
-            <br />
-            MOTOR
-          </h2>
-          <p className="scene__caption">
-            Industrial product imagery treated with the drama of a sports
-            campaign.
+        <div className="boch-entry" aria-hidden="true">
+          <div className="boch-entry__line" />
+          <p>
+            <span>01 / Featured campaign</span>
+            <span>Work becomes proof</span>
           </p>
         </div>
 
-        <figure className="scene__primary scene__primary--boch">
+        <header className="boch-head">
+          <p className="boch-head__meta">
+            <span>01 / Campaign</span>
+            <span>Selected visual work</span>
+          </p>
+
+          <h2 id="boch-title" className="boch-head__title" aria-label="BOCH Motor">
+            <span className="boch-line-wrap">
+              <span className="boch-line">BOCH</span>
+            </span>
+            <span className="boch-line-wrap boch-line-wrap--second">
+              <span className="boch-line">MOTOR</span>
+            </span>
+          </h2>
+
+          <div className="boch-head__copy">
+            <p>
+              Industrial product imagery treated with the drama of a sports
+              campaign.
+            </p>
+            <p>Advertising visuals / campaign</p>
+          </div>
+        </header>
+
+        <figure className="boch-frame boch-frame--hero">
           <img
             src="/images/boch/hero.webp"
             alt="BOCH Motor campaign hero visual"
           />
+          <figcaption>
+            <span>Campaign lead</span>
+            <span>01 / 04</span>
+          </figcaption>
         </figure>
 
-        <figure className="scene__accent scene__accent--boch-a">
-          <img
-            src="/images/boch/cinematic.webp"
-            alt="BOCH Motor cinematic supporting visual"
-          />
-        </figure>
+        <div className="boch-act boch-act--cinematic">
+          <div className="boch-act__copy">
+            <span>02 / 04</span>
+            <p>From product proof to atmosphere.</p>
+          </div>
 
-        <figure className="scene__accent scene__accent--boch-b">
-          <img
-            src="/images/boch/context.webp"
-            alt="BOCH Motor contextual supporting visual"
-          />
-        </figure>
+          <figure className="boch-frame boch-frame--cinematic">
+            <img
+              src="/images/boch/cinematic.webp"
+              alt="BOCH Motor cinematic supporting visual"
+            />
+            <figcaption>
+              <span>Cinematic variation</span>
+              <span>BOCH Motor</span>
+            </figcaption>
+          </figure>
+        </div>
 
-        <figure className="scene__accent scene__accent--boch-c">
-          <img
-            src="/images/boch/support.webp"
-            alt="BOCH Motor supporting visual"
-          />
-        </figure>
+        <div className="boch-act boch-act--pair">
+          <div className="boch-act__copy">
+            <span>03—04 / 04</span>
+            <p>One campaign, different product contexts.</p>
+          </div>
 
-        <p className="scene__oversize" aria-hidden="true">
-          POWER
-        </p>
+          <figure className="boch-frame boch-frame--context">
+            <img
+              src="/images/boch/context.webp"
+              alt="BOCH Motor contextual supporting visual"
+            />
+            <figcaption>
+              <span>Context study</span>
+              <span>03 / 04</span>
+            </figcaption>
+          </figure>
+
+          <figure className="boch-frame boch-frame--support">
+            <img
+              src="/images/boch/support.webp"
+              alt="BOCH Motor supporting visual"
+            />
+            <figcaption>
+              <span>Supporting variation</span>
+              <span>04 / 04</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="boch-exit" aria-hidden="true">
+          <div className="boch-exit__wash" />
+          <p className="boch-exit__copy">
+            <span>Next / 02</span>
+            <span className="boch-exit__title">EL SHAMADAN</span>
+            <span>Control gives way to colour.</span>
+          </p>
+        </div>
       </section>
 
       <section
