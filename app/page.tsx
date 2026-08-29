@@ -979,32 +979,6 @@ export default function Home() {
         });
       }
 
-      gsap.fromTo(
-        ".about-cutout",
-        { yPercent: 14, rotate: -1.5 },
-        {
-          yPercent: 0,
-          rotate: 0,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".about",
-            start: "top 72%",
-            end: "top 24%",
-            scrub: 1,
-          },
-        },
-      );
-
-      gsap.to(".about-word", {
-        xPercent: -13,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".about",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
     }, root);
 
     const heroEl = document.querySelector<HTMLElement>(".hero");
@@ -1653,37 +1627,56 @@ export default function Home() {
       </section>
 
       <section id="about" className="about" aria-labelledby="about-title">
-        <p className="about-word" aria-hidden="true">
-          HUMAN
-        </p>
-
-        <div className="about-copy">
-          <p className="about-kicker">The person behind the visuals</p>
-          <h2 id="about-title">Ahmed Khair</h2>
-          <p className="about-lede">
-            Advertising visual designer working across campaigns, posters and
-            photo-led compositions.
-          </p>
-          <p className="about-body">
-            The site gets quieter here. The work has already spoken; this is the
-            human moment behind it.
-          </p>
-
-          <div className="about-tags">
-            <span>Campaign Visuals</span>
-            <span>Posters</span>
-            <span>Photo Manipulation</span>
-            <span>Advertising Design</span>
-          </div>
+        <div className="about-entry" aria-hidden="true">
+          <span>Selected work / complete</span>
+          <span>05 / About</span>
         </div>
 
-        <div className="about-portrait">
-          <div className="about-halo" aria-hidden="true" />
-          <img
-            className="about-cutout"
-            src="/images/ahmed/ahmed-cutout.png"
-            alt="Ahmed Khair"
-          />
+        <div className="about-layout">
+          <header className="about-copy">
+            <p className="about-kicker">
+              <span>Ahmed Khair</span>
+              <span>Advertising Visual Designer</span>
+            </p>
+
+            <h2 id="about-title">
+              <span>AHMED</span>
+              <span>KHAIR</span>
+            </h2>
+
+            <p className="about-lede">Advertising visual designer.</p>
+            <p className="about-body">
+              Working across campaigns, posters and photo-led compositions.
+            </p>
+          </header>
+
+          <figure className="about-portrait">
+            <div className="about-portrait__field" aria-hidden="true" />
+            <img
+              className="about-cutout"
+              src="/images/ahmed/ahmed-cutout.png"
+              alt="Ahmed Khair"
+            />
+            <figcaption>
+              <span>Ahmed Khair</span>
+              <span>Egypt / 2026</span>
+            </figcaption>
+          </figure>
+
+          <div className="about-capabilities" aria-label="Selected capabilities">
+            <p>What I do</p>
+            <div>
+              <span>Campaign Visuals</span>
+              <span>Posters</span>
+              <span>Photo Manipulation</span>
+              <span>Advertising Design</span>
+            </div>
+          </div>
+
+          <p className="about-location">
+            <span>Based in</span>
+            <strong>Egypt</strong>
+          </p>
         </div>
       </section>
 
