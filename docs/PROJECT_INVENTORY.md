@@ -32,7 +32,7 @@ The portfolio should lead with visual campaign work and compositing/poster craft
 | Social Media Design — Marketing Agency | **Drop** | Remove as standalone | Generic category and overlaps with another marketing-agency project. It adds little differentiation. |
 | Social Media — Cosmetics | **Strong** | Featured commercial project | Highest appreciation count among the currently indexed main projects relative to its views; beauty/cosmetics is also visually strong and commercially relevant. |
 | Social Media — Marketing Agency | **Drop** | Remove as standalone | Duplicate/generic positioning. If there is one exceptional visual inside, reuse it only as a supporting image elsewhere. |
-| Photo Manipulation — Rails Inside Camera | **Strong** | Flagship craft project | One of the clearest pure-skill pieces: concept + compositing + manipulation. It differentiates Ahmed from template-style social media designers. |
+| Photo Manipulation — Rails Inside Camera | **Medium** | Supporting craft study | The compositing execution can be useful, but the public web contains an older closely matching Rails-inside-camera concept. Keep it as a clearly labelled manipulation study, not lead proof of original art direction. |
 | Social Media — Ice Cream | **Medium** | Supporting / optional | Fun commercial category, but should only survive the next visual pass if the execution is clearly stronger than the more generic food-social-media work. |
 | Social Media — Maths Subject | **Drop** | Remove from first-release Work | Educational social-post work does not support the premium advertising/art-direction positioning strongly enough. |
 
@@ -40,13 +40,13 @@ The portfolio should lead with visual campaign work and compositing/poster craft
 
 ### Flagship / homepage candidates
 1. Film Poster — Criminal Anbr 6
-2. Photo Manipulation — Rails Inside Camera
-3. Posters / Campaign — Shamadan
-4. Social Media — Cosmetics
-5. Campaign — Bosch Motor
-6. Campaign — Abd Allal Coffee
+2. Posters / Campaign — Shamadan
+3. Social Media — Cosmetics
+4. Campaign — Bosch Motor
+5. Campaign — Abd Allal Coffee
 
 ### Supporting work
+- Photo Manipulation — Rails Inside Camera (craft study only)
 - Watches
 - Fiber Cable
 - Ice Cream (conditional after visual pass)
