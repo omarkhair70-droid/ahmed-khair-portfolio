@@ -56,6 +56,9 @@ jobs:
       - name: Capture desktop and mobile motion QA
         run: node scripts/capture-motion.mjs
 
+      - name: Capture work index interaction QA
+        run: node scripts/capture-work-interaction.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -69,5 +72,13 @@ jobs:
         with:
           name: homepage-design-v2-motion
           path: artifacts/motion
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload work interaction QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-work-index-h7-interaction
+          path: artifacts/work-interaction
           if-no-files-found: error
           retention-days: 7
