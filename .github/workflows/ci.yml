@@ -1,0 +1,161 @@
+name: Portfolio CI
+
+on:
+  push:
+    branches:
+      - portfolio/homepage-pass-01
+      - portfolio/homepage-design-v2
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Install visual QA browser
+        run: |
+          npm install --no-save playwright@1.62.1
+          npx playwright install --with-deps chromium
+
+      - name: Start production server
+        run: |
+          npm start > /tmp/ahmed-portfolio-next.log 2>&1 &
+          for i in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:3000 > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/ahmed-portfolio-next.log
+          exit 1
+
+      - name: Capture desktop and mobile visuals
+        run: node scripts/capture-visuals.mjs
+
+      - name: Capture desktop and mobile motion QA
+        run: node scripts/capture-motion.mjs
+
+      - name: Capture work index interaction QA
+        run: node scripts/capture-work-interaction.mjs
+
+      - name: Capture BOCH H8 focused QA
+        run: node scripts/capture-boch-h8.mjs
+
+      - name: Capture Shamadan H9 focused QA
+        run: node scripts/capture-shamadan-h9.mjs
+
+      - name: Capture Criminal H10 focused QA
+        run: node scripts/capture-criminal-h10.mjs
+
+      - name: Capture Coffee H11 focused QA
+        run: node scripts/capture-coffee-h11.mjs
+
+      - name: Capture About H12 focused QA
+        run: node scripts/capture-about-h12.mjs
+
+      - name: Capture Contact H13 focused QA
+        run: node scripts/capture-contact-h13.mjs
+
+      - name: Capture Home H14 integration QA
+        run: node scripts/capture-home-h14.mjs
+
+      - name: Upload visual QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-design-v2-visuals
+          path: artifacts/screenshots
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload motion QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-design-v2-motion
+          path: artifacts/motion
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload work interaction QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-work-index-h7-interaction
+          path: artifacts/work-interaction
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload BOCH H8 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-boch-h8
+          path: artifacts/boch-h8
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Shamadan H9 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-shamadan-h9
+          path: artifacts/shamadan-h9
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Criminal H10 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-criminal-h10
+          path: artifacts/criminal-h10
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Coffee H11 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-coffee-h11
+          path: artifacts/coffee-h11
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About H12 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-about-h12
+          path: artifacts/about-h12
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Contact H13 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-contact-h13
+          path: artifacts/contact-h13
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Home H14 integration QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-home-h14
+          path: artifacts/home-h14
+          if-no-files-found: error
+          retention-days: 7
