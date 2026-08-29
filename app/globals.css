@@ -665,9 +665,14 @@ main {
 }
 
 .coffee-hero {
-  width: min(1180px, 92vw);
-  height: min(82vh, 880px);
+  width: min(980px, 86vw);
+  aspect-ratio: 1 / 1;
+  height: auto;
   margin-left: auto;
+}
+
+.coffee-hero img {
+  object-fit: contain;
 }
 
 .coffee-tail {
@@ -912,6 +917,10 @@ a:focus-visible {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
+  }
+
+  .coffee-hero img {
+    object-fit: contain;
   }
 
   .boch-editorial {
@@ -1193,7 +1202,13 @@ a:focus-visible {
   }
 
   .contact-top h2 {
-    font-size: clamp(70px, 23vw, 120px);
+    font-size: clamp(68px, 20vw, 108px);
+    line-height: .82;
+  }
+
+  .contact-top h2 em {
+    font-size: .82em;
+    line-height: .9;
   }
 
   .contact-links {
