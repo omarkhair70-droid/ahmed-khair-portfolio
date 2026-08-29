@@ -3773,10 +3773,12 @@ a:focus-visible {
 .about-page-practice__title {
   grid-column: 1 / 13;
   align-self: center;
+  display: grid;
+  gap: .08em;
   margin: 8vh 0 10vh;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(72px, 9.2vw, 148px);
-  line-height: .88;
+  font-size: clamp(68px, 8.2vw, 132px);
+  line-height: .94;
   font-weight: 400;
   letter-spacing: -.025em;
   text-transform: uppercase;
@@ -3788,19 +3790,18 @@ a:focus-visible {
 }
 
 .about-page-practice__title span:nth-child(2) {
-  margin-left: clamp(72px, 15vw, 230px);
-  font-size: .8em;
+  margin-left: clamp(110px, 22vw, 340px);
+  font-size: .72em;
 }
 
 .about-page-practice__title span:nth-child(3) {
-  margin-left: clamp(18px, 3vw, 48px);
-  font-size: .9em;
+  margin-left: clamp(28px, 4vw, 64px);
+  font-size: .88em;
 }
 
 .about-page-practice__title span:nth-child(4) {
-  margin-left: clamp(92px, 13vw, 210px);
-  margin-top: .08em;
-  font-size: .78em;
+  margin-left: clamp(96px, 14vw, 220px);
+  font-size: .76em;
 }
 
 .about-page-practice__copy {
@@ -4006,7 +4007,7 @@ a:focus-visible {
   }
 
   .about-page-practice__title {
-    font-size: clamp(70px, 8.8vw, 106px);
+    font-size: clamp(66px, 7.8vw, 96px);
   }
 
   .about-page-end__behance {
