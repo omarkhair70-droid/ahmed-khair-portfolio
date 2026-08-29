@@ -348,6 +348,63 @@ a {
   text-transform: uppercase;
 }
 
+.hero-handoff {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  align-items: end;
+  padding: 74px var(--page) 28px;
+  background: #ebe6dc;
+  color: #0a0a0a;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-handoff__eyebrow,
+.hero-handoff__count {
+  margin: 0;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #6b655e;
+}
+
+.hero-handoff__eyebrow {
+  align-self: start;
+}
+
+.hero-handoff__count {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  justify-self: end;
+}
+
+.hero-handoff__title {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  align-self: center;
+  margin: 0;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(118px, 18.8vw, 310px);
+  line-height: .72;
+  letter-spacing: -.028em;
+  font-weight: 400;
+}
+
+.hero-handoff__title span {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-handoff__title span:last-child {
+  padding-left: 20vw;
+}
+
 /* Work index */
 
 .work-index {
@@ -1072,6 +1129,29 @@ a:focus-visible {
     grid-column: 2;
   }
 
+  .hero-handoff {
+    padding: 66px 18px 20px;
+  }
+
+  .hero-handoff__eyebrow {
+    max-width: 190px;
+    font-size: 7px;
+    line-height: 1.35;
+  }
+
+  .hero-handoff__title {
+    font-size: clamp(76px, 24vw, 108px);
+    line-height: .75;
+  }
+
+  .hero-handoff__title span:last-child {
+    padding-left: 12vw;
+  }
+
+  .hero-handoff__count {
+    font-size: 7px;
+  }
+
   .work-index {
     padding-top: 90px;
     padding-bottom: 100px;
@@ -1319,6 +1399,7 @@ a:focus-visible {
   [data-motion],
   .hero-word,
   .hero-teaser,
+  .hero-handoff,
   .scene__primary,
   .scene__accent,
   .scene__title,
