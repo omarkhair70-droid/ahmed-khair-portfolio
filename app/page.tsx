@@ -288,7 +288,7 @@ export default function Home() {
         },
       });
 
-      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch)").forEach((scene) => {
+      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch):not(.scene--shamadan)").forEach((scene) => {
         const media = scene.querySelector<HTMLElement>(".scene__primary");
         const title = scene.querySelector<HTMLElement>(".scene__title");
         const meta = scene.querySelector<HTMLElement>(".scene__meta");
@@ -534,6 +534,217 @@ export default function Home() {
             scrub: 0.7,
           },
         });
+      }
+
+      const shamadanScene = document.querySelector<HTMLElement>(
+        ".scene--shamadan",
+      );
+      if (shamadanScene) {
+        gsap.from(".shamadan-head__meta > *, .shamadan-head__copy", {
+          y: 22,
+          opacity: 0,
+          stagger: 0.07,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-head",
+            start: "top 82%",
+            end: "top 48%",
+            scrub: 0.62,
+          },
+        });
+
+        gsap.from(".shamadan-head__title span:first-child", {
+          xPercent: -18,
+          opacity: 0.35,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-head",
+            start: "top 86%",
+            end: "top 42%",
+            scrub: 0.7,
+          },
+        });
+
+        gsap.from(".shamadan-head__title span:last-child", {
+          xPercent: 12,
+          opacity: 0.35,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-head",
+            start: "top 86%",
+            end: "top 42%",
+            scrub: 0.7,
+          },
+        });
+
+        gsap.fromTo(
+          ".shamadan-frame--hero",
+          {
+            y: 96,
+            rotate: 0.8,
+            scale: 0.975,
+            clipPath: "inset(7% 5% 7% 5%)",
+          },
+          {
+            y: 0,
+            rotate: 0,
+            scale: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".shamadan-hero-stage",
+              start: "top 88%",
+              end: "top 24%",
+              scrub: 0.78,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".shamadan-frame--hero img",
+          { scale: 1.035 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-hero-stage",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.88,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".shamadan-frame--premium",
+          { y: 118, clipPath: "inset(8% 0 8% 0)" },
+          {
+            y: -18,
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-act--premium",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.92,
+            },
+          },
+        );
+
+        gsap.from(".shamadan-act--premium .shamadan-act__copy", {
+          x: 42,
+          opacity: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-act--premium",
+            start: "top 76%",
+            end: "top 44%",
+            scrub: 0.58,
+          },
+        });
+
+        gsap.fromTo(
+          ".shamadan-frame--light",
+          { y: 104, rotate: -0.7, scale: 0.985 },
+          {
+            y: -44,
+            rotate: 0,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-act--light",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.84,
+            },
+          },
+        );
+
+        gsap.from(".shamadan-act--light .shamadan-act__copy", {
+          x: -34,
+          opacity: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-act--light",
+            start: "top 76%",
+            end: "top 44%",
+            scrub: 0.56,
+          },
+        });
+
+        gsap.fromTo(
+          ".shamadan-frame--family",
+          { y: 116 },
+          {
+            y: -26,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-act--pair",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.9,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".shamadan-frame--playful",
+          { y: 178, scale: 0.975 },
+          {
+            y: -58,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".shamadan-act--pair",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.02,
+            },
+          },
+        );
+
+        gsap.from(".shamadan-act--pair .shamadan-act__copy", {
+          y: 34,
+          opacity: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".shamadan-act--pair",
+            start: "top 78%",
+            end: "top 48%",
+            scrub: 0.58,
+          },
+        });
+
+        gsap.fromTo(
+          ".shamadan-exit__line",
+          { scaleY: 0, transformOrigin: "top center" },
+          {
+            scaleY: 1,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: ".shamadan-exit",
+              start: "top 76%",
+              end: "bottom 42%",
+              scrub: 0.78,
+            },
+          },
+        );
+
+        gsap.from(
+          ".shamadan-exit__top > *, .shamadan-exit__bottom",
+          {
+            y: 18,
+            opacity: 0,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".shamadan-exit",
+              start: "top 64%",
+              end: "top 32%",
+              scrub: 0.58,
+            },
+          },
+        );
       }
 
       gsap.fromTo(
