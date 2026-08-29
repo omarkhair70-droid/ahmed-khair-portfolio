@@ -1310,6 +1310,25 @@ export default function Home() {
     });
     window.addEventListener("pointermove", move, { passive: true });
 
+    const initialHash = window.location.hash;
+    const hashRestoreTimer = window.setTimeout(() => {
+      if (!initialHash) return;
+
+      const destination = document.querySelector<HTMLElement>(initialHash);
+      if (!destination) return;
+
+      if (lenis) {
+        lenis.scrollTo(destination, {
+          immediate: true,
+          force: true,
+        });
+      } else {
+        destination.scrollIntoView({ behavior: "auto", block: "start" });
+      }
+
+      ScrollTrigger.update();
+    }, 120);
+
     return () => {
       rows.forEach((row) => {
         row.removeEventListener("mouseenter", enterProject);
@@ -1320,6 +1339,7 @@ export default function Home() {
         row.removeEventListener("click", openProjectScene);
       });
       mobileTriggers.forEach((trigger) => trigger.kill());
+      window.clearTimeout(hashRestoreTimer);
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
