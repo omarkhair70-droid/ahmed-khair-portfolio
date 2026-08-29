@@ -28,10 +28,10 @@ for (const testCase of cases) {
 
   for (const [label, selector] of [
     ["hero", "#top"],
-    ["boch", ".project-boch"],
-    ["shamadan", ".project-shamadan"],
-    ["criminal", ".project-criminal"],
-    ["coffee", ".project-coffee"],
+    ["boch", ".scene--boch"],
+    ["shamadan", ".scene--shamadan"],
+    ["criminal", ".scene--criminal"],
+    ["coffee", ".scene--coffee"],
     ["about", "#about"],
     ["contact", "#contact"],
   ]) {
