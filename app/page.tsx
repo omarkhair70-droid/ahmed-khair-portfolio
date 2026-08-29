@@ -1002,62 +1002,112 @@ export default function Home() {
         className="scene scene--shamadan"
         aria-labelledby="shamadan-title"
       >
-        <div className="scene__chrome scene__chrome--light">
-          <p className="scene__meta">02 / Campaign</p>
-          <h2 id="shamadan-title" className="scene__title">
-            EL
-            <br />
-            SHAMADAN
-          </h2>
-          <p className="scene__caption">
-            Product-led compositions with more colour, movement and appetite.
+        <header className="shamadan-head">
+          <p className="shamadan-head__meta">
+            <span>02 / Campaign</span>
+            <span>Selected visual work</span>
           </p>
+
+          <h2
+            id="shamadan-title"
+            className="shamadan-head__title"
+            aria-label="El Shamadan"
+          >
+            <span>EL</span>
+            <span>SHAMADAN</span>
+          </h2>
+
+          <p className="shamadan-head__copy">
+            Selected campaign visuals for El Shamadan.
+          </p>
+        </header>
+
+        <div className="shamadan-hero-stage">
+          <figure className="shamadan-frame shamadan-frame--hero">
+            <img
+              src="/images/shamadan/hero.webp"
+              alt="El Shamadan campaign hero visual"
+            />
+            <figcaption>
+              <span>Campaign lead</span>
+              <span>01 / 05</span>
+            </figcaption>
+          </figure>
         </div>
 
-        <figure className="scene__primary scene__primary--shamadan">
-          <img
-            src="/images/shamadan/hero.webp"
-            alt="El Shamadan campaign hero visual"
-          />
-        </figure>
+        <div className="shamadan-act shamadan-act--premium">
+          <div className="shamadan-act__copy">
+            <span>02 / 05</span>
+            <p>Premium flat-lay.</p>
+          </div>
 
-        <figure className="scene__accent scene__accent--shamadan-a">
-          <img
-            src="/images/shamadan/premium-flatlay.webp"
-            alt="El Shamadan premium flat-lay visual"
-          />
-        </figure>
+          <figure className="shamadan-frame shamadan-frame--premium">
+            <img
+              src="/images/shamadan/premium-flatlay.webp"
+              alt="El Shamadan premium flat-lay visual"
+            />
+            <figcaption>
+              <span>Dark chocolate visual</span>
+              <span>02 / 05</span>
+            </figcaption>
+          </figure>
+        </div>
 
-        <figure className="scene__accent scene__accent--shamadan-b">
-          <img
-            src="/images/shamadan/light-splash.webp"
-            alt="El Shamadan splash composition"
-          />
-        </figure>
+        <div className="shamadan-act shamadan-act--light">
+          <div className="shamadan-act__copy">
+            <span>03 / 05</span>
+            <p>A lighter supporting composition.</p>
+          </div>
 
-        <figure className="scene__accent scene__accent--shamadan-c">
-          <img
-            src="/images/shamadan/product-family.webp"
-            alt="El Shamadan product family visual"
-          />
-        </figure>
+          <figure className="shamadan-frame shamadan-frame--light">
+            <img
+              src="/images/shamadan/light-splash.webp"
+              alt="El Shamadan light splash composition"
+            />
+            <figcaption>
+              <span>Supporting visual</span>
+              <span>03 / 05</span>
+            </figcaption>
+          </figure>
+        </div>
 
-        <figure className="scene__accent scene__accent--shamadan-d">
-          <img
-            src="/images/shamadan/playful.webp"
-            alt="El Shamadan playful campaign visual"
-          />
-        </figure>
+        <div className="shamadan-act shamadan-act--pair">
+          <div className="shamadan-act__copy">
+            <span>04—05 / 05</span>
+            <p>Two more executions, held in different scales.</p>
+          </div>
 
-        <p className="scene__oversize scene__oversize--light" aria-hidden="true">
-          TASTE
-        </p>
-      </section>
+          <figure className="shamadan-frame shamadan-frame--family">
+            <img
+              src="/images/shamadan/product-family.webp"
+              alt="El Shamadan product family visual"
+            />
+            <figcaption>
+              <span>Product family</span>
+              <span>04 / 05</span>
+            </figcaption>
+          </figure>
 
-      <section className="silence" aria-hidden="true">
-        <p>Colour leaves.</p>
-        <div className="silence__line" />
-        <p>One poster remains.</p>
+          <figure className="shamadan-frame shamadan-frame--playful">
+            <img
+              src="/images/shamadan/playful.webp"
+              alt="El Shamadan playful campaign visual"
+            />
+            <figcaption>
+              <span>Playful variation</span>
+              <span>05 / 05</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="shamadan-exit" aria-hidden="true">
+          <p className="shamadan-exit__top">
+            <span>Colour leaves.</span>
+            <span>03 / Film Poster Study</span>
+          </p>
+          <div className="shamadan-exit__line" />
+          <p className="shamadan-exit__bottom">One poster remains.</p>
+        </div>
       </section>
 
       <section
