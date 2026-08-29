@@ -319,7 +319,8 @@ export default function Home() {
         <div className="hero-noise" aria-hidden="true" />
         <div className="hero-kicker" data-motion>
           <span>Ahmed Khair</span>
-          <span>Selected visual work</span>
+          <span className="hero-kicker__desktop">Selected visual work</span>
+          <span className="hero-kicker__mobile">Advertising Visual Designer</span>
         </div>
 
         <h1 className="hero-title" aria-label="Ahmed Khair">
