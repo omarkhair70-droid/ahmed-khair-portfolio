@@ -1331,6 +1331,8 @@ export default function Home() {
     window.addEventListener("pointermove", move, { passive: true });
 
     const previousScrollRestoration = window.history.scrollRestoration;
+    const previousInlineScrollBehavior =
+      document.documentElement.style.scrollBehavior;
     let hashRestoreCancelled = false;
     let hashRestoreGeneration = 0;
     const hashRestoreFrames: number[] = [];
@@ -1339,6 +1341,11 @@ export default function Home() {
       if (!initialHash || hashRestoreCancelled) return;
 
       const generation = ++hashRestoreGeneration;
+
+      // CSS sets html { scroll-behavior: smooth }. During hash recovery we
+      // need truly immediate native jumps; behavior:"auto" would otherwise
+      // inherit that smooth animation and leave the target mid-transition.
+      document.documentElement.style.scrollBehavior = "auto";
 
       // Native scrolling is deterministic while ScrollTrigger is rebuilding
       // pin spacing. Lenis is restarted only after the target is aligned.
@@ -1360,6 +1367,8 @@ export default function Home() {
 
         if (Math.abs(delta) <= 2 || attempt >= 10) {
           ScrollTrigger.update();
+          document.documentElement.style.scrollBehavior =
+            previousInlineScrollBehavior;
           startLenis();
           lenis?.resize();
           return;
@@ -1415,6 +1424,8 @@ export default function Home() {
       hashRestoreCancelled = true;
       hashRestoreFrames.forEach((frame) => window.cancelAnimationFrame(frame));
       window.history.scrollRestoration = previousScrollRestoration;
+      document.documentElement.style.scrollBehavior =
+        previousInlineScrollBehavior;
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
