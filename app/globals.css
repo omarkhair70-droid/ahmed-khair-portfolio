@@ -512,6 +512,10 @@ a {
     letter-spacing 420ms var(--ease);
 }
 
+.work-index__title-line {
+  display: inline;
+}
+
 .work-index__kind {
   justify-self: end;
   color: #716a62;
@@ -1238,7 +1242,7 @@ a:focus-visible {
   }
 
   .work-index__row {
-    min-height: 156px;
+    min-height: 170px;
     grid-template-columns: 28px minmax(0, 1fr) 18px;
     grid-template-rows: 1fr auto;
     gap: 8px 10px;
@@ -1262,10 +1266,15 @@ a:focus-visible {
   }
 
   .work-index__title {
+    display: block;
     white-space: normal;
-    font-size: clamp(46px, 13.6vw, 58px);
-    line-height: .86;
+    font-size: clamp(46px, 13.4vw, 57px);
+    line-height: .92;
     letter-spacing: -.018em;
+  }
+
+  .work-index__title-line {
+    display: block;
   }
 
   .work-index__kind {
