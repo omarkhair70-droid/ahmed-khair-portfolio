@@ -48,10 +48,19 @@ for (const testCase of [
   await page.waitForTimeout(350);
   const workVisibility = await page.locator("#work").evaluate((el) => {
     const rect = el.getBoundingClientRect();
-    return { top: rect.top, bottom: rect.bottom, height: innerHeight };
+    return {
+      top: rect.top,
+      bottom: rect.bottom,
+      height: innerHeight,
+      scrollY,
+      documentHeight: document.documentElement.scrollHeight,
+    };
   });
   if (workVisibility.bottom <= 0 || workVisibility.top >= workVisibility.height * 0.35) {
-    throw new Error("Work hash exists but target is not actually visible");
+    throw new Error(
+      "Work hash exists but target is not actually visible: " +
+        JSON.stringify(workVisibility),
+    );
   }
 
   await page.screenshot({
@@ -73,10 +82,19 @@ for (const testCase of [
   await page.waitForTimeout(350);
   const contactVisibility = await page.locator("#contact").evaluate((el) => {
     const rect = el.getBoundingClientRect();
-    return { top: rect.top, bottom: rect.bottom, height: innerHeight };
+    return {
+      top: rect.top,
+      bottom: rect.bottom,
+      height: innerHeight,
+      scrollY,
+      documentHeight: document.documentElement.scrollHeight,
+    };
   });
   if (contactVisibility.bottom <= 0 || contactVisibility.top >= contactVisibility.height * 0.45) {
-    throw new Error("Contact hash exists but target is not actually visible");
+    throw new Error(
+      "Contact hash exists but target is not actually visible: " +
+        JSON.stringify(contactVisibility),
+    );
   }
 
   await page.screenshot({
