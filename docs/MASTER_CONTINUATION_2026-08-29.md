@@ -4,10 +4,10 @@ Date: 2026-08-29
 Repository: `omarkhair70-droid/ahmed-khair-portfolio`
 Active branch: `portfolio/homepage-design-v2`
 Open PR: #2 — `Homepage design V2 — full motion art-direction pass`
-Current branch HEAD: `ed30c09a556eabe1e8dcaefcdf01289251d24291`
+H8 final code commit: `e2adfff94005172a2e0e10b1268097ee88662311`
+H8 closure log commit: `d8d5455a933e58ee45204cb83ea4cb03cb7fabe3`
+Latest validated H8 CI: SUCCESS — run `33248476947`
 H7 closure commit: `fb136d50f300ff09d9b346279fd8df8235ce5900`
-Latest validated H7 CI: SUCCESS — run `33247506743`
-Continuation-doc HEAD CI: queued at handoff — run `33247966350`
 Base branch: `main`
 
 This file is the continuation source for a new chat. Do not restart the project, redesign the site from scratch, or reopen already closed gates without a concrete regression or a stronger reference-backed reason.
@@ -394,6 +394,7 @@ H4 — Hero Media Motion ✅
 H5 — Hero Exit ✅
 H6 — Work Index Static Composition ✅
 H7 — Work Index Interaction ✅
+H8 — BOCH Scene ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -403,6 +404,9 @@ H6 closure source:
 
 H7 closure source:
 `docs/WORK_INDEX_H7_CLOSURE_LOG.md`
+
+H8 closure source:
+`docs/BOCH_H8_CLOSURE_LOG.md`
 
 ==================================================
 8. HERO — CLOSED BEHAVIOR
@@ -523,53 +527,54 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H8 — BOCH Scene**
+**H9 — EL SHAMADAN SCENE**
 
-Do NOT start H9 yet.
+H8 is CLOSED.
+Do NOT reopen H1–H8 without a concrete regression or stronger reference-backed reason.
+Do NOT start H10 yet.
 Do NOT start About.
 Do NOT start case-study routes.
 
-H8 must close all of these:
+H9 must close all of these:
 
 1. Re-check relevant reference behaviors:
-   - Ali Ali for dramatic work presentation / work becoming interface
-   - Diego Salas for restraint around dense artwork
-   - Alexandre Rochet only where continuous scene choreography helps
+   - Alexandre Rochet for page-as-sequence / authored visual progression
+   - O’shane Howard for imagery occupying the interface
+   - Diego Salas for restraint when finished artwork is already visually dense
 
-2. BOCH Static Composition
-   - strongest first project scene
-   - hero image hierarchy
-   - supporting image hierarchy
-   - title placement
-   - negative space
+2. Shamadan Static Composition
+   - clearly more energetic than BOCH
+   - strong warm/color identity
+   - hero artwork dominates first
+   - five selected assets must have a deliberate hierarchy
+   - no equal-size gallery rhythm
    - must work with all motion disabled
 
-3. BOCH Typography
-   - title scale
-   - labels/metadata
-   - no generic agency copy
-   - no text competing with artwork
+3. Shamadan Typography
+   - project title must remain readable without competing with campaign artwork
+   - metadata stays quiet
+   - no fake campaign/strategy/client claims
 
 4. Image Framing
    - preserve original artwork
-   - do not crop important product/composition details
-   - supporting images must have clear hierarchy
+   - no destructive crop of product, logo, Arabic type, or composition
+   - supporting images must have distinct scale/role
 
-5. Work Index -> BOCH Entry
-   - interaction should feel connected
-   - avoid “index ends / new section begins” hard cut
-   - if a shared-image-like transition can materially improve it, investigate/build it
+5. BOCH -> Shamadan Entry
+   - continue directly from the H8 warm exit boundary
+   - do not restart the page visually
+   - mechanical/control should give way to warmer, faster visual energy
 
-6. BOCH Scroll Choreography
+6. Shamadan Scroll Choreography
+   - more lively than BOCH but still controlled
+   - layered image rhythm may move at different rates
    - structural motion first
-   - supporting media can move at different rates
-   - no endless parallax
-   - no decorative motion without purpose
+   - no decorative chaos or endless parallax
 
-7. BOCH -> Shamadan Exit
-   - create a designed handoff
-   - BOCH dark/industrial atmosphere should transform into Shamadan warmth/energy
-   - do not fully design H9; only build H8’s exit boundary
+7. Shamadan -> Criminal Exit
+   - close only H9's exit boundary
+   - energy/color should resolve into the near-black, slower Criminal pause
+   - do not fully design H10 yet
 
 8. Desktop
    - 1440
@@ -579,7 +584,7 @@ H8 must close all of these:
    - 390
    - 360
    - independent composition
-   - no pointer dependencies
+   - no pointer dependency
 
 10. Real QA
    - static captures
@@ -587,9 +592,12 @@ H8 must close all of these:
    - full-page regression capture
    - motion capture
    - compare against brief/reference behaviors
-   - list deltas
-   - fix
-   - H8 CLOSED
+   - list exact deltas
+   - fix only those deltas
+   - H9 CLOSED
+
+Only after H9 truly passes:
+create `docs/SHAMADAN_H9_CLOSURE_LOG.md`.
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -644,6 +652,7 @@ Read these before continuing:
 - `docs/HERO_CLOSURE_LOG.md`
 - `docs/WORK_INDEX_H6_CLOSURE_LOG.md`
 - `docs/WORK_INDEX_H7_CLOSURE_LOG.md`
+- `docs/BOCH_H8_CLOSURE_LOG.md`
 
 Do not trust an older plan over these final docs.
 
@@ -660,8 +669,11 @@ Open PR:
 Base:
 `main`
 
-Current HEAD:
-`ed30c09a556eabe1e8dcaefcdf01289251d24291`
+Latest closed implementation:
+`e2adfff94005172a2e0e10b1268097ee88662311`
+
+H8 closure log commit:
+`d8d5455a933e58ee45204cb83ea4cb03cb7fabe3`
 
 H7 closure commit:
 `fb136d50f300ff09d9b346279fd8df8235ce5900`
@@ -670,7 +682,7 @@ Do NOT merge PR #2 yet.
 
 Reason:
 Home is not closed.
-H8–H14 remain.
+H9–H14 remain.
 
 Merge only after:
 - Desktop visual closure
@@ -724,20 +736,21 @@ Do NOT restart research from zero.
 
 Start with:
 
-**H8 — BOCH Scene**
+**H9 — EL SHAMADAN SCENE**
 
 First:
 1. inspect current active branch
 2. read the final source-of-truth docs listed above
-3. inspect current BOCH markup/CSS/motion
-4. visually re-check the relevant reference behaviors
-5. inspect the real BOCH selected assets
-6. perform H8 static-composition audit before adding new motion
-7. implement the H8 layers
-8. render desktop/mobile
-9. visually inspect with real captures
-10. fix deltas
-11. write `docs/BOCH_H8_CLOSURE_LOG.md` only when H8 truly passes
+3. read `docs/BOCH_H8_CLOSURE_LOG.md`
+4. inspect current Shamadan markup/CSS/motion
+5. re-check the relevant reference behaviors
+6. inspect the five selected Shamadan assets
+7. perform H9 static-composition audit before adding new motion
+8. implement H9 layers
+9. render 1440 / 1280 / 390 / 360
+10. visually inspect real static and motion captures
+11. fix exact deltas only
+12. write `docs/SHAMADAN_H9_CLOSURE_LOG.md` only when H9 truly passes
 
 The new chat should continue execution, not explain the project back to the user unless asked.
 
@@ -745,4 +758,4 @@ The new chat should continue execution, not explain the project back to the user
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H7 CLOSED. NEXT = H8 BOCH SCENE. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H8 CLOSED. NEXT = H9 EL SHAMADAN SCENE. PR #2 OPEN. DO NOT MERGE.**
