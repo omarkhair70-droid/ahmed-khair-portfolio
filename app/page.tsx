@@ -1347,9 +1347,13 @@ export default function Home() {
       // inherit that smooth animation and leave the target mid-transition.
       document.documentElement.style.scrollBehavior = "auto";
 
-      // Native scrolling is deterministic while ScrollTrigger is rebuilding
-      // pin spacing. Lenis is restarted only after the target is aligned.
+      // Browser hash navigation happens before React and lands on the
+      // pre-pin document offset. Reset to the top first so ScrollTrigger
+      // measures Hero pin spacing from a stable scroll state, then align to
+      // the final target position.
       stopLenis();
+      window.scrollTo({ top: 0, behavior: "auto" });
+      ScrollTrigger.update();
       ScrollTrigger.refresh();
 
       const align = (attempt = 0) => {
