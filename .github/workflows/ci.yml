@@ -71,6 +71,9 @@ jobs:
       - name: Capture Coffee H11 focused QA
         run: node scripts/capture-coffee-h11.mjs
 
+      - name: Capture About H12 focused QA
+        run: node scripts/capture-about-h12.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -124,5 +127,13 @@ jobs:
         with:
           name: homepage-coffee-h11
           path: artifacts/coffee-h11
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About H12 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-about-h12
+          path: artifacts/about-h12
           if-no-files-found: error
           retention-days: 7
