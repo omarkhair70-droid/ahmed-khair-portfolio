@@ -1318,8 +1318,7 @@ a {
 .criminal-frame,
 .criminal-frame img,
 .criminal-stage__alternate > p,
-.criminal-exit__meta > *,
-.criminal-exit__next {
+.criminal-exit__meta > *, {
   will-change: transform, opacity, clip-path;
 }
 
@@ -2632,13 +2631,6 @@ a:focus-visible {
     font-size: 7px;
   }
 
-  .boch-exit__title {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    font-size: clamp(38px, 11.4vw, 48px);
-    line-height: .78;
-  }
-
   .boch-exit__copy > span:first-child {
     grid-column: 1;
     grid-row: 2;
@@ -2935,9 +2927,7 @@ a:focus-visible {
   .criminal-exit__meta {
     width: 100%;
     font-size: 7px;
-  }
-
-  .criminal-exit__next {
+  } {
     max-width: 78%;
     font-size: clamp(24px, 7.4vw, 30px);
     line-height: .82;
@@ -3536,7 +3526,6 @@ a:focus-visible {
   .criminal-frame img,
   .criminal-stage__alternate > p,
   .criminal-exit__meta > *,
-  .criminal-exit__next,
   .coffee-stage__meta > *,
   .coffee-stage__title span,
   .coffee-stage__copy,
