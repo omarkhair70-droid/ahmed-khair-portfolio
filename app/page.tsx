@@ -329,7 +329,6 @@ export default function Home() {
         </div>
 
         <div className="contact-links">
-          <a href="mailto:ahmedkhairdesign@gmail.com">Email</a>
           <a
             href="https://www.behance.net/ahmedkhairgemy"
             target="_blank"
@@ -337,6 +336,7 @@ export default function Home() {
           >
             Behance
           </a>
+          <a href="#work">Selected work</a>
         </div>
 
         <div className="contact-bottom">
