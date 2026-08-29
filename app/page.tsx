@@ -1514,35 +1514,48 @@ export default function Home() {
         className="scene scene--coffee"
         aria-labelledby="coffee-title"
       >
-        <div className="scene__chrome scene__chrome--coffee">
-          <p className="scene__meta">04 / Compact Campaign</p>
-          <h2 id="coffee-title" className="scene__title">
-            ABD ALLAL
-            <br />
-            COFFEE
+        <div className="coffee-stage">
+          <p className="coffee-stage__meta">
+            <span>04</span>
+            <span>Compact Campaign</span>
+          </p>
+
+          <h2 id="coffee-title" className="coffee-stage__title">
+            <span>ABD ALLAL</span>
+            <span>COFFEE</span>
           </h2>
-          <p className="scene__caption">
-            A warm reset. Two images, intentionally kept compact.
+
+          <p className="coffee-stage__copy">
+            Two selected campaign visuals.
+          </p>
+
+          <figure className="coffee-frame coffee-frame--hero">
+            <img
+              src="/images/abd-allal/hero.webp"
+              alt="Abd Allal Coffee campaign hero visual"
+            />
+            <figcaption>
+              <span>Primary visual</span>
+              <span>01 / 02</span>
+            </figcaption>
+          </figure>
+
+          <figure className="coffee-frame coffee-frame--support">
+            <img
+              src="/images/abd-allal/support.webp"
+              alt="Abd Allal Coffee supporting campaign visual"
+            />
+            <figcaption>
+              <span>Supporting visual</span>
+              <span>02 / 02</span>
+            </figcaption>
+          </figure>
+
+          <p className="coffee-stage__close">
+            <span>Selected work ends here.</span>
+            <span>Next / Ahmed Khair</span>
           </p>
         </div>
-
-        <figure className="scene__primary scene__primary--coffee">
-          <img
-            src="/images/abd-allal/hero.webp"
-            alt="Abd Allal Coffee campaign hero visual"
-          />
-        </figure>
-
-        <figure className="scene__accent scene__accent--coffee">
-          <img
-            src="/images/abd-allal/support.webp"
-            alt="Abd Allal Coffee supporting visual"
-          />
-        </figure>
-
-        <p className="scene__oversize scene__oversize--coffee" aria-hidden="true">
-          WARMTH
-        </p>
       </section>
 
       <section id="about" className="about" aria-labelledby="about-title">
