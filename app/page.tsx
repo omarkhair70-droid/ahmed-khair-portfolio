@@ -1311,23 +1311,39 @@ export default function Home() {
     window.addEventListener("pointermove", move, { passive: true });
 
     const initialHash = window.location.hash;
-    const hashRestoreTimer = window.setTimeout(() => {
+    const previousScrollRestoration = window.history.scrollRestoration;
+
+    const restoreInitialHash = () => {
       if (!initialHash) return;
 
       const destination = document.querySelector<HTMLElement>(initialHash);
       if (!destination) return;
 
+      const top = destination.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({ top, behavior: "auto" });
+
       if (lenis) {
-        lenis.scrollTo(destination, {
+        lenis.scrollTo(top, {
           immediate: true,
           force: true,
         });
-      } else {
-        destination.scrollIntoView({ behavior: "auto", block: "start" });
       }
 
       ScrollTrigger.update();
-    }, 120);
+    };
+
+    if (initialHash) {
+      window.history.scrollRestoration = "manual";
+      restoreInitialHash();
+    }
+
+    const hashRestoreTimers = initialHash
+      ? [
+          window.setTimeout(restoreInitialHash, 80),
+          window.setTimeout(restoreInitialHash, 360),
+        ]
+      : [];
 
     return () => {
       rows.forEach((row) => {
@@ -1339,7 +1355,8 @@ export default function Home() {
         row.removeEventListener("click", openProjectScene);
       });
       mobileTriggers.forEach((trigger) => trigger.kill());
-      window.clearTimeout(hashRestoreTimer);
+      hashRestoreTimers.forEach((timer) => window.clearTimeout(timer));
+      window.history.scrollRestoration = previousScrollRestoration;
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
