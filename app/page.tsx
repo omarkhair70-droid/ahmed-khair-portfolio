@@ -1088,6 +1088,60 @@ export default function Home() {
         );
       }
 
+      const contactSection = document.querySelector<HTMLElement>(".contact");
+      if (contactSection) {
+        gsap.from(".contact-meta > *", {
+          y: 10,
+          opacity: 0,
+          stagger: 0.06,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact",
+            start: "top 78%",
+            end: "top 55%",
+            scrub: 0.76,
+          },
+        });
+
+        gsap.from(".contact-title span", {
+          yPercent: 16,
+          opacity: 0.22,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact-title",
+            start: "top 88%",
+            end: "center 56%",
+            scrub: 0.96,
+          },
+        });
+
+        gsap.from(".contact-primary", {
+          y: 16,
+          opacity: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact-primary",
+            start: "top 94%",
+            end: "top 78%",
+            scrub: 0.82,
+          },
+        });
+
+        gsap.from(".contact-nav > *", {
+          y: 10,
+          opacity: 0,
+          stagger: 0.05,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact-nav",
+            start: "top 96%",
+            end: "top 82%",
+            scrub: 0.72,
+          },
+        });
+      }
+
     }, root);
 
     const heroEl = document.querySelector<HTMLElement>(".hero");
