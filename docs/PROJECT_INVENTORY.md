@@ -1,5 +1,7 @@
 # Ahmed Khair Portfolio — Behance Project Inventory
 
+> **Final visual curation override:** the source images have now been reviewed. `docs/VISUAL_ASSET_SELECTION_FINAL.md` is the source of truth for V1 homepage/case-study inclusion and overrides the provisional Strong / Medium / Drop labels below where they differ.
+
 Source profile: https://www.behance.net/ahmedkhairgemy
 
 ## Positioning hypothesis
