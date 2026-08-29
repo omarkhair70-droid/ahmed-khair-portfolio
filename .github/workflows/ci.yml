@@ -59,6 +59,9 @@ jobs:
       - name: Capture About A8 motion QA
         run: node scripts/capture-about-a8-motion.mjs
 
+      - name: Capture About A9 navigation QA
+        run: node scripts/capture-about-a9-navigation.mjs
+
       - name: Upload About A3 desktop QA
         uses: actions/upload-artifact@v4
         with:
@@ -80,6 +83,14 @@ jobs:
         with:
           name: about-a8-motion
           path: artifacts/about-a8-motion
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About A9 navigation QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a9-navigation
+          path: artifacts/about-a9-navigation
           if-no-files-found: error
           retention-days: 7
 
