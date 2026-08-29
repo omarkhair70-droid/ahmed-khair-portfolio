@@ -4,9 +4,10 @@ Date: 2026-08-29
 Repository: `omarkhair70-droid/ahmed-khair-portfolio`
 Active branch: `portfolio/homepage-design-v2`
 Open PR: #2 — `Homepage design V2 — full motion art-direction pass`
-Current branch HEAD: `fb136d50f300ff09d9b346279fd8df8235ce5900`
-Latest CI on current HEAD: SUCCESS
-Latest CI run: `33247506743`
+Current branch HEAD: `ed30c09a556eabe1e8dcaefcdf01289251d24291`
+H7 closure commit: `fb136d50f300ff09d9b346279fd8df8235ce5900`
+Latest validated H7 CI: SUCCESS — run `33247506743`
+Continuation-doc HEAD CI: queued at handoff — run `33247966350`
 Base branch: `main`
 
 This file is the continuation source for a new chat. Do not restart the project, redesign the site from scratch, or reopen already closed gates without a concrete regression or a stronger reference-backed reason.
@@ -507,13 +508,16 @@ H7 exact implementation commit:
 H7 QA harness validation:
 `7aa68c1c9f7589237d2d2862e44c1a55a380066f`
 
-H7 closure commit / CURRENT BRANCH HEAD:
+H7 closure commit:
 `fb136d50f300ff09d9b346279fd8df8235ce5900`
 
-Latest CI on that HEAD:
+Latest validated H7 CI:
 SUCCESS
 Run:
 `33247506743`
+
+Current branch HEAD after adding this continuation doc:
+`ed30c09a556eabe1e8dcaefcdf01289251d24291`
 
 ==================================================
 11. CURRENT NEXT GATE — START HERE
@@ -657,6 +661,9 @@ Base:
 `main`
 
 Current HEAD:
+`ed30c09a556eabe1e8dcaefcdf01289251d24291`
+
+H7 closure commit:
 `fb136d50f300ff09d9b346279fd8df8235ce5900`
 
 Do NOT merge PR #2 yet.
