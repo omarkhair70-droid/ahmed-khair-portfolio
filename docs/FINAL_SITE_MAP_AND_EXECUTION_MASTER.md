@@ -171,17 +171,17 @@ Motion:
 - ScrollTrigger
 - Lenis
 
-Visual effects:
-- CSS for layout, typography, masks, responsive work
-- PixiJS only if one specific approved transition truly needs canvas
-- no Three.js / 3D by default
-- no WebGL gimmick
-- no scroll hijack
+Visual / interaction technology:
+- CSS remains the default for layout, typography, masks and responsive composition.
+- PixiJS, Three.js, WebGL, shaders, canvas, WebGPU, image processing, custom renderers, or any other library/technique are all allowed when a specific approved visual or interaction requires them.
+- We do not reject a technology because it is "too advanced", and we do not add one merely to decorate the stack.
+- Technology is chosen after the visual target is clear.
+- If a reference behavior needs investigation, inspect how it is built and use the appropriate tool/library or build our own equivalent.
+- Smooth scrolling, transitions, cursor systems, direct manipulation, drag/pan, shared-element-like page transitions and other interaction patterns are all valid when they serve the design.
+- Mobile receives its own interaction model where pointer behavior does not translate.
 
-Interaction:
-- custom action cursor only where it communicates something
-- hover / image-follow only where meaningful
-- mobile gets its own touch interaction design
+Principle:
+**No artificial V1/V2 technology ceiling. This is a portfolio for a real person and should be built with the level of craft required by the final design.**
 
 ---
 
