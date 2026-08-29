@@ -12,6 +12,7 @@ const projects = [
     id: "boch",
     number: "01",
     title: "BOCH Motor",
+    titleLines: ["BOCH Motor"],
     kind: "Campaign",
     preview: "/images/boch/hero.webp",
   },
@@ -19,6 +20,7 @@ const projects = [
     id: "shamadan",
     number: "02",
     title: "El Shamadan",
+    titleLines: ["El Shamadan"],
     kind: "Campaign",
     preview: "/images/shamadan/hero.webp",
   },
@@ -26,6 +28,7 @@ const projects = [
     id: "criminal",
     number: "03",
     title: "Criminal Anbr 6",
+    titleLines: ["Criminal", "Anbr 6"],
     kind: "Film Poster Study",
     preview: "/images/criminal-anbr-6/hero.webp",
   },
@@ -33,6 +36,7 @@ const projects = [
     id: "coffee",
     number: "04",
     title: "Abd Allal Coffee",
+    titleLines: ["Abd Allal", "Coffee"],
     kind: "Compact Campaign",
     preview: "/images/abd-allal/hero.webp",
   },
@@ -587,7 +591,14 @@ export default function Home() {
               <span className="work-index__number">{project.number}</span>
 
               <span className="work-index__title-wrap">
-                <span className="work-index__title">{project.title}</span>
+                <span className="work-index__title">
+                  {project.titleLines.map((line, lineIndex) => (
+                    <span className="work-index__title-line" key={line}>
+                      {line}
+                      {lineIndex < project.titleLines.length - 1 ? " " : ""}
+                    </span>
+                  ))}
+                </span>
               </span>
 
               <span className="work-index__kind">{project.kind}</span>
