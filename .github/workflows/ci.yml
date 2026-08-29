@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - portfolio/homepage-pass-01
+      - portfolio/homepage-design-v2
   pull_request:
 
 permissions:
