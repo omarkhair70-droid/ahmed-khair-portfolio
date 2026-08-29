@@ -399,6 +399,7 @@ H9 — El Shamadan Scene ✅
 H10 — Criminal Anbr 6 Scene ✅
 H11 — Abd Allal Coffee Scene ✅
 H12 — About / Human Moment ✅
+H13 — Contact / Closing Frame ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -423,6 +424,16 @@ H11 closure source:
 
 H12 closure source:
 `docs/ABOUT_H12_CLOSURE_LOG.md`
+
+H13 closure source:
+`docs/CONTACT_H13_CLOSURE_LOG.md`
+
+Final H13 validated CI:
+SUCCESS
+Run:
+`33254663124`
+Head:
+`ae7e8fa882f0311ba7d101e265fa6d1579402375`
 
 Final H12 validated CI:
 SUCCESS
@@ -568,70 +579,93 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H13 — CONTACT / CLOSING FRAME**
+**H14 — FULL HOMEPAGE INTEGRATION PASS**
 
-H12 is CLOSED.
-Do NOT reopen H1–H12 without a concrete regression or a reference-backed global-integration reason.
-Do NOT start H14 until H13 closes.
-Do NOT start dedicated /about or project case-study routes yet.
+H13 is CLOSED.
+This is NOT a new section.
+Do NOT redesign H1–H13 wholesale.
+Do NOT start dedicated /about or project work pages until H14 closes.
 
-H13 must close all of these:
+H14 must judge the full Home as one continuous directed sequence.
 
-1. Re-check the locked closing-frame brief/reference roles:
-   - D Alcausin for concise “Let's Talk” / direct conversation hierarchy
-   - Ali Ali for minimal navigation and confident ending
-   - global North Star: end like the final frame of a directed sequence, not a standard website footer
+Mandatory H14 scope:
 
-2. Static Closing Composition
-   - current prototype `MAKE IT / WORTH / LOOKING AT.` is only a baseline
-   - decide whether it still earns its scale after H12
-   - strong final typography
-   - real link hierarchy
-   - Back to Work / Back to Top
-   - Behance / contact only where verified
-   - no generic multi-column corporate footer
+1. Re-open the post-H10 checkpoint:
+   - `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
+   - explicitly resolve or accept every locked global delta
 
-3. About -> Contact Entry
-   - person should hand off naturally into invitation/contact
-   - avoid a fresh “new chapter” feeling
-   - use continuity in paper/value/type rather than another giant transition block
+2. Third/final reference comparison:
+   - Ali Ali / Alitwotimes
+   - D Alcausin
+   - Alexandre Rochet
+   - O'shane Howard
+   - Diego Salas
+   - compare behavior/rhythm/clarity, not superficial layout copying
 
-4. Copy
-   - concise
-   - no fake availability claims
-   - no fake email/address/social account
-   - use only verified links/content already in repo
-
-5. Motion
-   - final end-title movement only
-   - one closing gesture, not a new animation showcase
-   - Back to Top must work
-   - reduced motion must remain complete
-
-6. Desktop
+3. Full-page static review:
    - 1440
    - 1280
-
-7. Mobile
    - 390
    - 360
-   - closing line must fit without destructive clipping
-   - links must remain usable
+   - inspect Hero -> Work -> BOCH -> Shamadan -> Criminal -> Coffee -> About -> Contact as one composition
 
-8. Real QA
-   - static captures
-   - focused section capture
-   - full-page regression capture
-   - motion capture
-   - compare against brief/reference roles
-   - list exact deltas
-   - fix only those deltas
-   - H13 CLOSED
+4. Global pacing delta:
+   - identify dead vertical travel
+   - identify chapter-like repetition
+   - especially BOCH / Shamadan cumulative travel
+   - compress only where a new visual fact arrives too late
+   - preserve useful negative space
 
-Only after H13 truly passes:
-create `docs/CONTACT_H13_CLOSURE_LOG.md`.
+5. Transition continuity:
+   - Hero -> Work
+   - Work -> BOCH
+   - BOCH -> Shamadan
+   - Shamadan -> Criminal
+   - Criminal -> Coffee
+   - Coffee -> About
+   - About -> Contact
+   - remove duplicated “next project” announcements when they create chapter repetition
 
-Then begin H14 — FULL HOMEPAGE INTEGRATION PASS.
+6. Typography / copy:
+   - re-check display hierarchy across the whole page
+   - remove explanatory copy where imagery already carries meaning
+   - audit smallest recurring microcopy on 390 / 360
+   - do not add a third font family
+
+7. Motion hierarchy:
+   - structural > responsive > atmospheric
+   - check cumulative scroll-linked motion time
+   - eliminate empty scroll, not useful stillness
+   - reduced motion must remain complete
+
+8. Interaction / usability:
+   - desktop pointer behavior
+   - mobile touch behavior
+   - anchors
+   - focus-visible
+   - no horizontal overflow
+   - no hidden navigation puzzle
+
+9. Performance / implementation:
+   - build
+   - typecheck
+   - image integrity
+   - no accidental crop regressions
+   - no unnecessary new library
+   - no Pixi / Three / WebGL unless a concrete unresolved need appears
+
+10. Final visual evidence:
+   - full-page desktop/mobile captures
+   - full motion captures
+   - focused regression artifacts
+   - final integration-specific metrics / captures
+   - exact deltas -> fixes -> re-render
+
+11. H14 closure verdict:
+   - HOME CLOSED only if the page reads as one authored film in static and motion
+   - write `docs/HOMEPAGE_H14_FINAL_INTEGRATION_LOG.md`
+   - keep PR #2 open until H14 passes
+   - only then decide final V1 route strategy / which project work pages are actually justified by the reference set
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -717,7 +751,7 @@ Do NOT merge PR #2 yet.
 
 Reason:
 Home is not closed.
-H13–H14 remain.
+H14 remains.
 
 Merge only after:
 - Desktop visual closure
@@ -767,32 +801,30 @@ Current repo names are corrected to .webp.
 ==================================================
 
 Do NOT ask the user what to do next.
-Do NOT restart research from zero.
+Do NOT restart section design.
 
 Start with:
 
-**H13 — CONTACT / CLOSING FRAME**
+**H14 — FULL HOMEPAGE INTEGRATION PASS**
 
 First:
-1. inspect current active branch
-2. read the final source-of-truth docs
-3. read `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
-4. read `docs/ABOUT_H12_CLOSURE_LOG.md`
-5. inspect current Contact markup/CSS/motion
-6. re-check D Alcausin / Ali Ali closing hierarchy roles
-7. perform H13 static-composition audit before adding motion
-8. rebuild the final frame only if the existing prototype does not meet the brief
-9. render 1440 / 1280 / 390 / 360
-10. visually inspect static and motion captures
-11. fix exact deltas only
-12. write `docs/CONTACT_H13_CLOSURE_LOG.md` only when H13 truly passes
+1. inspect current branch head
+2. read `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
+3. read H8–H13 closure logs
+4. download/open the latest full-page visuals and motion artifacts
+5. compare the full Home against all five primary references again
+6. create a concrete global delta list
+7. fix only global integration deltas
+8. render 1440 / 1280 / 390 / 360 again
+9. inspect full static + motion evidence visually
+10. run integration-specific QA
+11. write `docs/HOMEPAGE_H14_FINAL_INTEGRATION_LOG.md` only when Home truly passes
 
-After H13 closes:
-begin H14 full homepage integration.
-H14 must explicitly revisit the post-H10 full-page rhythm delta.
+The known highest-priority delta is:
+**long chapter-like pacing inside BOCH / Shamadan when viewed as one full page.**
 
 ==================================================
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H12 CLOSED. NEXT = H13 CONTACT / CLOSING FRAME. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H13 CLOSED. NEXT = H14 FULL HOMEPAGE INTEGRATION. PR #2 OPEN. DO NOT MERGE.**
