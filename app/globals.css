@@ -4297,3 +4297,48 @@ a:focus-visible {
     font-size: 72px;
   }
 }
+
+
+/* About Page — A8 motion targets */
+
+.about-page-hero__meta > *,
+.about-page-hero__title span,
+.about-page-portrait__field,
+.about-page-portrait__image,
+.about-page-portrait figcaption > *,
+.about-page-hero__statement > *,
+.about-page-hero__index,
+.about-page-practice__head > *,
+.about-page-practice__title span,
+.about-page-practice__copy,
+.about-page-craft__head > *,
+.about-page-craft__list p,
+.about-page-work,
+.about-page-end__meta > *,
+.about-page-end__behance > *,
+.about-page-end__nav a {
+  will-change: transform, opacity, clip-path;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page-hero__meta > *,
+  .about-page-hero__title span,
+  .about-page-portrait__field,
+  .about-page-portrait__image,
+  .about-page-portrait figcaption > *,
+  .about-page-hero__statement > *,
+  .about-page-hero__index,
+  .about-page-practice__head > *,
+  .about-page-practice__title span,
+  .about-page-practice__copy,
+  .about-page-craft__head > *,
+  .about-page-craft__list p,
+  .about-page-work,
+  .about-page-end__meta > *,
+  .about-page-end__behance > *,
+  .about-page-end__nav a {
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}
