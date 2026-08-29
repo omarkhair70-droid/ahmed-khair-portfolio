@@ -934,15 +934,6 @@ a {
   justify-self: end;
 }
 
-.boch-exit__title {
-  color: #f0d4bf;
-  font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(52px, 5.6vw, 88px);
-  line-height: .76;
-  letter-spacing: -.022em;
-  white-space: nowrap;
-}
-
 /* Shamadan — H9 authored static sequence */
 
 .scene--shamadan {
@@ -1396,18 +1387,6 @@ a {
   line-height: 1;
   letter-spacing: .16em;
   text-transform: uppercase;
-}
-
-.criminal-exit__next {
-  grid-column: 1 / 2;
-  align-self: end;
-  max-width: 760px;
-  margin: 0;
-  color: #c5ab94;
-  font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(24px, 2.7vw, 42px);
-  line-height: .82;
-  letter-spacing: -.012em;
 }
 
 /* Coffee — H11 compact warm reset */
@@ -3202,6 +3181,316 @@ a:focus-visible {
   .contact-nav > *:nth-child(even) {
     justify-self: end;
     text-align: right;
+  }
+}
+
+/* H14 — full-page integration deltas */
+
+@media (min-width: 701px) {
+  .boch-entry {
+    min-height: 340px;
+    height: 38vh;
+    padding-bottom: 30px;
+  }
+
+  .boch-head {
+    min-height: 60vh;
+    padding-top: 9vh;
+    padding-bottom: 7vh;
+  }
+
+  .boch-frame--hero {
+    margin-top: 6vh;
+  }
+
+  .boch-act--cinematic {
+    padding-top: 20vh;
+  }
+
+  .boch-act--pair {
+    min-height: 100vh;
+    padding-top: 18vh;
+    padding-bottom: 10vh;
+  }
+
+  .boch-frame--context {
+    margin-top: 7vh;
+  }
+
+  .boch-frame--support {
+    margin-top: 20vh;
+  }
+
+  .boch-exit {
+    min-height: 420px;
+    height: 48vh;
+    margin-top: 4vh;
+  }
+
+  .boch-exit__copy {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .boch-exit__copy > span:last-child {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .shamadan-head {
+    min-height: 56vh;
+    padding-top: 10vh;
+    padding-bottom: 6vh;
+  }
+
+  .shamadan-hero-stage {
+    min-height: 104vh;
+    padding-top: 9vh;
+    padding-bottom: 9vh;
+  }
+
+  .shamadan-act--premium {
+    min-height: 108vh;
+    padding-top: 16vh;
+    padding-bottom: 12vh;
+  }
+
+  .shamadan-act--light {
+    min-height: 100vh;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+  }
+
+  .shamadan-act--pair {
+    min-height: 112vh;
+    padding-top: 15vh;
+    padding-bottom: 12vh;
+  }
+
+  .shamadan-frame--family {
+    margin-top: 8vh;
+  }
+
+  .shamadan-frame--playful {
+    margin-top: 22vh;
+  }
+
+  .shamadan-exit {
+    min-height: 54vh;
+    padding-top: 9vh;
+    padding-bottom: 7vh;
+  }
+
+  .shamadan-exit__line {
+    height: 20vh;
+  }
+
+  .criminal-head {
+    min-height: 64vh;
+    padding-top: 12vh;
+    padding-bottom: 8vh;
+  }
+
+  .criminal-stage {
+    min-height: 136vh;
+    padding-top: 12vh;
+    padding-bottom: 15vh;
+  }
+
+  .criminal-stage__label {
+    margin-top: 8vh;
+  }
+
+  .criminal-stage__alternate {
+    margin-top: 18vh;
+  }
+
+  .criminal-exit {
+    min-height: 46vh;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 9vh;
+    padding-bottom: 7vh;
+  }
+
+  .criminal-exit__meta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .boch-entry {
+    min-height: 220px;
+    height: 28vh;
+    padding-bottom: 20px;
+  }
+
+  .boch-head {
+    padding-top: 54px;
+    padding-bottom: 42px;
+  }
+
+  .boch-head__meta {
+    margin-bottom: 26px;
+  }
+
+  .boch-head__copy {
+    margin-top: 28px;
+  }
+
+  .boch-frame--hero {
+    margin-top: 32px;
+  }
+
+  .boch-act--cinematic {
+    padding-top: 82px;
+  }
+
+  .boch-act--pair {
+    padding-top: 92px;
+    padding-bottom: 54px;
+  }
+
+  .boch-frame--context {
+    margin-top: 42px;
+  }
+
+  .boch-frame--support {
+    margin-top: 32px;
+  }
+
+  .boch-exit {
+    min-height: 300px;
+    height: 38vh;
+    margin-top: 24px;
+  }
+
+  .boch-exit__copy {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0;
+  }
+
+  .boch-exit__copy > span:first-child,
+  .boch-exit__copy > span:last-child {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .shamadan-head {
+    min-height: 380px;
+    padding-top: 64px;
+    padding-bottom: 44px;
+  }
+
+  .shamadan-head__meta {
+    margin-bottom: 28px;
+  }
+
+  .shamadan-head__copy {
+    margin-top: 24px;
+  }
+
+  .shamadan-hero-stage {
+    padding-top: 54px;
+    padding-bottom: 82px;
+  }
+
+  .shamadan-act--premium {
+    padding-top: 86px;
+    padding-bottom: 90px;
+  }
+
+  .shamadan-act--light {
+    padding-top: 84px;
+    padding-bottom: 88px;
+  }
+
+  .shamadan-act--pair {
+    padding-top: 90px;
+    padding-bottom: 82px;
+  }
+
+  .shamadan-frame--family {
+    margin-top: 44px;
+  }
+
+  .shamadan-frame--playful {
+    margin-top: 38px;
+  }
+
+  .shamadan-exit {
+    min-height: 380px;
+    padding-top: 64px;
+    padding-bottom: 48px;
+  }
+
+  .shamadan-exit__line {
+    height: 170px;
+  }
+
+  .criminal-head {
+    min-height: 540px;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .criminal-head__meta {
+    margin-bottom: 120px;
+  }
+
+  .criminal-stage {
+    padding-top: 72px;
+    padding-bottom: 96px;
+  }
+
+  .criminal-stage__label {
+    margin-bottom: 36px;
+  }
+
+  .criminal-stage__alternate {
+    margin-top: 82px;
+  }
+
+  .criminal-exit {
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 66px;
+    padding-bottom: 44px;
+  }
+
+  .criminal-exit__meta {
+    width: 100%;
+  }
+
+  .work-index__label,
+  .work-index__number,
+  .work-index__kind,
+  .boch-entry p,
+  .boch-head__meta,
+  .boch-head__copy p:last-child,
+  .boch-frame figcaption,
+  .boch-act__copy span,
+  .boch-exit__copy,
+  .shamadan-head__meta,
+  .shamadan-frame figcaption,
+  .shamadan-act__copy > span,
+  .shamadan-exit,
+  .criminal-head__meta,
+  .criminal-stage__label,
+  .criminal-frame figcaption,
+  .criminal-stage__alternate > p,
+  .criminal-exit__meta,
+  .coffee-stage__meta,
+  .coffee-frame figcaption,
+  .coffee-stage__close,
+  .about-entry,
+  .about-kicker,
+  .about-portrait figcaption,
+  .about-capabilities > p,
+  .about-location span,
+  .contact-meta,
+  .contact-nav {
+    font-size: 8px;
   }
 }
 
