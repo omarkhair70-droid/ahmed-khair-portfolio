@@ -1405,9 +1405,9 @@ a {
   margin: 0;
   color: #c5ab94;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(52px, 6.4vw, 98px);
-  line-height: .76;
-  letter-spacing: -.024em;
+  font-size: clamp(24px, 2.7vw, 42px);
+  line-height: .82;
+  letter-spacing: -.012em;
 }
 
 /* Coffee — H11 compact warm reset */
@@ -2805,8 +2805,8 @@ a:focus-visible {
 
   .criminal-exit__next {
     max-width: 78%;
-    font-size: clamp(42px, 13.2vw, 54px);
-    line-height: .78;
+    font-size: clamp(24px, 7.4vw, 30px);
+    line-height: .82;
   }
 }
 
