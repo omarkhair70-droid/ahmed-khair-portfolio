@@ -1020,6 +1020,15 @@ a {
   object-fit: contain;
 }
 
+.shamadan-head__title span,
+.shamadan-frame,
+.shamadan-act__copy,
+.shamadan-exit__line,
+.shamadan-exit__top > *,
+.shamadan-exit__bottom {
+  will-change: transform, opacity;
+}
+
 .shamadan-frame figcaption {
   display: flex;
   justify-content: space-between;
@@ -2420,6 +2429,15 @@ a:focus-visible {
   .boch-act__copy,
   .boch-exit__wash,
   .boch-exit__copy > *,
+  .shamadan-head__meta > *,
+  .shamadan-head__copy,
+  .shamadan-head__title span,
+  .shamadan-frame,
+  .shamadan-frame img,
+  .shamadan-act__copy,
+  .shamadan-exit__line,
+  .shamadan-exit__top > *,
+  .shamadan-exit__bottom,
   .scene__primary,
   .scene__accent,
   .scene__title,
