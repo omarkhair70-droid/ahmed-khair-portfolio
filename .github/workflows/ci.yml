@@ -74,6 +74,9 @@ jobs:
       - name: Capture About H12 focused QA
         run: node scripts/capture-about-h12.mjs
 
+      - name: Capture Contact H13 focused QA
+        run: node scripts/capture-contact-h13.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -135,5 +138,13 @@ jobs:
         with:
           name: homepage-about-h12
           path: artifacts/about-h12
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Contact H13 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-contact-h13
+          path: artifacts/contact-h13
           if-no-files-found: error
           retention-days: 7
