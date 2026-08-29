@@ -150,6 +150,33 @@ export default function Home() {
             ease: "none",
           },
           0.18,
+        )
+        .to(
+          ".hero-teaser",
+          {
+            xPercent: -5,
+            yPercent: 3,
+            scale: 1.12,
+            transformOrigin: "center center",
+            ease: "none",
+          },
+          0.08,
+        )
+        .to(
+          ".hero-teaser img",
+          {
+            scale: 1.055,
+            ease: "none",
+          },
+          0.08,
+        )
+        .to(
+          ".hero-teaser figcaption",
+          {
+            opacity: 0.62,
+            ease: "none",
+          },
+          0.3,
         );
 
       gsap.from(".work-index__line", {
@@ -279,6 +306,35 @@ export default function Home() {
       });
     }, root);
 
+    const heroEl = document.querySelector<HTMLElement>(".hero");
+    const heroImage = document.querySelector<HTMLElement>(".hero-teaser img");
+    const canPoint = window.matchMedia("(pointer: fine)").matches && !reduced;
+    const heroImageX = heroImage
+      ? gsap.quickTo(heroImage, "x", { duration: 0.7, ease: "power3.out" })
+      : null;
+    const heroImageY = heroImage
+      ? gsap.quickTo(heroImage, "y", { duration: 0.7, ease: "power3.out" })
+      : null;
+
+    const moveHeroMedia = (event: PointerEvent) => {
+      if (!canPoint || !heroEl) return;
+      const rect = heroEl.getBoundingClientRect();
+      const nx = (event.clientX - rect.left) / rect.width - 0.5;
+      const ny = (event.clientY - rect.top) / rect.height - 0.5;
+      heroImageX?.(nx * 12);
+      heroImageY?.(ny * 10);
+    };
+
+    const resetHeroMedia = () => {
+      heroImageX?.(0);
+      heroImageY?.(0);
+    };
+
+    if (canPoint) {
+      heroEl?.addEventListener("pointermove", moveHeroMedia, { passive: true });
+      heroEl?.addEventListener("pointerleave", resetHeroMedia);
+    }
+
     const previewEl = preview.current;
     const previewImg = previewImage.current;
     const cursorEl = cursor.current;
@@ -329,6 +385,8 @@ export default function Home() {
         row.removeEventListener("mouseleave", leaveProject);
       });
       window.removeEventListener("pointermove", move);
+      heroEl?.removeEventListener("pointermove", moveHeroMedia);
+      heroEl?.removeEventListener("pointerleave", resetHeroMedia);
       ctx.revert();
       if (ticker) gsap.ticker.remove(ticker);
       lenis?.destroy();
