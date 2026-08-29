@@ -62,6 +62,9 @@ jobs:
       - name: Capture BOCH H8 focused QA
         run: node scripts/capture-boch-h8.mjs
 
+      - name: Capture Shamadan H9 focused QA
+        run: node scripts/capture-shamadan-h9.mjs
+
       - name: Upload visual QA screenshots
         uses: actions/upload-artifact@v4
         with:
@@ -91,5 +94,13 @@ jobs:
         with:
           name: homepage-boch-h8
           path: artifacts/boch-h8
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Shamadan H9 QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-shamadan-h9
+          path: artifacts/shamadan-h9
           if-no-files-found: error
           retention-days: 7
