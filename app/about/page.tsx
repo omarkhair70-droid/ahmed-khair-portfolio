@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AboutMotion from "./AboutMotion";
 
 export const metadata: Metadata = {
   title: "About — Ahmed Khair",
@@ -31,6 +32,7 @@ const work = [
 export default function AboutPage() {
   return (
     <main className="about-page">
+      <AboutMotion />
       <header className="topbar">
         <a href="/" className="topbar__brand" aria-label="Ahmed Khair home">
           AK
