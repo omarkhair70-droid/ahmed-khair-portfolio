@@ -400,6 +400,7 @@ H10 — Criminal Anbr 6 Scene ✅
 H11 — Abd Allal Coffee Scene ✅
 H12 — About / Human Moment ✅
 H13 — Contact / Closing Frame ✅
+H14 — Homepage Integration Pass ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -427,6 +428,22 @@ H12 closure source:
 
 H13 closure source:
 `docs/CONTACT_H13_CLOSURE_LOG.md`
+
+H14 closure source:
+`docs/HOMEPAGE_H14_FINAL_INTEGRATION_LOG.md`
+
+Final H14 validated CI:
+SUCCESS
+Run:
+`33256097513`
+Validated implementation head:
+`9a069c1de044531b19dc118b7d4cdd4a75c34025`
+H14 artifact:
+`homepage-home-h14`
+Artifact ID:
+`9715931117`
+Digest:
+`sha256:9cade4543de267bad17e53210ddd5f5067159326ce2274fc0173b1d71598c72b`
 
 Final H13 validated CI:
 SUCCESS
@@ -579,93 +596,64 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H14 — FULL HOMEPAGE INTEGRATION PASS**
+**PAGE 2 — ABOUT**
 
-H13 is CLOSED.
-This is NOT a new section.
-Do NOT redesign H1–H13 wholesale.
-Do NOT start dedicated /about or project work pages until H14 closes.
+Home is CLOSED.
+Do not reopen H1–H14 unless a concrete cross-page regression appears.
 
-H14 must judge the full Home as one continuous directed sequence.
+Immediate execution:
 
-Mandatory H14 scope:
+**A1 — REFERENCE RE-CHECK**
 
-1. Re-open the post-H10 checkpoint:
-   - `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
-   - explicitly resolve or accept every locked global delta
+Re-open:
+- D Alcausin first for human/profile hierarchy and concise personality
+- Ali Ali / Alitwotimes for minimal navigation and work/person balance
+- O'shane Howard only where direct image/person presence helps
+- Diego Salas for restraint
+- Alexandre Rochet only where page transition structure is relevant
 
-2. Third/final reference comparison:
-   - Ali Ali / Alitwotimes
-   - D Alcausin
-   - Alexandre Rochet
-   - O'shane Howard
-   - Diego Salas
-   - compare behavior/rhythm/clarity, not superficial layout copying
+Then:
 
-3. Full-page static review:
-   - 1440
-   - 1280
-   - 390
-   - 360
-   - inspect Hero -> Work -> BOCH -> Shamadan -> Criminal -> Coffee -> About -> Contact as one composition
+**A2 — ABOUT PAGE BRIEF**
 
-4. Global pacing delta:
-   - identify dead vertical travel
-   - identify chapter-like repetition
-   - especially BOCH / Shamadan cumulative travel
-   - compress only where a new visual fact arrives too late
-   - preserve useful negative space
+The dedicated /about page must expand the Home human moment without becoming:
+- a résumé dump
+- a skills-card grid
+- an agency profile
+- a fake personal story
+- a duplicate of the Home About block
 
-5. Transition continuity:
-   - Hero -> Work
-   - Work -> BOCH
-   - BOCH -> Shamadan
-   - Shamadan -> Criminal
-   - Criminal -> Coffee
-   - Coffee -> About
-   - About -> Contact
-   - remove duplicated “next project” announcements when they create chapter repetition
+Source-of-truth route:
+`/about`
 
-6. Typography / copy:
-   - re-check display hierarchy across the whole page
-   - remove explanatory copy where imagery already carries meaning
-   - audit smallest recurring microcopy on 390 / 360
-   - do not add a third font family
+Locked content direction from:
+`docs/FINAL_SITE_MAP_AND_EXECUTION_MASTER.md`
 
-7. Motion hierarchy:
-   - structural > responsive > atmospheric
-   - check cumulative scroll-linked motion time
-   - eliminate empty scroll, not useful stillness
-   - reduced motion must remain complete
+Required About content:
+- Ahmed Khair
+- approved portrait/cutout
+- short positioning
+- selected capability list
+- compact process / craft
+- personal / human detail only if real material exists
+- verified contact links
 
-8. Interaction / usability:
-   - desktop pointer behavior
-   - mobile touch behavior
-   - anchors
-   - focus-visible
-   - no horizontal overflow
-   - no hidden navigation puzzle
+Execution order:
+A1 Reference re-check
+A2 Page brief
+A3 Static desktop composition
+A4 Static mobile composition
+A5 Typography
+A6 Portrait / personal visual layer
+A7 Process / capabilities layer
+A8 Motion
+A9 Navigation transitions
+A10 Desktop + mobile visual QA
+A11 Final delta pass
+ABOUT CLOSED
 
-9. Performance / implementation:
-   - build
-   - typecheck
-   - image integrity
-   - no accidental crop regressions
-   - no unnecessary new library
-   - no Pixi / Three / WebGL unless a concrete unresolved need appears
-
-10. Final visual evidence:
-   - full-page desktop/mobile captures
-   - full motion captures
-   - focused regression artifacts
-   - final integration-specific metrics / captures
-   - exact deltas -> fixes -> re-render
-
-11. H14 closure verdict:
-   - HOME CLOSED only if the page reads as one authored film in static and motion
-   - write `docs/HOMEPAGE_H14_FINAL_INTEGRATION_LOG.md`
-   - keep PR #2 open until H14 passes
-   - only then decide final V1 route strategy / which project work pages are actually justified by the reference set
+PR #2 was the Home work branch and is now eligible for closure/merge after final post-document CI is green.
+Do not mix About implementation into the Home PR unless the branch strategy is explicitly changed.
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -827,4 +815,4 @@ The known highest-priority delta is:
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H13 CLOSED. NEXT = H14 FULL HOMEPAGE INTEGRATION. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H14 CLOSED. HOME CLOSED. NEXT = PAGE 2 / ABOUT — A1 REFERENCE RE-CHECK.**
