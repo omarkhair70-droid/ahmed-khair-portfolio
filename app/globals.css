@@ -1399,7 +1399,6 @@ a:focus-visible {
   [data-motion],
   .hero-word,
   .hero-teaser,
-  .hero-handoff,
   .scene__primary,
   .scene__accent,
   .scene__title,
@@ -1411,6 +1410,7 @@ a:focus-visible {
     opacity: 1 !important;
   }
 
+  .hero-handoff,
   .action-cursor,
   .work-preview {
     display: none !important;
