@@ -7,6 +7,38 @@ await fs.mkdir(out, { recursive: true });
 
 const browser = await chromium.launch({ headless: true });
 
+async function targetVisibility(page, selector) {
+  return page.locator(selector).evaluate((el) => {
+    const rect = el.getBoundingClientRect();
+    return {
+      top: rect.top,
+      bottom: rect.bottom,
+      height: innerHeight,
+      scrollY,
+      documentHeight: document.documentElement.scrollHeight,
+    };
+  });
+}
+
+async function waitForVisibleTarget(page, selector, threshold) {
+  try {
+    await page.waitForFunction(
+      ({ selector, threshold }) => {
+        const el = document.querySelector(selector);
+        if (!(el instanceof HTMLElement)) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < innerHeight * threshold;
+      },
+      { selector, threshold },
+      { timeout: 2500 },
+    );
+  } catch {
+    // Preserve the explicit diagnostic assertion below.
+  }
+
+  return targetVisibility(page, selector);
+}
+
 for (const testCase of [
   { name: "desktop-1440", width: 1440, height: 900 },
   { name: "mobile-390", width: 390, height: 844 },
@@ -25,9 +57,16 @@ for (const testCase of [
 
   await about.click();
   await page.waitForURL("**/about");
-  await page.waitForTimeout(350);
+  await page.waitForLoadState("networkidle");
+  await page.waitForTimeout(120);
 
-  if ((await page.locator('.topbar__nav a[aria-current="page"]').textContent())?.trim() !== "About") {
+  if (
+    (
+      await page
+        .locator('.topbar__nav a[aria-current="page"]')
+        .textContent()
+    )?.trim() !== "About"
+  ) {
     throw new Error("About current-page state is missing");
   }
 
@@ -37,7 +76,10 @@ for (const testCase of [
   });
 
   const work = page.locator('.topbar__nav a[href="/#work"]');
-  if (!(await work.isVisible())) throw new Error("About Work route is hidden");
+  if (!(await work.isVisible())) {
+    throw new Error("About Work route is hidden");
+  }
+
   await work.click();
   await page.waitForURL("**/#work");
 
@@ -45,18 +87,11 @@ for (const testCase of [
     throw new Error("Work return route failed");
   }
 
-  await page.waitForTimeout(350);
-  const workVisibility = await page.locator("#work").evaluate((el) => {
-    const rect = el.getBoundingClientRect();
-    return {
-      top: rect.top,
-      bottom: rect.bottom,
-      height: innerHeight,
-      scrollY,
-      documentHeight: document.documentElement.scrollHeight,
-    };
-  });
-  if (workVisibility.bottom <= 0 || workVisibility.top >= workVisibility.height * 0.35) {
+  const workVisibility = await waitForVisibleTarget(page, "#work", 0.35);
+  if (
+    workVisibility.bottom <= 0 ||
+    workVisibility.top >= workVisibility.height * 0.35
+  ) {
     throw new Error(
       "Work hash exists but target is not actually visible: " +
         JSON.stringify(workVisibility),
@@ -68,10 +103,15 @@ for (const testCase of [
     fullPage: false,
   });
 
-  await page.goto("http://127.0.0.1:3000/about", { waitUntil: "networkidle" });
+  await page.goto("http://127.0.0.1:3000/about", {
+    waitUntil: "networkidle",
+  });
 
   const contact = page.locator('.topbar__nav a[href="/#contact"]');
-  if (!(await contact.isVisible())) throw new Error("About Contact route is hidden");
+  if (!(await contact.isVisible())) {
+    throw new Error("About Contact route is hidden");
+  }
+
   await contact.click();
   await page.waitForURL("**/#contact");
 
@@ -79,18 +119,15 @@ for (const testCase of [
     throw new Error("Contact return route failed");
   }
 
-  await page.waitForTimeout(350);
-  const contactVisibility = await page.locator("#contact").evaluate((el) => {
-    const rect = el.getBoundingClientRect();
-    return {
-      top: rect.top,
-      bottom: rect.bottom,
-      height: innerHeight,
-      scrollY,
-      documentHeight: document.documentElement.scrollHeight,
-    };
-  });
-  if (contactVisibility.bottom <= 0 || contactVisibility.top >= contactVisibility.height * 0.45) {
+  const contactVisibility = await waitForVisibleTarget(
+    page,
+    "#contact",
+    0.45,
+  );
+  if (
+    contactVisibility.bottom <= 0 ||
+    contactVisibility.top >= contactVisibility.height * 0.45
+  ) {
     throw new Error(
       "Contact hash exists but target is not actually visible: " +
         JSON.stringify(contactVisibility),
