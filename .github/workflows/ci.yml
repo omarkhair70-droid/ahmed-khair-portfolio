@@ -53,11 +53,22 @@ jobs:
       - name: Capture About A3 desktop QA
         run: node scripts/capture-about-a3.mjs
 
+      - name: Capture About A4 mobile QA
+        run: node scripts/capture-about-a4.mjs
+
       - name: Upload About A3 desktop QA
         uses: actions/upload-artifact@v4
         with:
           name: about-a3-desktop
           path: artifacts/about-a3
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload About A4 mobile QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a4-mobile
+          path: artifacts/about-a4
           if-no-files-found: error
           retention-days: 7
 
