@@ -50,12 +50,15 @@ const browser = await chromium.launch({ headless: true });
 }
 
 // Mobile scroll-focus / touch-state verification.
-{
+for (const mobileCase of [
+  { name: "mobile", width: 390, height: 844 },
+  { name: "mobile-360", width: 360, height: 800 },
+]) {
   const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
+    viewport: { width: mobileCase.width, height: mobileCase.height },
     recordVideo: {
-      dir: path.join(out, "mobile-video"),
-      size: { width: 390, height: 844 },
+      dir: path.join(out, `${mobileCase.name}-video`),
+      size: { width: mobileCase.width, height: mobileCase.height },
     },
   });
   const page = await context.newPage();
@@ -84,7 +87,10 @@ const browser = await chromium.launch({ headless: true });
     await page.waitForTimeout(520);
 
     await page.screenshot({
-      path: path.join(out, `mobile-active-${String(index + 1).padStart(2, "0")}.png`),
+      path: path.join(
+        out,
+        `${mobileCase.name}-active-${String(index + 1).padStart(2, "0")}.png`,
+      ),
       fullPage: false,
     });
   }
