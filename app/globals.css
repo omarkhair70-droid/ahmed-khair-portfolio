@@ -4342,3 +4342,53 @@ a:focus-visible {
     clip-path: none !important;
   }
 }
+
+
+/* About Page — A9 cross-page navigation continuity */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: about-route-old 260ms ease both;
+}
+
+::view-transition-new(root) {
+  animation: about-route-new 360ms var(--ease) both;
+}
+
+@keyframes about-route-old {
+  to {
+    opacity: .18;
+  }
+}
+
+@keyframes about-route-new {
+  from {
+    opacity: .18;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar__nav {
+    gap: 10px;
+    font-size: 8px;
+  }
+
+  .topbar__nav a:nth-child(2),
+  .about-page .topbar__nav a:nth-child(2) {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: .001ms !important;
+  }
+}
