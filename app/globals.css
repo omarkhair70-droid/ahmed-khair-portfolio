@@ -2979,6 +2979,10 @@ a:focus-visible {
   }
 
   .about-portrait {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
     min-height: 0;
     width: 100%;
     height: auto;
