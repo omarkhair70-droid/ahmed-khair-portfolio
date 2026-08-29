@@ -398,6 +398,7 @@ H8 — BOCH Scene ✅
 H9 — El Shamadan Scene ✅
 H10 — Criminal Anbr 6 Scene ✅
 H11 — Abd Allal Coffee Scene ✅
+H12 — About / Human Moment ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -419,6 +420,16 @@ H10 closure source:
 
 H11 closure source:
 `docs/COFFEE_H11_CLOSURE_LOG.md`
+
+H12 closure source:
+`docs/ABOUT_H12_CLOSURE_LOG.md`
+
+Final H12 validated CI:
+SUCCESS
+Run:
+`33252709043`
+Code head:
+`b91d7e7fa91373097bd215855f6d149ca025b847`
 
 Post-H10 benchmark checkpoint:
 `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
@@ -557,80 +568,70 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H12 — ABOUT / HUMAN MOMENT**
+**H13 — CONTACT / CLOSING FRAME**
 
-H10 and H11 are CLOSED.
-Do NOT reopen H1–H11 without a concrete regression or a reference-backed global-integration reason.
-Do NOT start H13 yet.
-Do NOT start the dedicated /about page yet.
+H12 is CLOSED.
+Do NOT reopen H1–H12 without a concrete regression or a reference-backed global-integration reason.
+Do NOT start H14 until H13 closes.
+Do NOT start dedicated /about or project case-study routes yet.
 
-H12 must close all of these:
+H13 must close all of these:
 
-1. Re-check the locked About reference role:
-   - D Alcausin for a real human/personality beat after Selected Work
-   - Diego Salas restraint: do not turn the About moment into a résumé dashboard
-   - Ahmed's own work sequence must remain the reason the page earned this human pause
+1. Re-check the locked closing-frame brief/reference roles:
+   - D Alcausin for concise “Let's Talk” / direct conversation hierarchy
+   - Ali Ali for minimal navigation and confident ending
+   - global North Star: end like the final frame of a directed sequence, not a standard website footer
 
-2. Human Moment Static Composition
-   - use the approved Ahmed cutout
-   - this is the first deliberate human appearance on Home
-   - portrait and type must feel authored together
-   - not a corporate bio block
-   - not a generic two-column résumé section
+2. Static Closing Composition
+   - current prototype `MAKE IT / WORTH / LOOKING AT.` is only a baseline
+   - decide whether it still earns its scale after H12
+   - strong final typography
+   - real link hierarchy
+   - Back to Work / Back to Top
+   - Behance / contact only where verified
+   - no generic multi-column corporate footer
 
-3. Truthful Copy
-   - Ahmed Khair
-   - Advertising Visual Designer
-   - campaigns / posters / product or photo-led visuals only where already verified
-   - no inflated creative-direction / strategy / branding-system claims
-   - short paragraph only
+3. About -> Contact Entry
+   - person should hand off naturally into invitation/contact
+   - avoid a fresh “new chapter” feeling
+   - use continuity in paper/value/type rather than another giant transition block
 
-4. Personal Identity
-   - solve the checkpoint delta that the typography system still feels partly like “award-portfolio grammar”
-   - make the section feel specifically Ahmed without adding a new random font/effect system
-   - use the actual portrait, wording, spacing and interaction to create personality
+4. Copy
+   - concise
+   - no fake availability claims
+   - no fake email/address/social account
+   - use only verified links/content already in repo
 
-5. Process / Capability Layer
-   - compact only
-   - Campaign Visuals
-   - Posters
-   - Photo Manipulation / Advertising Design only where consistent with locked positioning
-   - process may be: Concept -> Composition -> Retouching -> Final Visual
-   - no giant standalone process section
+5. Motion
+   - final end-title movement only
+   - one closing gesture, not a new animation showcase
+   - Back to Top must work
+   - reduced motion must remain complete
 
-6. Interaction
-   - one personal interaction maximum
-   - only if it materially makes the human moment better
-   - no toy interaction
-   - no pointer dependency on mobile
-
-7. Coffee -> About Entry
-   - Selected Work must feel like it ends, then the person appears
-   - do not restart the website as a new unrelated chapter
-   - warm Coffee exit can resolve into a quieter human field
-
-8. Desktop
+6. Desktop
    - 1440
    - 1280
 
-9. Mobile
+7. Mobile
    - 390
    - 360
-   - independent portrait/type composition
-   - readable microcopy
+   - closing line must fit without destructive clipping
+   - links must remain usable
 
-10. Real QA
+8. Real QA
    - static captures
    - focused section capture
    - full-page regression capture
    - motion capture
-   - compare against D Alcausin / brief
+   - compare against brief/reference roles
    - list exact deltas
    - fix only those deltas
-   - H12 CLOSED
+   - H13 CLOSED
 
-Only after H12 truly passes:
-create `docs/ABOUT_H12_CLOSURE_LOG.md`.
+Only after H13 truly passes:
+create `docs/CONTACT_H13_CLOSURE_LOG.md`.
+
+Then begin H14 — FULL HOMEPAGE INTEGRATION PASS.
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -716,7 +717,7 @@ Do NOT merge PR #2 yet.
 
 Reason:
 Home is not closed.
-H12–H14 remain.
+H13–H14 remain.
 
 Merge only after:
 - Desktop visual closure
@@ -770,27 +771,28 @@ Do NOT restart research from zero.
 
 Start with:
 
-**H12 — ABOUT / HUMAN MOMENT**
+**H13 — CONTACT / CLOSING FRAME**
 
 First:
 1. inspect current active branch
 2. read the final source-of-truth docs
 3. read `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
-4. read `docs/COFFEE_H11_CLOSURE_LOG.md`
-5. inspect current About markup/CSS/motion
-6. re-check D Alcausin's locked human/About reference role
-7. inspect the approved Ahmed cutout in the real rendered context
-8. perform H12 static-composition audit before adding motion
-9. rebuild the Home About moment as a human beat, not a résumé block
-10. render 1440 / 1280 / 390 / 360
-11. inspect real static and motion captures visually
-12. fix exact deltas only
-13. write `docs/ABOUT_H12_CLOSURE_LOG.md` only when H12 truly passes
+4. read `docs/ABOUT_H12_CLOSURE_LOG.md`
+5. inspect current Contact markup/CSS/motion
+6. re-check D Alcausin / Ali Ali closing hierarchy roles
+7. perform H13 static-composition audit before adding motion
+8. rebuild the final frame only if the existing prototype does not meet the brief
+9. render 1440 / 1280 / 390 / 360
+10. visually inspect static and motion captures
+11. fix exact deltas only
+12. write `docs/CONTACT_H13_CLOSURE_LOG.md` only when H13 truly passes
 
-The new chat should continue execution, not explain the project back to the user unless asked.
+After H13 closes:
+begin H14 full homepage integration.
+H14 must explicitly revisit the post-H10 full-page rhythm delta.
 
 ==================================================
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H11 CLOSED. NEXT = H12 ABOUT / HUMAN MOMENT. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H12 CLOSED. NEXT = H13 CONTACT / CLOSING FRAME. PR #2 OPEN. DO NOT MERGE.**
