@@ -1318,7 +1318,7 @@ a {
 .criminal-frame,
 .criminal-frame img,
 .criminal-stage__alternate > p,
-.criminal-exit__meta > *, {
+.criminal-exit__meta > * {
   will-change: transform, opacity, clip-path;
 }
 
