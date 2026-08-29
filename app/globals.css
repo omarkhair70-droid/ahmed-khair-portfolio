@@ -2927,10 +2927,6 @@ a:focus-visible {
   .criminal-exit__meta {
     width: 100%;
     font-size: 7px;
-  } {
-    max-width: 78%;
-    font-size: clamp(24px, 7.4vw, 30px);
-    line-height: .82;
   }
 }
 
