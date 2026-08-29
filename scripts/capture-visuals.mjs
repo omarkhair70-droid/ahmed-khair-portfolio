@@ -28,6 +28,7 @@ for (const testCase of cases) {
 
   for (const [label, selector] of [
     ["hero", "#top"],
+    ["work", "#work"],
     ["boch", ".scene--boch"],
     ["shamadan", ".scene--shamadan"],
     ["criminal", ".scene--criminal"],
