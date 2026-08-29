@@ -107,8 +107,11 @@ export default function Home() {
         scrollTrigger: {
           trigger: ".hero",
           start: "top top",
-          end: "bottom top",
-          scrub: 1.05,
+          end: "+=135%",
+          scrub: 1.08,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
@@ -177,6 +180,76 @@ export default function Home() {
             ease: "none",
           },
           0.3,
+        )
+        .to(
+          ".hero-title",
+          {
+            opacity: 0.13,
+            ease: "none",
+            duration: 0.28,
+          },
+          0.64,
+        )
+        .to(
+          ".hero-kicker, .hero-meta",
+          {
+            opacity: 0,
+            ease: "none",
+            duration: 0.24,
+          },
+          0.66,
+        )
+        .to(
+          ".hero-teaser",
+          {
+            opacity: 0.34,
+            filter: "saturate(0.72) brightness(0.76)",
+            ease: "none",
+            duration: 0.28,
+          },
+          0.67,
+        )
+        .fromTo(
+          ".hero-handoff",
+          {
+            yPercent: 102,
+          },
+          {
+            yPercent: 0,
+            duration: 0.5,
+            ease: "power3.inOut",
+          },
+          0.7,
+        )
+        .from(
+          ".hero-handoff__eyebrow",
+          {
+            y: 16,
+            opacity: 0,
+            duration: 0.22,
+            ease: "power3.out",
+          },
+          0.92,
+        )
+        .from(
+          ".hero-handoff__title span",
+          {
+            yPercent: 110,
+            duration: 0.34,
+            stagger: 0.05,
+            ease: "power4.out",
+          },
+          0.94,
+        )
+        .from(
+          ".hero-handoff__count",
+          {
+            opacity: 0,
+            y: 12,
+            duration: 0.2,
+            ease: "power3.out",
+          },
+          1.02,
         );
 
       gsap.from(".work-index__line", {
@@ -454,6 +527,17 @@ export default function Home() {
             <span>BOCH Motor</span>
           </figcaption>
         </figure>
+
+        <div className="hero-handoff" aria-hidden="true">
+          <p className="hero-handoff__eyebrow">
+            Identity becomes proof · Four selected pieces
+          </p>
+          <p className="hero-handoff__title">
+            <span>SELECTED</span>
+            <span>WORK</span>
+          </p>
+          <p className="hero-handoff__count">01—04</p>
+        </div>
       </section>
 
       <section id="work" className="work-index" aria-labelledby="work-index-title">
