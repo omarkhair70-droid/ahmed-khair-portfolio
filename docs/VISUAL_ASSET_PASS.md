@@ -2,7 +2,7 @@
 
 Source profile: https://www.behance.net/ahmedkhairgemy
 
-Status: **COVER-LEVEL CURATION LOCKED · INNER-MODULE SELECTION PENDING SOURCE ASSETS**
+Status: **SUPERSEDED BY `docs/VISUAL_ASSET_SELECTION_FINAL.md` — INNER-MODULE CURATION COMPLETE**
 
 This pass is intentionally a curation pass, not a Behance mirror. The website should present Ahmed as an advertising visual designer with selected campaign/poster craft, not as a dump of every social-media post.
 
@@ -200,4 +200,4 @@ For the final module-level pass, acquire:
 - Fiber Cable: all project images
 - Rails: final + process if available
 
-Do not start implementation before the Tier A hero/support selections are locked.
+The Tier A image selections are now locked in `docs/VISUAL_ASSET_SELECTION_FINAL.md`. Next gate: reference research + art direction. Do not start implementation before that gate is complete.
