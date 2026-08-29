@@ -436,42 +436,112 @@ export default function Home() {
     const cursorEl = cursor.current;
 
     const previewX = previewEl
-      ? gsap.quickTo(previewEl, "x", { duration: 0.38, ease: "power3.out" })
+      ? gsap.quickTo(previewEl, "x", { duration: 0.42, ease: "power3.out" })
       : null;
     const previewY = previewEl
-      ? gsap.quickTo(previewEl, "y", { duration: 0.38, ease: "power3.out" })
+      ? gsap.quickTo(previewEl, "y", { duration: 0.42, ease: "power3.out" })
+      : null;
+    const previewRotate = previewEl
+      ? gsap.quickTo(previewEl, "rotation", { duration: 0.5, ease: "power3.out" })
       : null;
     const cursorX = cursorEl
-      ? gsap.quickTo(cursorEl, "x", { duration: 0.16, ease: "power2.out" })
+      ? gsap.quickTo(cursorEl, "x", { duration: 0.15, ease: "power2.out" })
       : null;
     const cursorY = cursorEl
-      ? gsap.quickTo(cursorEl, "y", { duration: 0.16, ease: "power2.out" })
+      ? gsap.quickTo(cursorEl, "y", { duration: 0.15, ease: "power2.out" })
       : null;
+
+    const rows = Array.from(
+      document.querySelectorAll<HTMLElement>(".work-index__row[data-preview]"),
+    );
 
     const move = (event: PointerEvent) => {
       cursorX?.(event.clientX);
       cursorY?.(event.clientY);
-      previewX?.(event.clientX + 34);
-      previewY?.(event.clientY - 120);
+
+      if (!previewEl) return;
+      const width = previewEl.offsetWidth || 360;
+      const height = previewEl.offsetHeight || 360;
+      const placeLeft = event.clientX > window.innerWidth * 0.68;
+      const x = placeLeft
+        ? event.clientX - width - 34
+        : event.clientX + 34;
+      const y = Math.max(
+        24,
+        Math.min(window.innerHeight - height - 24, event.clientY - height * 0.34),
+      );
+
+      previewX?.(x);
+      previewY?.(y);
+      previewRotate?.(
+        gsap.utils.clamp(-3.2, 3.2, (event.clientX / window.innerWidth - 0.5) * 5.2),
+      );
     };
 
     const enterProject = (event: Event) => {
       const target = event.currentTarget as HTMLElement;
       const src = target.dataset.preview;
-      if (src && previewImg) previewImg.src = src;
+
+      rows.forEach((row) => row.classList.toggle("is-muted", row !== target));
+      target.classList.add("is-active");
+
+      if (src && previewImg && previewImg.src !== src) {
+        previewImg.src = src;
+        gsap.fromTo(
+          previewImg,
+          { opacity: 0, scale: 1.09 },
+          { opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" },
+        );
+      }
+
       previewEl?.classList.add("is-visible");
       cursorEl?.classList.add("is-active");
     };
 
-    const leaveProject = () => {
+    const leaveProject = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      target.classList.remove("is-active");
+      rows.forEach((row) => row.classList.remove("is-muted"));
       previewEl?.classList.remove("is-visible");
       cursorEl?.classList.remove("is-active");
+      previewRotate?.(0);
     };
 
-    const rows = Array.from(document.querySelectorAll<HTMLElement>("[data-preview]"));
+    const activateMobileRow = (target: HTMLElement) => {
+      rows.forEach((row) => row.classList.toggle("is-mobile-active", row === target));
+    };
+
+    const mobileTriggers: ScrollTrigger[] = [];
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      rows.forEach((row) => {
+        mobileTriggers.push(
+          ScrollTrigger.create({
+            trigger: row,
+            start: "top 58%",
+            end: "bottom 42%",
+            onEnter: () => activateMobileRow(row),
+            onEnterBack: () => activateMobileRow(row),
+          }),
+        );
+      });
+    }
+
+    const pressProject = (event: PointerEvent) => {
+      const target = event.currentTarget as HTMLElement;
+      target.classList.add("is-pressed");
+    };
+
+    const releaseProject = (event: PointerEvent) => {
+      const target = event.currentTarget as HTMLElement;
+      target.classList.remove("is-pressed");
+    };
+
     rows.forEach((row) => {
       row.addEventListener("mouseenter", enterProject);
       row.addEventListener("mouseleave", leaveProject);
+      row.addEventListener("pointerdown", pressProject);
+      row.addEventListener("pointerup", releaseProject);
+      row.addEventListener("pointercancel", releaseProject);
     });
     window.addEventListener("pointermove", move, { passive: true });
 
@@ -479,7 +549,11 @@ export default function Home() {
       rows.forEach((row) => {
         row.removeEventListener("mouseenter", enterProject);
         row.removeEventListener("mouseleave", leaveProject);
+        row.removeEventListener("pointerdown", pressProject);
+        row.removeEventListener("pointerup", releaseProject);
+        row.removeEventListener("pointercancel", releaseProject);
       });
+      mobileTriggers.forEach((trigger) => trigger.kill());
       window.removeEventListener("pointermove", move);
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
@@ -602,6 +676,10 @@ export default function Home() {
               </span>
 
               <span className="work-index__kind">{project.kind}</span>
+
+              <span className="work-index__mobile-preview" aria-hidden="true">
+                <img src={project.preview} alt="" />
+              </span>
 
               <span className="work-index__arrow" aria-hidden="true">
                 ↘
