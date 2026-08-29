@@ -45,6 +45,15 @@ for (const testCase of [
     throw new Error("Work return route failed");
   }
 
+  await page.waitForTimeout(350);
+  const workVisibility = await page.locator("#work").evaluate((el) => {
+    const rect = el.getBoundingClientRect();
+    return { top: rect.top, bottom: rect.bottom, height: innerHeight };
+  });
+  if (workVisibility.bottom <= 0 || workVisibility.top >= workVisibility.height * 0.35) {
+    throw new Error("Work hash exists but target is not actually visible");
+  }
+
   await page.screenshot({
     path: path.join(out, testCase.name + "-work-return.png"),
     fullPage: false,
@@ -59,6 +68,15 @@ for (const testCase of [
 
   if (new URL(page.url()).hash !== "#contact") {
     throw new Error("Contact return route failed");
+  }
+
+  await page.waitForTimeout(350);
+  const contactVisibility = await page.locator("#contact").evaluate((el) => {
+    const rect = el.getBoundingClientRect();
+    return { top: rect.top, bottom: rect.bottom, height: innerHeight };
+  });
+  if (contactVisibility.bottom <= 0 || contactVisibility.top >= contactVisibility.height * 0.45) {
+    throw new Error("Contact hash exists but target is not actually visible");
   }
 
   await page.screenshot({
