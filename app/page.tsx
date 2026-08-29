@@ -288,7 +288,7 @@ export default function Home() {
         },
       });
 
-      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch):not(.scene--shamadan):not(.scene--criminal)").forEach((scene) => {
+      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch):not(.scene--shamadan):not(.scene--criminal):not(.scene--coffee)").forEach((scene) => {
         const media = scene.querySelector<HTMLElement>(".scene__primary");
         const title = scene.querySelector<HTMLElement>(".scene__title");
         const meta = scene.querySelector<HTMLElement>(".scene__meta");
@@ -883,6 +883,100 @@ export default function Home() {
             },
           },
         );
+      }
+
+      const coffeeScene = document.querySelector<HTMLElement>(".scene--coffee");
+      if (coffeeScene) {
+        gsap.from(".coffee-stage__meta > *, .coffee-stage__copy", {
+          y: 16,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".coffee-stage",
+            start: "top 78%",
+            end: "top 44%",
+            scrub: 0.82,
+          },
+        });
+
+        gsap.from(".coffee-stage__title span", {
+          yPercent: 18,
+          opacity: 0.32,
+          stagger: 0.06,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".coffee-stage",
+            start: "top 74%",
+            end: "top 36%",
+            scrub: 0.96,
+          },
+        });
+
+        gsap.fromTo(
+          ".coffee-frame--hero",
+          {
+            y: 72,
+            scale: 0.988,
+            clipPath: "inset(5% 3% 5% 3%)",
+          },
+          {
+            y: 0,
+            scale: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".coffee-stage",
+              start: "top 82%",
+              end: "top 16%",
+              scrub: 1.14,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".coffee-frame--hero img",
+          { scale: 1.012 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".coffee-frame--hero",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.25,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".coffee-frame--support",
+          { y: 88, opacity: 0.72 },
+          {
+            y: -8,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".coffee-frame--support",
+              start: "top 92%",
+              end: "bottom 24%",
+              scrub: 1.2,
+            },
+          },
+        );
+
+        gsap.from(".coffee-stage__close > *", {
+          y: 12,
+          opacity: 0,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".coffee-stage__close",
+            start: "top 92%",
+            end: "top 72%",
+            scrub: 0.78,
+          },
+        });
       }
 
       gsap.fromTo(
