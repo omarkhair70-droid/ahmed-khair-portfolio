@@ -1218,51 +1218,184 @@ a {
   color: #aaa29b;
 }
 
-/* Criminal */
+/* Criminal — H10 authored static sequence */
 
 .scene--criminal {
-  min-height: 155vh;
-  background:
-    radial-gradient(circle at 58% 44%, rgba(255,255,255,.055), transparent 23%),
-    #050505;
+  min-height: 0;
+  overflow: hidden;
+  background: #050505;
+  color: #eee9df;
 }
 
-.scene__title--criminal {
-  font-size: clamp(70px, 9.2vw, 154px);
+.criminal-head {
+  min-height: 72vh;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-content: end;
+  gap: 0 clamp(12px, 1.6vw, 26px);
+  padding: 15vh var(--page) 10vh;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.criminal-poster {
-  top: 24vh;
-  left: 50%;
-  width: min(37vw, 550px);
-  height: min(105vh, 920px);
-  transform: translateX(-18%);
-  background: #060606;
+.criminal-head__meta {
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 0 30px;
+  color: #8c8984;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .17em;
+  text-transform: uppercase;
 }
 
-.criminal-poster img,
-.criminal-poster--alt img {
+.criminal-head__title {
+  grid-column: 1 / 7;
+  margin: 0;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(82px, 9.2vw, 150px);
+  line-height: .72;
+  font-weight: 400;
+  letter-spacing: -.026em;
+}
+
+.criminal-head__title span {
+  display: block;
+}
+
+.criminal-head__title span:last-child {
+  padding-left: .42em;
+}
+
+.criminal-head__copy {
+  grid-column: 10 / 13;
+  align-self: end;
+  max-width: 250px;
+  margin: 0 0 .45em;
+  color: #a8a39c;
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.42;
+}
+
+.criminal-stage {
+  min-height: 156vh;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 0 clamp(12px, 1.6vw, 26px);
+  padding: 15vh var(--page) 20vh;
+  background: #050505;
+}
+
+.criminal-stage__label {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 12vh 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  color: #7e7a75;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.criminal-frame {
+  position: relative;
+  margin: 0;
+}
+
+.criminal-frame img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
   background: #050505;
 }
 
-.criminal-poster--alt {
-  top: 96vh;
-  right: 8vw;
-  width: min(20vw, 300px);
-  aspect-ratio: .67 / 1;
-  opacity: .5;
+.criminal-frame figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 10px;
+  color: #77736e;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
-.scene--criminal .scene__oversize {
-  left: -4vw;
-  bottom: 2vh;
+.criminal-frame--hero {
+  grid-column: 7 / 12;
+  grid-row: 1;
+  width: 100%;
 }
 
-.scene__oversize--outline {
-  opacity: .15;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,.3);
+.criminal-stage__alternate {
+  grid-column: 2 / 5;
+  grid-row: 2;
+  width: 100%;
+  margin-top: 24vh;
+}
+
+.criminal-stage__alternate > p {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 18px;
+  color: #76726d;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.criminal-frame--alternate {
+  width: 100%;
+}
+
+.criminal-exit {
+  min-height: 68vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: end;
+  gap: 30px;
+  padding: 12vh var(--page) 8vh;
+  background: linear-gradient(180deg, #050505 0%, #070605 52%, #21170f 100%);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.criminal-exit__meta {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0;
+  color: #8d8278;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.criminal-exit__next {
+  grid-column: 1 / 2;
+  align-self: end;
+  max-width: 760px;
+  margin: 0;
+  color: #c5ab94;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-size: clamp(52px, 6.4vw, 98px);
+  line-height: .76;
+  letter-spacing: -.024em;
 }
 
 /* Coffee */
@@ -2401,6 +2534,109 @@ a:focus-visible {
 
   .shamadan-exit__bottom {
     text-align: center;
+  }
+}
+
+/* H10 Criminal responsive composition */
+
+@media (max-width: 980px) {
+  .criminal-head__title {
+    grid-column: 1 / 8;
+    font-size: clamp(80px, 11.8vw, 120px);
+  }
+
+  .criminal-head__copy {
+    grid-column: 9 / 13;
+  }
+
+  .criminal-frame--hero {
+    grid-column: 6 / 12;
+  }
+
+  .criminal-stage__alternate {
+    grid-column: 2 / 6;
+  }
+}
+
+@media (max-width: 700px) {
+  .scene--criminal {
+    min-height: 0;
+  }
+
+  .criminal-head {
+    min-height: 660px;
+    display: block;
+    padding: 108px 18px 78px;
+  }
+
+  .criminal-head__meta {
+    width: 100%;
+    margin-bottom: 176px;
+    font-size: 7px;
+  }
+
+  .criminal-head__title {
+    max-width: 100%;
+    font-size: clamp(68px, 20.8vw, 82px);
+    line-height: .74;
+  }
+
+  .criminal-head__title span:last-child {
+    padding-left: 10vw;
+  }
+
+  .criminal-head__copy {
+    max-width: 220px;
+    margin: 30px 0 0 auto;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: right;
+  }
+
+  .criminal-stage {
+    min-height: 0;
+    display: block;
+    padding: 92px 18px 138px;
+  }
+
+  .criminal-stage__label {
+    width: 100%;
+    margin: 0 0 46px;
+    font-size: 7px;
+  }
+
+  .criminal-frame figcaption,
+  .criminal-stage__alternate > p {
+    font-size: 7px;
+  }
+
+  .criminal-frame--hero {
+    width: 82%;
+    margin: 0 0 0 auto;
+  }
+
+  .criminal-stage__alternate {
+    width: 56%;
+    margin: 112px 0 0;
+  }
+
+  .criminal-exit {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 88px 18px 54px;
+  }
+
+  .criminal-exit__meta {
+    width: 100%;
+    font-size: 7px;
+  }
+
+  .criminal-exit__next {
+    max-width: 78%;
+    font-size: clamp(42px, 13.2vw, 54px);
+    line-height: .78;
   }
 }
 
