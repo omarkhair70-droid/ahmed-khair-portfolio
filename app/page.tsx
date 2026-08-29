@@ -50,20 +50,40 @@ export default function Home() {
 
   useLayoutEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const initialHash = window.location.hash;
     let lenis: Lenis | null = null;
     let ticker: ((time: number) => void) | null = null;
 
-    if (!reduced) {
-      lenis = new Lenis({
+    const startLenis = () => {
+      if (reduced || lenis) return;
+
+      const instance = new Lenis({
         duration: 1.05,
         smoothWheel: true,
         touchMultiplier: 1.2,
       });
 
-      lenis.on("scroll", ScrollTrigger.update);
-      ticker = (time: number) => lenis?.raf(time * 1000);
+      instance.on("scroll", ScrollTrigger.update);
+      lenis = instance;
+      ticker = (time: number) => instance.raf(time * 1000);
       gsap.ticker.add(ticker);
       gsap.ticker.lagSmoothing(0);
+    };
+
+    const stopLenis = () => {
+      if (ticker) {
+        gsap.ticker.remove(ticker);
+        ticker = null;
+      }
+
+      lenis?.destroy();
+      lenis = null;
+    };
+
+    // A cross-page hash must settle against the final pinned layout before
+    // smooth scrolling takes control. Normal Home loads start Lenis now.
+    if (!initialHash) {
+      startLenis();
     }
 
     const ctx = gsap.context(() => {
@@ -1310,53 +1330,56 @@ export default function Home() {
     });
     window.addEventListener("pointermove", move, { passive: true });
 
-    const initialHash = window.location.hash;
     const previousScrollRestoration = window.history.scrollRestoration;
     let hashRestoreCancelled = false;
+    let hashRestoreGeneration = 0;
     const hashRestoreFrames: number[] = [];
 
-    const alignInitialHash = (attempt = 0) => {
+    const restoreHashAgainstPinnedLayout = () => {
       if (!initialHash || hashRestoreCancelled) return;
 
-      const destination = document.querySelector<HTMLElement>(initialHash);
-      if (!destination) return;
+      const generation = ++hashRestoreGeneration;
 
-      const delta = destination.getBoundingClientRect().top;
-
-      if (Math.abs(delta) <= 2 || attempt >= 8) {
-        ScrollTrigger.update();
-        return;
-      }
-
-      const target = window.scrollY + delta;
-
-      if (lenis) {
-        lenis.resize();
-        lenis.scrollTo(target, {
-          immediate: true,
-          force: true,
-        });
-      } else {
-        window.scrollTo({ top: target, behavior: "auto" });
-      }
-
-      ScrollTrigger.update();
-
-      const frame = window.requestAnimationFrame(() => {
-        alignInitialHash(attempt + 1);
-      });
-      hashRestoreFrames.push(frame);
-    };
-
-    const restoreAfterLayoutRefresh = () => {
-      if (!initialHash || hashRestoreCancelled) return;
-
+      // Native scrolling is deterministic while ScrollTrigger is rebuilding
+      // pin spacing. Lenis is restarted only after the target is aligned.
+      stopLenis();
       ScrollTrigger.refresh();
-      lenis?.resize();
+
+      const align = (attempt = 0) => {
+        if (
+          hashRestoreCancelled ||
+          generation !== hashRestoreGeneration
+        ) {
+          return;
+        }
+
+        const destination = document.querySelector<HTMLElement>(initialHash);
+        if (!destination) return;
+
+        const delta = destination.getBoundingClientRect().top;
+
+        if (Math.abs(delta) <= 2 || attempt >= 10) {
+          ScrollTrigger.update();
+          startLenis();
+          lenis?.resize();
+          return;
+        }
+
+        window.scrollTo({
+          top: window.scrollY + delta,
+          behavior: "auto",
+        });
+        ScrollTrigger.update();
+
+        const nextFrame = window.requestAnimationFrame(() => {
+          align(attempt + 1);
+        });
+        hashRestoreFrames.push(nextFrame);
+      };
 
       const firstFrame = window.requestAnimationFrame(() => {
         const secondFrame = window.requestAnimationFrame(() => {
-          alignInitialHash();
+          align();
         });
         hashRestoreFrames.push(secondFrame);
       });
@@ -1365,11 +1388,7 @@ export default function Home() {
 
     if (initialHash) {
       window.history.scrollRestoration = "manual";
-
-      // Hero pinning changes downstream geometry as scroll state changes.
-      // Align against the target's live viewport delta until the target is
-      // genuinely reached instead of trusting a single pre-pin offset.
-      restoreAfterLayoutRefresh();
+      restoreHashAgainstPinnedLayout();
 
       void document.fonts.ready.then(async () => {
         const images = Array.from(document.images);
@@ -1379,7 +1398,7 @@ export default function Home() {
           ),
         );
 
-        restoreAfterLayoutRefresh();
+        restoreHashAgainstPinnedLayout();
       });
     }
 
@@ -1400,8 +1419,7 @@ export default function Home() {
       heroEl?.removeEventListener("pointermove", moveHeroMedia);
       heroEl?.removeEventListener("pointerleave", resetHeroMedia);
       ctx.revert();
-      if (ticker) gsap.ticker.remove(ticker);
-      lenis?.destroy();
+      stopLenis();
     };
   }, []);
 
