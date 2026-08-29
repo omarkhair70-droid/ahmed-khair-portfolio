@@ -62,6 +62,18 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+      - name: Capture About A10 full QA
+        run: node scripts/capture-about-a10.mjs
+
+      - name: Upload About A10 full QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: about-a10-full
+          path: artifacts/about-a10
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Capture About A3 desktop QA
         run: node scripts/capture-about-a3.mjs
 
@@ -204,4 +216,3 @@ jobs:
           path: artifacts/home-h14
           if-no-files-found: error
           retention-days: 7
-
