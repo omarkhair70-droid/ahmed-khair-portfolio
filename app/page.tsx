@@ -288,7 +288,7 @@ export default function Home() {
         },
       });
 
-      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch):not(.scene--shamadan)").forEach((scene) => {
+      document.querySelectorAll<HTMLElement>(".scene:not(.scene--boch):not(.scene--shamadan):not(.scene--criminal)").forEach((scene) => {
         const media = scene.querySelector<HTMLElement>(".scene__primary");
         const title = scene.querySelector<HTMLElement>(".scene__title");
         const meta = scene.querySelector<HTMLElement>(".scene__meta");
@@ -760,22 +760,6 @@ export default function Home() {
           },
         );
       }
-
-      gsap.fromTo(
-        ".criminal-poster",
-        { rotate: -2.5, scale: 0.94 },
-        {
-          rotate: 0,
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".scene--criminal",
-            start: "top 70%",
-            end: "bottom 35%",
-            scrub: 1.2,
-          },
-        },
-      );
 
       gsap.fromTo(
         ".about-cutout",
@@ -1340,35 +1324,65 @@ export default function Home() {
         className="scene scene--criminal"
         aria-labelledby="criminal-title"
       >
-        <div className="scene__chrome">
-          <p className="scene__meta">03 / Film Poster Study</p>
-          <h2 id="criminal-title" className="scene__title scene__title--criminal">
-            CRIMINAL
-            <br />
-            ANBR 6
-          </h2>
-          <p className="scene__caption">
-            A deliberate pause in the commercial rhythm.
+        <header className="criminal-head">
+          <p className="criminal-head__meta">
+            <span>03</span>
+            <span>Film Poster Study</span>
           </p>
+
+          <h2 id="criminal-title" className="criminal-head__title">
+            <span>CRIMINAL</span>
+            <span>ANBR 6</span>
+          </h2>
+
+          <p className="criminal-head__copy">
+            Two selected poster treatments.
+          </p>
+        </header>
+
+        <div className="criminal-stage">
+          <p className="criminal-stage__label">
+            <span>Primary poster</span>
+            <span>01 / 02</span>
+          </p>
+
+          <figure className="criminal-frame criminal-frame--hero">
+            <img
+              src="/images/criminal-anbr-6/hero.webp"
+              alt="Criminal Anbr 6 film poster study"
+            />
+            <figcaption>
+              <span>Film Poster Study</span>
+              <span>01 / 02</span>
+            </figcaption>
+          </figure>
+
+          <div className="criminal-stage__alternate">
+            <p>
+              <span>Alternate treatment</span>
+              <span>02 / 02</span>
+            </p>
+
+            <figure className="criminal-frame criminal-frame--alternate">
+              <img
+                src="/images/criminal-anbr-6/alternate.webp"
+                alt="Alternate Criminal Anbr 6 film poster study"
+              />
+              <figcaption>
+                <span>Alternate poster</span>
+                <span>02 / 02</span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
 
-        <figure className="scene__primary criminal-poster">
-          <img
-            src="/images/criminal-anbr-6/hero.webp"
-            alt="Criminal Anbr 6 poster study"
-          />
-        </figure>
-
-        <figure className="scene__accent criminal-poster--alt">
-          <img
-            src="/images/criminal-anbr-6/alternate.webp"
-            alt="Alternate Criminal Anbr 6 poster study"
-          />
-        </figure>
-
-        <p className="scene__oversize scene__oversize--outline" aria-hidden="true">
-          SILENCE
-        </p>
+        <div className="criminal-exit" aria-hidden="true">
+          <p className="criminal-exit__meta">
+            <span>04 / Compact Campaign</span>
+            <span>Black warms.</span>
+          </p>
+          <p className="criminal-exit__next">ABD ALLAL COFFEE</p>
+        </div>
       </section>
 
       <section
