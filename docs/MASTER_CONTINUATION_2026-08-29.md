@@ -396,6 +396,8 @@ H6 — Work Index Static Composition ✅
 H7 — Work Index Interaction ✅
 H8 — BOCH Scene ✅
 H9 — El Shamadan Scene ✅
+H10 — Criminal Anbr 6 Scene ✅
+H11 — Abd Allal Coffee Scene ✅
 
 Hero closure source:
 `docs/HERO_CLOSURE_LOG.md`
@@ -411,6 +413,22 @@ H8 closure source:
 
 H9 closure source:
 `docs/SHAMADAN_H9_CLOSURE_LOG.md`
+
+H10 closure source:
+`docs/CRIMINAL_H10_CLOSURE_LOG.md`
+
+H11 closure source:
+`docs/COFFEE_H11_CLOSURE_LOG.md`
+
+Post-H10 benchmark checkpoint:
+`docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
+
+Final H10/H11 validated CI:
+SUCCESS
+Run:
+`33251562412`
+Head:
+`27a74c6f8bfecea41a8c24f2962bf6005623180c`
 
 Final H9 validated implementation:
 `87151b3680ba80e0da82001fc1191fd470b28128`
@@ -539,60 +557,57 @@ Current branch HEAD after adding this continuation doc:
 11. CURRENT NEXT GATE — START HERE
 ==================================================
 
-**H10 — CRIMINAL ANBR 6 SCENE**
+**H12 — ABOUT / HUMAN MOMENT**
 
-H9 is CLOSED.
-Do NOT reopen H1–H9 without a concrete regression or stronger reference-backed reason.
-Do NOT start H11 yet.
-Do NOT start About.
-Do NOT start case-study routes.
+H10 and H11 are CLOSED.
+Do NOT reopen H1–H11 without a concrete regression or a reference-backed global-integration reason.
+Do NOT start H13 yet.
+Do NOT start the dedicated /about page yet.
 
-H10 must close all of these:
+H12 must close all of these:
 
-1. Re-check the locked brief/reference roles:
-   - Alexandre Rochet for the strongest cinematic pacing interruption / authored transition
-   - Diego Salas for restraint and letting one strong image lead
-   - global reference rule: motion reveals/paces the work; it does not decorate it
+1. Re-check the locked About reference role:
+   - D Alcausin for a real human/personality beat after Selected Work
+   - Diego Salas restraint: do not turn the About moment into a résumé dashboard
+   - Ahmed's own work sequence must remain the reason the page earned this human pause
 
-2. Criminal Static Composition
-   - this is the visual punctuation mark after Shamadan
-   - near-black / charcoal field
-   - use the hero poster vertically
-   - do NOT crop the poster into a square
-   - large negative-space field beside the hero
-   - title placed away from the poster rather than stamped over it
-   - alternate poster remains subordinate
-   - must work with motion disabled
+2. Human Moment Static Composition
+   - use the approved Ahmed cutout
+   - this is the first deliberate human appearance on Home
+   - portrait and type must feel authored together
+   - not a corporate bio block
+   - not a generic two-column résumé section
 
-3. Truthful Framing
-   - label: Criminal Anbr 6
-   - public type: Film Poster Study
-   - do NOT imply an official commissioned film campaign unless verified
+3. Truthful Copy
+   - Ahmed Khair
+   - Advertising Visual Designer
+   - campaigns / posters / product or photo-led visuals only where already verified
+   - no inflated creative-direction / strategy / branding-system claims
+   - short paragraph only
 
-4. Image Framing
-   - hero: `public/images/criminal-anbr-6/hero.webp`
-   - alternate: `public/images/criminal-anbr-6/alternate.webp`
-   - preserve the vertical poster format and narrative hierarchy
-   - no destructive crop
+4. Personal Identity
+   - solve the checkpoint delta that the typography system still feels partly like “award-portfolio grammar”
+   - make the section feel specifically Ahmed without adding a new random font/effect system
+   - use the actual portrait, wording, spacing and interaction to create personality
 
-5. Shamadan -> Criminal Entry
-   - inherit H9's color-drain / near-black exit
-   - wide campaign energy gives way to sparse vertical composition
-   - perceptually slower because space opens up
-   - no fake projector/cinema effect
+5. Process / Capability Layer
+   - compact only
+   - Campaign Visuals
+   - Posters
+   - Photo Manipulation / Advertising Design only where consistent with locked positioning
+   - process may be: Concept -> Composition -> Retouching -> Final Visual
+   - no giant standalone process section
 
-6. Criminal Motion
-   - quietest motion section on Home
-   - slow poster reveal
-   - only tiny image/title drift if it improves pacing
-   - no generic scene parallax
-   - contrast against H9 is the effect
+6. Interaction
+   - one personal interaction maximum
+   - only if it materially makes the human moment better
+   - no toy interaction
+   - no pointer dependency on mobile
 
-7. Criminal -> Abd Allal Coffee Exit
-   - close only H10's exit boundary
-   - cold cinema should begin warming toward commercial intimacy
-   - use palette/scale transition, not café clichés
-   - do NOT fully design H11 yet
+7. Coffee -> About Entry
+   - Selected Work must feel like it ends, then the person appears
+   - do not restart the website as a new unrelated chapter
+   - warm Coffee exit can resolve into a quieter human field
 
 8. Desktop
    - 1440
@@ -601,22 +616,21 @@ H10 must close all of these:
 9. Mobile
    - 390
    - 360
-   - independent composition
-   - preserve poster readability
-   - no pointer dependency
+   - independent portrait/type composition
+   - readable microcopy
 
 10. Real QA
    - static captures
    - focused section capture
    - full-page regression capture
    - motion capture
-   - compare against locked brief/reference behavior
+   - compare against D Alcausin / brief
    - list exact deltas
    - fix only those deltas
-   - H10 CLOSED
+   - H12 CLOSED
 
-Only after H10 truly passes:
-create `docs/CRIMINAL_H10_CLOSURE_LOG.md`.
+Only after H12 truly passes:
+create `docs/ABOUT_H12_CLOSURE_LOG.md`.
 
 ==================================================
 12. IMPORTANT DESIGN GUARDRAILS
@@ -702,7 +716,7 @@ Do NOT merge PR #2 yet.
 
 Reason:
 Home is not closed.
-H10–H14 remain.
+H12–H14 remain.
 
 Merge only after:
 - Desktop visual closure
@@ -756,21 +770,22 @@ Do NOT restart research from zero.
 
 Start with:
 
-**H10 — CRIMINAL ANBR 6 SCENE**
+**H12 — ABOUT / HUMAN MOMENT**
 
 First:
 1. inspect current active branch
 2. read the final source-of-truth docs
-3. read `docs/SHAMADAN_H9_CLOSURE_LOG.md`
-4. inspect current Criminal markup/CSS/motion
-5. re-check the locked Criminal brief/reference roles
-6. inspect the two selected Criminal assets
-7. perform H10 static-composition audit before adding new motion
-8. rebuild H10 as a sparse vertical-poster scene
-9. render 1440 / 1280 / 390 / 360
-10. visually inspect real static and motion captures
-11. fix exact deltas only
-12. write `docs/CRIMINAL_H10_CLOSURE_LOG.md` only when H10 truly passes
+3. read `docs/PORTFOLIO_CHECKPOINT_01_AFTER_H10.md`
+4. read `docs/COFFEE_H11_CLOSURE_LOG.md`
+5. inspect current About markup/CSS/motion
+6. re-check D Alcausin's locked human/About reference role
+7. inspect the approved Ahmed cutout in the real rendered context
+8. perform H12 static-composition audit before adding motion
+9. rebuild the Home About moment as a human beat, not a résumé block
+10. render 1440 / 1280 / 390 / 360
+11. inspect real static and motion captures visually
+12. fix exact deltas only
+13. write `docs/ABOUT_H12_CLOSURE_LOG.md` only when H12 truly passes
 
 The new chat should continue execution, not explain the project back to the user unless asked.
 
@@ -778,4 +793,4 @@ The new chat should continue execution, not explain the project back to the user
 18. CURRENT ONE-LINE STATE
 ==================================================
 
-**HOME: H1–H9 CLOSED. NEXT = H10 CRIMINAL ANBR 6 SCENE. PR #2 OPEN. DO NOT MERGE.**
+**HOME: H1–H11 CLOSED. NEXT = H12 ABOUT / HUMAN MOMENT. PR #2 OPEN. DO NOT MERGE.**
