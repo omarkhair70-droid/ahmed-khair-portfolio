@@ -91,12 +91,12 @@ for (const testCase of cases) {
     const endLinks = Array.from(
       document.querySelectorAll(".about-page-end__nav a"),
     );
-    const behance = document.querySelector(".about-page-end__behance");
+    const primary = document.querySelector(".about-page-end__primary");
     const images = Array.from(document.images);
 
     if (
       !(portrait instanceof HTMLImageElement) ||
-      !(behance instanceof HTMLAnchorElement)
+      !(primary instanceof HTMLAnchorElement)
     ) {
       throw new Error("A10 core selectors missing");
     }
@@ -132,10 +132,10 @@ for (const testCase of cases) {
       })),
       work: workLinks.map((link) => link.getAttribute("href")),
       end: endLinks.map((link) => link.getAttribute("href")),
-      behance: {
-        href: behance.href,
-        target: behance.target,
-        rel: behance.rel,
+      primary: {
+        href: primary.href,
+        target: primary.target,
+        rel: primary.rel,
       },
       brokenImages: images
         .filter((image) => !image.complete || image.naturalWidth === 0)
@@ -205,10 +205,10 @@ for (const testCase of cases) {
   }
 
   if (
-    !metrics.behance.href.includes("behance.net/ahmedkhairgemy") ||
-    metrics.behance.target !== "_blank"
+    !metrics.primary.href.startsWith("mailto:ahmedkhairgemy@gmail.com") ||
+    metrics.primary.target !== ""
   ) {
-    throw new Error(`A10 Behance contract mismatch at ${testCase.name}`);
+    throw new Error(`A10 primary email contract mismatch at ${testCase.name}`);
   }
 
   if (metrics.brokenImages.length) {
@@ -371,7 +371,7 @@ for (const testCase of cases) {
         ".about-page-portrait__image",
         ".about-page-practice__title span",
         ".about-page-craft__list p",
-        ".about-page-end__behance",
+        ".about-page-end__primary",
       ];
 
       return selectors.map((selector) => {

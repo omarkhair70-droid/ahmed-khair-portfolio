@@ -56,8 +56,8 @@ for (const testCase of [
         renderedHeight: Math.round(portrait.getBoundingClientRect().height),
       },
       title: document.querySelector("#about-page-title")?.textContent?.replace(/\s+/g, " ").trim(),
-      behance: (document.querySelector(".about-page-end__behance") instanceof HTMLAnchorElement)
-        ? document.querySelector(".about-page-end__behance").href
+      primary: (document.querySelector(".about-page-end__primary") instanceof HTMLAnchorElement)
+        ? document.querySelector(".about-page-end__primary").href
         : null,
     };
   });
@@ -77,8 +77,8 @@ for (const testCase of [
     throw new Error(`A3 portrait failed to load at ${testCase.name}`);
   }
 
-  if (!metrics.behance?.includes("behance.net/ahmedkhairgemy")) {
-    throw new Error(`A3 Behance link mismatch at ${testCase.name}`);
+  if (!metrics.primary?.startsWith("mailto:ahmedkhairgemy@gmail.com")) {
+    throw new Error(`A3 primary email link mismatch at ${testCase.name}`);
   }
 
   await page.screenshot({

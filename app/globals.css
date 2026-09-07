@@ -3956,7 +3956,7 @@ a:focus-visible {
   justify-self: center;
 }
 
-.about-page-end__behance {
+.about-page-end__primary {
   grid-column: 1 / 13;
   align-self: center;
   display: flex;
@@ -3973,7 +3973,7 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.about-page-end__behance span:last-child {
+.about-page-end__primary span:last-child {
   color: #6e6054;
   font-size: .1em;
   line-height: 1;
@@ -4010,7 +4010,7 @@ a:focus-visible {
     font-size: clamp(66px, 7.8vw, 96px);
   }
 
-  .about-page-end__behance {
+  .about-page-end__primary {
     font-size: clamp(82px, 12vw, 142px);
   }
 }
@@ -4237,7 +4237,7 @@ a:focus-visible {
     justify-self: end;
   }
 
-  .about-page-end__behance {
+  .about-page-end__primary {
     width: 100%;
     margin: auto 0;
     padding: 14px 0 13px;
@@ -4245,7 +4245,7 @@ a:focus-visible {
     line-height: .82;
   }
 
-  .about-page-end__behance span:last-child {
+  .about-page-end__primary span:last-child {
     max-width: 74px;
     font-size: .105em;
     line-height: 1.25;
@@ -4293,7 +4293,7 @@ a:focus-visible {
     font-size: 38px;
   }
 
-  .about-page-end__behance {
+  .about-page-end__primary {
     font-size: 72px;
   }
 }
@@ -4315,7 +4315,7 @@ a:focus-visible {
 .about-page-craft__list p,
 .about-page-work,
 .about-page-end__meta > *,
-.about-page-end__behance > *,
+.about-page-end__primary > *,
 .about-page-end__nav a {
   will-change: transform, opacity, clip-path;
 }
@@ -4335,7 +4335,7 @@ a:focus-visible {
   .about-page-craft__list p,
   .about-page-work,
   .about-page-end__meta > *,
-  .about-page-end__behance > *,
+  .about-page-end__primary > *,
   .about-page-end__nav a {
     transform: none !important;
     opacity: 1 !important;

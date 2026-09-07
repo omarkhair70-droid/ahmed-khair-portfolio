@@ -110,7 +110,7 @@ for (const testCase of cases) {
     );
   }
 
-  if (!metrics.primary.href.includes("behance.net/ahmedkhairgemy")) {
+  if (metrics.primary.href !== "mailto:ahmedkhairgemy@gmail.com") {
     throw new Error(`Unexpected H13 primary link at ${testCase.name}`);
   }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
+import "./contact-details.css";
 
 const display = Anton({
   weight: "400",
