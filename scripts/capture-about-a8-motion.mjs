@@ -111,7 +111,7 @@ for (const reducedCase of [
       ".about-page-portrait__image",
       ".about-page-practice__title span",
       ".about-page-craft__list p",
-      ".about-page-end__behance > *",
+      ".about-page-end__primary > *",
     ];
     return selectors.map((selector) => {
       const el = document.querySelector(selector);

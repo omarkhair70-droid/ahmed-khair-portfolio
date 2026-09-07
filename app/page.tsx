@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import ContactActions from "./ContactActions";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1148,6 +1149,17 @@ export default function Home() {
           },
         });
 
+        gsap.from(".contact-links", {
+          y: 10,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".contact-links",
+            start: "top 94%",
+            end: "top 76%",
+            scrub: 0.72,
+          },
+        });
+
         gsap.from(".contact-nav > *", {
           y: 10,
           opacity: 0,
@@ -1964,15 +1976,7 @@ export default function Home() {
             <span>WORTH LOOKING AT.</span>
           </h2>
 
-          <a
-            className="contact-primary"
-            href="https://www.behance.net/ahmedkhairgemy"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>Behance</span>
-            <span>Open profile ↗</span>
-          </a>
+          <ContactActions variant="home" />
 
           <nav className="contact-nav" aria-label="Closing navigation">
             <a href="#work">Selected work ↑</a>

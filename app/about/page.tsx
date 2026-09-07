@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutMotion from "./AboutMotion";
+import ContactActions from "../ContactActions";
 
 export const metadata: Metadata = {
   title: "About — Ahmed Khair",
@@ -141,15 +142,7 @@ export default function AboutPage() {
           <span>Egypt / 2026</span>
         </p>
 
-        <a
-          className="about-page-end__behance"
-          href="https://www.behance.net/ahmedkhairgemy"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span>Behance</span>
-          <span>Open profile ↗</span>
-        </a>
+        <ContactActions variant="about" />
 
         <nav className="about-page-end__nav" aria-label="About page closing navigation">
           <a href="/">Home ↑</a>

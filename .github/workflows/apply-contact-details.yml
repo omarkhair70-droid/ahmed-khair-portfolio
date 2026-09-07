@@ -1,0 +1,42 @@
+name: Apply Contact Details
+
+on:
+  push:
+    branches:
+      - portfolio/contact-details-20260907
+    paths:
+      - .github/workflows/apply-contact-details.yml
+      - scripts/apply-contact-details.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: portfolio/contact-details-20260907
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply bounded source update
+        run: node scripts/apply-contact-details.mjs
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build
+        run: npm run build
+      - name: Commit implementation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/layout.tsx app/page.tsx app/about/page.tsx app/about/AboutMotion.tsx app/globals.css scripts/capture-*.mjs
+          git diff --cached --exit-code && exit 0
+          git commit -m "Implement verified contact actions in Home and About"
+          git push origin HEAD:portfolio/contact-details-20260907

@@ -47,7 +47,8 @@ export default function AboutMotion() {
             ".about-page-craft__list p",
             ".about-page-work",
             ".about-page-end__meta > *",
-            ".about-page-end__behance > *",
+            ".about-page-end__primary > *",
+            ".about-page-end__links",
             ".about-page-end__nav a",
           ],
           { clearProps: "all" },
@@ -199,15 +200,26 @@ export default function AboutMotion() {
         },
       });
 
-      gsap.from(".about-page-end__behance > *", {
+      gsap.from(".about-page-end__primary > *", {
         yPercent: 28,
         opacity: 0.18,
         stagger: 0.08,
         scrollTrigger: {
-          trigger: ".about-page-end__behance",
+          trigger: ".about-page-end__primary",
           start: "top 90%",
           end: "center 66%",
           scrub: 0.9,
+        },
+      });
+
+      gsap.from(".about-page-end__links", {
+        y: 10,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".about-page-end__links",
+          start: "top 94%",
+          end: "top 76%",
+          scrub: 0.72,
         },
       });
 

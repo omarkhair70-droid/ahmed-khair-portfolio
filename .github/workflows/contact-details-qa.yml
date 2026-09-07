@@ -1,0 +1,54 @@
+name: Contact Details QA
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - portfolio/contact-details-20260907
+
+permissions:
+  contents: read
+
+jobs:
+  contact-visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build
+        run: npm run build
+      - name: Install visual QA browser
+        run: |
+          npm install --no-save playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Start production server
+        run: |
+          npm start > /tmp/ahmed-contact-next.log 2>&1 &
+          for i in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:3000 > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/ahmed-contact-next.log
+          exit 1
+      - name: Capture and verify contact details
+        run: node scripts/capture-contact-details.mjs
+      - name: Upload contact QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contact-details-qa
+          path: artifacts/contact-details
+          if-no-files-found: error
+          retention-days: 7
