@@ -12,18 +12,19 @@ const links = [
 
 export default function ContactActions({ variant }: ContactActionsProps) {
   const about = variant === "about";
-  const prefix = about ? "about-page-end" : "contact";
+  const primaryClass = about ? "about-page-end__primary" : "contact-primary";
+  const linksClass = about ? "about-page-end__links" : "contact-links";
 
   return (
     <>
-      <a className={`${prefix}__primary contact-action`} href={contactDetails.emailHref}>
+      <a className={`${primaryClass} contact-action`} href={contactDetails.emailHref}>
         <span className="contact-action__label">Start a <span>conversation</span></span>
         <span className="contact-action__detail">
           <span>{contactDetails.email}</span>
           <span aria-hidden="true">↗</span>
         </span>
       </a>
-      <nav className={`${prefix}__links contact-links`} aria-label="Professional contact links">
+      <nav className={`${linksClass} contact-links`} aria-label="Professional contact links">
         {links.map((link) => (
           <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`${link.label}${link.label === "WhatsApp" ? `, ${contactDetails.phone}` : ""}, opens in a new tab`}>
             <span className="contact-link__name">{link.label}<span aria-hidden="true"> ↗</span></span>
