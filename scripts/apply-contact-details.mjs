@@ -88,12 +88,11 @@ for (const name of scripts) {
   }
 }
 
-replaceOnce("scripts/capture-contact-h13.mjs", 'metrics.primary.href.includes("behance.net/ahmedkhairgemy")', 'metrics.primary.href === "mailto:ahmedkhairgemy@gmail.com"');
+replaceOnce("scripts/capture-contact-h13.mjs", '!metrics.primary.href.includes("behance.net/ahmedkhairgemy")', 'metrics.primary.href !== "mailto:ahmedkhairgemy@gmail.com"');
 replaceOnce("scripts/capture-about-a3.mjs", 'metrics.behance?.includes("behance.net/ahmedkhairgemy")', 'metrics.behance?.startsWith("mailto:ahmedkhairgemy@gmail.com")');
 replaceOnce("scripts/capture-about-a10.mjs", 'metrics.behance.href.includes("behance.net/ahmedkhairgemy")', 'metrics.behance.href.startsWith("mailto:ahmedkhairgemy@gmail.com")');
 replaceOnce("scripts/capture-about-a10.mjs", 'metrics.behance.target !== "_blank"', 'metrics.behance.target !== ""');
 
-// Preserve the historical QA filenames, but make their current contract explicit.
 for (const file of ["scripts/capture-about-a3.mjs", "scripts/capture-about-a10.mjs"]) {
   let source = read(file);
   source = source.replace(/\bbehance\b/g, "primary");
